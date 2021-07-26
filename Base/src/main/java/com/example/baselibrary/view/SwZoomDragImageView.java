@@ -62,7 +62,7 @@ public class SwZoomDragImageView extends androidx.appcompat.widget.AppCompatImag
                 int viewX = viewLocation[0]; // x 坐标；有bug，在viewpage中。
                 int viewY = viewLocation[1]; // y 坐标
                 mInitializationScalePoint.set( SwZoomDragImageView.this.getWidth() / 2, viewY + SwZoomDragImageView.this.getHeight() / 2);//初始化缩放位置
-                //Log.i("yangxun", "控件 宽：" + mInitializationScalePoint.x + "高：" + mInitializationScalePoint.y);
+                //xLog.i("yangxun", "控件 宽：" + mInitializationScalePoint.x + "高：" + mInitializationScalePoint.y);
             }
         });
     }

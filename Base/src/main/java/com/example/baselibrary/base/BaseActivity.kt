@@ -1,26 +1,31 @@
 package com.example.baselibrary.base
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+import com.example.baselibrary.log.xLog
 
-abstract class BaseActivity<T : ViewDataBinding>(@LayoutRes private val layout: Int) : AppCompatActivity() {
+abstract class BaseActivity(@LayoutRes private val layout: Int ?= null) : AppCompatActivity() {
 
-    private var _mBinding: T ?= null
-    val mBinding get() = _mBinding!!
+    private val TAG by lazy {
+        this.javaClass.name;
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _mBinding = DataBindingUtil.setContentView(this, layout)
+        xLog.d(TAG,"onCreate")
+        layout?.let {
+            setContentView(it)
+        }
         initData(savedInstanceState)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _mBinding?.unbind()
+    override fun onResume() {
+        super.onResume()
+        xLog.d(TAG,"onResume")
     }
+
 
     abstract fun initData(savedInstanceState: Bundle?=null)
 

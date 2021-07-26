@@ -2,50 +2,62 @@ package com.example.baselibrary.base
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import com.example.baselibrary.R
-import com.example.baselibrary.databinding.BaseFragmentLayoutBinding
+import com.example.baselibrary.log.xLog
 import com.example.baselibrary.navigation.NavHostFragment
 
-abstract class BaseFragment<T : ViewDataBinding>(@LayoutRes private val layout: Int) : Fragment() {
+/**
+ * @ClassName BaseFragment
+ * @Description TODO
+ * @Author AlexLu_1406496344@qq.com
+ * @Date 2021/7/26 11:45
+ */
+abstract class BaseFragment(@LayoutRes private val layout: Int) : Fragment(layout) {
 
-    private var _mBinding: T? = null
-    private lateinit var mBaseContainBinding: BaseFragmentLayoutBinding
+    private val TAG by lazy {
+        this.javaClass.name;
+    }
 
     lateinit var mContext: Context
-    lateinit var mActivity: FragmentActivity
 
-    val mBinding get() = _mBinding!!
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        mContext = context
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        xLog.d(TAG,"onViewCreated")
+        initData()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        xLog.d(TAG,"onCreate")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        xLog.d(TAG,"onResume")
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBaseContainBinding = DataBindingUtil.inflate(inflater, R.layout.base_fragment_layout, container, false)
-        _mBinding = DataBindingUtil.inflate(inflater, layout, container, false)
-
-        mBaseContainBinding.baseContainer.addView(_mBinding?.root)
-        return mBaseContainBinding.root
+        xLog.d(TAG,"onCreateView")
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        mContext = context
-        mActivity = context as FragmentActivity
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initData()
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        xLog.d(TAG,"onActivityCreated")
     }
 
 
@@ -64,4 +76,9 @@ abstract class BaseFragment<T : ViewDataBinding>(@LayoutRes private val layout: 
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        xLog.d(TAG,"onDestroyView")
+    }
+    
 }

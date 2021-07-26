@@ -1,40 +1,39 @@
 package com.example.mvvm_develop
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.tabs.TabLayout
-import androidx.viewpager.widget.ViewPager
 import com.example.baselibrary.base.BaseActivity
-import com.example.baselibrary.common.initFragment
 import com.example.baselibrary.delegate.viewBinding
 import com.example.mvvm_develop.databinding.ActivityMainBinding
-import com.example.mvvm_develop.ui.main.PlaceholderFragment
-import com.example.mvvm_develop.ui.main.SectionsPagerAdapter
 
-class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
+class MainActivity : BaseActivity(R.layout.activity_main){
 
-    //private val binding by viewBinding(ActivityMainBinding::bind)
+    //viewbinding创建方法见：
+    //https://juejin.cn/post/6960914424865488932
+    private val binding by viewBinding(ActivityMainBinding::bind)
+
+    //此处viewmode创建方法见：
+    //https://developer.android.com/topic/libraries/architecture/viewmodel?hl=zh-cn
+    private val viewmodel by viewModels<CommonViewModel>()
 
 
     override fun initData(savedInstanceState: Bundle?) {
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
-        val viewPager: ViewPager = findViewById(R.id.view_pager)
-        viewPager.adapter = sectionsPagerAdapter
-        val tabs: TabLayout = findViewById(R.id.tabs)
-        tabs.setupWithViewPager(viewPager)
-/*
-        mBinding.viewPager.initFragment(
-            this,
-            listOf<Fragment>(PlaceholderFragment.newInstance(0),PlaceholderFragment.newInstance(1))
-        )*/
 
-        mBinding.fab.setOnClickListener {
-            Snackbar.make(it, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show()
-        }
     }
 
+    override fun onBackPressed() {
+        //获取hostFragment
+        val mMainNavFragment: Fragment? = supportFragmentManager.findFragmentById(R.id.navigation_main)
+        //获取当前所在的fragment
+        val fragment = mMainNavFragment?.childFragmentManager?.primaryNavigationFragment
+        //如果当前处于根fragment即HostFragment
+        if (fragment is MainFragment) {
+            this.finish()
+        }else{
+            super.onBackPressed()
+        }
+    }
 
 
 }

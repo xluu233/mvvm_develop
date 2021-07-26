@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fragmentTab1"
+        android:icon="@drawable/menu_tab1"
+        android:title="tab1" />
+
+    <item
+        android:id="@+id/fragmentTab2"
+        android:icon="@drawable/menu_tab2"
+        android:title="tab2" />
+
+    <item
+        android:id="@+id/fragmentTab3"
+        android:icon="@drawable/menu_tab3"
+        android:title="tab3" />
+
+</menu>
