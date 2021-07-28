@@ -6,9 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<!--    android:name="androidx.navigation.fragment.NavHostFragment"
+    修改为：
+    android:name="com.example.baselibrary.navigation.NavHostFragment"-->
+
     <fragment
         android:id="@+id/navigation_main"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:name="com.example.baselibrary.navigation.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"

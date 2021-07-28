@@ -1,3 +1,4 @@
-include ':Base'
+include ':module_login'
+include ':base'
 include ':app'
-rootProject.name = "MVVM_Develop"
+rootProject.name = "mvvm_develop"

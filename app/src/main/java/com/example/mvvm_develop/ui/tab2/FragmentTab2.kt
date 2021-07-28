@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.activityViewModels
 import com.example.baselibrary.base.BaseFragment
+import com.example.baselibrary.base_databinding.DataBindingBaseFragment2
+import com.example.baselibrary.common.clickNoRepeat
 import com.example.baselibrary.delegate.viewBinding
 import com.example.mvvm_develop.CommonViewModel
 import com.example.mvvm_develop.R
@@ -24,6 +27,13 @@ class FragmentTab2 : BaseFragment(R.layout.fragment_tab2) {
 
     override fun initData() {
 
+        initClick()
+    }
+
+    private fun initClick() {
+        binding.button2.clickNoRepeat {
+            navigate(R.id.action_mainFragment_to_dataBindingFragment)
+        }
     }
 
 }

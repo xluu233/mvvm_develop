@@ -3,11 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/bindFragment">
+    app:startDestination="@+id/fragmentTab1">
 
     <fragment
-        android:id="@+id/bindFragment"
+        android:id="@+id/fragmentTab1"
         android:name="com.example.mvvm_develop.ui.tab1.FragmentTab1"
-        android:label="BindFragment" />
+        android:label="FragmentTab1" />
+
+    <fragment
+        android:id="@+id/fragmentTab2"
+        android:name="com.example.mvvm_develop.ui.tab2.FragmentTab2"
+        android:label="fragment_tab2"
+        tools:layout="@layout/fragment_tab2" />
+
+    <fragment
+        android:id="@+id/fragmentTab3"
+        android:name="com.example.mvvm_develop.ui.tab3.FragmentTab3"
+        android:label="fragment_tab3"
+        tools:layout="@layout/fragment_tab3" />
 
 </navigation>
