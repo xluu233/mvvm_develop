@@ -2,5 +2,6 @@
 *.iml
 .gradle/
 .idea/
-/.idea
+.idea/libraries/
+
 /local.properties
