@@ -33,7 +33,4 @@ class ApiResponse<T> : Serializable {
         throw ApiException(message as String, code)
     }
 
-
-
-
 }

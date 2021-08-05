@@ -151,8 +151,7 @@ object BitmapUtil {
      */
     fun byte2Bitmap(byteArray: ByteArray?):Bitmap?{
         if (byteArray==null) return null
-        var bitmap : Bitmap ?= null
-        bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size);
+        val bitmap : Bitmap ?= BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size);
         return bitmap
     }
 

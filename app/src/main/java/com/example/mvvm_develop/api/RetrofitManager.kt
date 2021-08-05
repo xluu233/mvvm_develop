@@ -7,8 +7,10 @@ object RetrofitManager {
      */
     private val map = mutableMapOf<Class<*>, Any>()
 
+    var baseUrl = "https://www.wanandroid.com/"
+
     private val retrofit by lazy {
-        RetrofitFactory.factory()
+        RetrofitFactory.factory(baseUrl)
     }
 
     //动态指定域名

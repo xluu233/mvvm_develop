@@ -1,6 +1,8 @@
 package com.example.mvvm_develop
 
+import androidx.lifecycle.MutableLiveData
 import com.example.baselibrary.base.BaseRepository
+import com.example.baselibrary.http.ApiResponse
 import com.example.baselibrary.http.ResultLiveData
 import com.example.mvvm_develop.api.Api
 import com.example.mvvm_develop.api.RetrofitManager
@@ -28,5 +30,15 @@ class CommonRepo(scope: CoroutineScope) : BaseRepository(scope) {
         )
     }
 
+    fun laod2(resultLiveData: MutableLiveData<ApiResponse<List<BannerData>>>){
+        launch(
+            block = {
+                mService.loadProjectTree()
+            },
+            success = {
+                resultLiveData.postValue(it)
+            }
+        )
+    }
 
 }

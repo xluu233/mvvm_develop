@@ -26,12 +26,12 @@ object RetrofitFactory {
     }
 
 
-    fun factory(): Retrofit {
+    fun factory(baseUrl:String): Retrofit {
         val okHttpClient = okHttpClientBuilder.build()
         val retrofit = Retrofit.Builder()
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://www.wanandroid.com/")
+                .baseUrl(baseUrl)
                 .build()
         return retrofit
     }
