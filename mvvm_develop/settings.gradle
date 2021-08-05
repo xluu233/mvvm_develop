@@ -1,0 +1,7 @@
+include ':module_home'
+include ':module_login'
+include ':base'
+include ':app'
+//includeBuild("version")
+includeBuild "../version"
+rootProject.name = "mvvm_develop"

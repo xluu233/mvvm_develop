@@ -1,0 +1,50 @@
+import com.xlu.version.Dependency
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'com.xlu.version'
+}
+
+android {
+    compileSdkVersion Dependency.ProjectConfig.compileSdkVersion
+    buildToolsVersion Dependency.ProjectConfig.buildToolsVersion
+
+    defaultConfig {
+        applicationId Dependency.ProjectConfig.applicationId
+        minSdkVersion Dependency.ProjectConfig.minSdkVersion
+        targetSdkVersion Dependency.ProjectConfig.targetSdkVersion
+        versionCode Dependency.ProjectConfig.versionCode
+        versionName Dependency.ProjectConfig.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation project(path: ':base')
+    implementation project(path: ':module_login')
+}
