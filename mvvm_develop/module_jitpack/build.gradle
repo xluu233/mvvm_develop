@@ -7,11 +7,12 @@ plugins {
     id 'com.xlu.version'
 }
 
-//apply plugin: 'android-maven'
-//// JitPack Maven
-//apply plugin: 'com.github.dcendents.android-maven'
-////xluu233是自己的github用户名
-//group='com.github.xluu233'
+// JitPack Maven
+/*
+apply plugin: 'com.github.dcendents.android-maven'
+//xluu233是自己的github用户名
+group='com.github.xluu233'
+*/
 
 
 android {
