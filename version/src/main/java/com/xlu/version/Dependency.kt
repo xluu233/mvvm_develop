@@ -1,10 +1,8 @@
 package com.xlu.version
 
-import org.gradle.internal.impldep.org.apache.maven.lifecycle.Lifecycle
-
 /**
  * @ClassName DependencyConfig
- * @Description TODO
+ * @Description
  * @Author AlexLu_1406496344@qq.com
  * @Date 2021/8/5 10:02
  */
@@ -23,7 +21,7 @@ object Dependency  {
         const val applicationId_home = "com.xlu.test"
 
         const val compileSdkVersion = 30
-        const val buildToolsVersion = "30.0.1"
+        const val buildToolsVersion = "30.0.2"
         const val minSdkVersion = 21
         const val targetSdkVersion = 30
 
@@ -44,7 +42,7 @@ object Dependency  {
         const val legacySupport = "1.0.0"
 
         // Kotlin----------------------------------------------------------------
-        const val Kotlin = "1.4.32"
+        const val Kotlin = "1.5.20"
         const val Coroutines = "1.5.0"
         const val CoreKtx = "1.6.0"
         
@@ -59,8 +57,8 @@ object Dependency  {
         const val RetrofitConverterGson = "2.9.0"           // Retrofit Gson 转换器
         const val Gson = "2.8.7"                            // Gson
         const val MMKV = "1.2.9"                            // 腾讯 MMKV 替代SP
-        const val ARoute = "1.5.1"                          // 阿里路由
-        const val ARouteCompiler = "1.5.1"                  // 阿里路由 APT
+        const val ARoute = "1.5.2"                          // 阿里路由
+        const val ARouteCompiler = "1.5.2"                  // 阿里路由 APT
         const val RecyclerViewAdapter = "3.0.4"             // RecyclerViewAdapter
         const val EventBus = "3.2.0"                        // 事件总线
         const val Permission = "0.12"                       // 权限申请
@@ -105,8 +103,8 @@ object Dependency  {
         const val Viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
         //cardView
         const val CardView = "androidx.cardview:cardview:1.0.0"
-        //flexbox
-        const val FlexBox = "com.google.android:flexbox:2.0.1"
+        //flexbox  https://github.com/google/flexbox-layout
+        const val FlexBox = "com.google.android.flexbox:flexbox:3.0.0"
         //ConstraintLayout
         const val ConstraintLayout = "androidx.constraintlayout:constraintlayout:${Version.ConstraintLayout}"
 
@@ -145,8 +143,8 @@ object Dependency  {
         // Glide
         const val Glide = "com.github.bumptech.glide:glide:${Version.Glide}"
         const val GlideKapt = "com.github.bumptech.glide:compiler:${Version.Glide}"
-        //glide图片变换库
-        const val GlideTran  = "jp.wasabeef:glide-transformations:4.1.0"
+        //glide图片变换库  https://github.com/wasabeef/glide-transformations
+        const val GlideTran  = "jp.wasabeef:glide-transformations:4.3.0"
         //rxjava
         const val Rxjava2 = "io.reactivex.rxjava2:rxjava:2.2.18"
         const val Rxjava3 = "io.reactivex.rxjava3:rxjava:3.0.13"
@@ -173,16 +171,16 @@ object Dependency  {
 
         /*------------视图-----------------*/
         //smartFreshLayout  https://github.com/scwang90/SmartRefreshLayout
-        const val smartFreshLayout  =  "com.scwang.smart:refresh-layout-kernel:2.0.3"
+/*        const val smartFreshLayout  =  "com.scwang.smart:refresh-layout-kernel:2.0.3"
         const val smartFresh1 =  "com.scwang.smart:refresh-header-classics:2.0.1"
         const val smartFresh2  =  "com.scwang.smart:refresh-footer-classics:2.0.1"
         const val smartFresh3  =  "com.scwang.smart:refresh-header-radar:2.0.0-alpha-1"       //雷达刷新头
         const val smartFresh4  =  "com.scwang.smart:refresh-header-falsify:2.0.0-alpha-1"     //虚拟刷新头
         const val smartFresh5  =  "com.scwang.smart:refresh-header-material:2.0.1"    //谷歌刷新头
         const val smartFresh6  =  "com.scwang.smart:refresh-header-two-level:2.0.0-alpha-1"   //二级刷新头
-        const val smartFresh7 =  "com.scwang.smart:refresh-footer-ball:2.0.0-alpha-1"        //球脉冲加载
+        const val smartFresh7 =  "com.scwang.smart:refresh-footer-ball:2.0.0-alpha-1"        //球脉冲加载*/
         //banner  https://github.com/youth5201314/banner
-        const val YouthBanner = "com.youth.banner:banner:2.1.0"
+        const val YouthBanner = "io.github.youth5201314:banner:2.2.2"
         //base-recyclerview
         const val BaseRecyclerViewAdapter  = "com.github.CymChad:BaseRecyclerViewAdapterHelper:${Version.RecyclerViewAdapter}"
         //likeButton

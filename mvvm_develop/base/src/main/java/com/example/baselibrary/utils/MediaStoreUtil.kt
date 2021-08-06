@@ -10,14 +10,14 @@ import java.util.*
 
 /**
  * @ClassName MediaStoreUtil
- * @Description TODO
+ * @Description
  * @Author AlexLu_1406496344@qq.com
  * @Date 2021/7/23 9:52
  */
 object MediaStoreUtil {
 
     /**
-     * TODO 查询相册图片
+     *  查询相册图片
      *
      * @param context
      */

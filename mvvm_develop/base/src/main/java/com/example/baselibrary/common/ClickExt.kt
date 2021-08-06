@@ -7,7 +7,7 @@ import com.example.baselibrary.R
 var lastTime = 0L
 
 /***
- * TODO 重复点击，方法一
+ *  重复点击，方法一
  */
 fun <T : View> T.click(delay: Long = 500, block: (T) -> Unit) {
     triggerDelay = delay
@@ -19,7 +19,7 @@ fun <T : View> T.click(delay: Long = 500, block: (T) -> Unit) {
 }
 
 /***
- * TODO 重复点击，方法二
+ *  重复点击，方法二
  * 同时注册多个view
  */
 fun setNoRepeatClick(vararg views: View, interval: Long = 400, onClick: (View) -> Unit) {
@@ -31,7 +31,7 @@ fun setNoRepeatClick(vararg views: View, interval: Long = 400, onClick: (View) -
 }
 
 /***
- * TODO 重复点击，方法三
+ *  重复点击，方法三
  */
 fun View.clickNoRepeat(interval: Long = 400, onClick: (View) -> Unit) {
     setOnClickListener {

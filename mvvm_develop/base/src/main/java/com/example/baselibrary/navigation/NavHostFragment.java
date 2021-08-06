@@ -192,7 +192,7 @@ public class NavHostFragment extends Fragment implements NavHost {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        // TODO This feature should probably be a first-class feature of the Fragment system,
+        //  This feature should probably be a first-class feature of the Fragment system,
         // but it can stay here until we can add the necessary attr resources to
         // the fragment lib.
         if (mDefaultNavHost) {

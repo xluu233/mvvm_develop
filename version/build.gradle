@@ -1,11 +1,10 @@
 buildscript {
-    ext.kotlin_version = "1.4.32"
+    ext.kotlin_version = "1.5.20"
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        //因为使用的 Kotlin 需要需要添加 Kotlin 插件
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -15,7 +14,7 @@ apply plugin: 'java-gradle-plugin'
 
 repositories {
     google()
-    jcenter() //需要添加 jcenter 否则会提示找不到 gradlePlugin
+    mavenCentral()
 }
 
 dependencies {

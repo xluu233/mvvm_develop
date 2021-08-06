@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 
 /**
  * @ClassName SingleLiveData
- * @Description TODO 单事件响应的liveData
+ * @Description  单事件响应的liveData
  * @Author AlexLu_1406496344@qq.com
  * @Date 2021/5/12 11:08
  */

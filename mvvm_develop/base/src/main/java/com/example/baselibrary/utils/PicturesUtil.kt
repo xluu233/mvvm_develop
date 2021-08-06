@@ -20,7 +20,7 @@ object PicturesUtil {
 
 
     /**
-     * TODO Bitmap保存为图片
+     *  Bitmap保存为图片
      * @param context
      * @param bitmap 输入源
      * @param file 输出文件
@@ -44,7 +44,7 @@ object PicturesUtil {
     }
 
     /**
-     * TODO 网络url保存为图片
+     *  网络url保存为图片
      */
     fun saveUrl2File(url:String?,file: File){
         val bitmap = BitmapUtil.getUrlBitmap(url)
@@ -52,7 +52,7 @@ object PicturesUtil {
     }
 
     /**
-     * TODO 通知系统相册更新
+     *  通知系统相册更新
      */
     private fun refreshSystemAlbum(context: Context, file: File) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -67,7 +67,7 @@ object PicturesUtil {
     }
 
     /**
-     * TODO 复制文件
+     *  复制文件
      * @param source 输入文件
      * @param target 输出文件
      */
@@ -95,7 +95,7 @@ object PicturesUtil {
     }
 
     /**
-     * TODO Android Q以后向系统相册插入图片
+     *  Android Q以后向系统相册插入图片
      * 注意：这种方式将会复制源文件到 Picture/SAVE_PATH 目录下，可以选择在插入之后删除源文件
      *  @param deleteSource 是否删除源文件
      */

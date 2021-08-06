@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 
 /**
  * @ClassName ResultLiveData
- * @Description TODO
+ * @Description
  * @Author AlexLu_1406496344@qq.com
  * @Date 2021/5/18 17:01
  */

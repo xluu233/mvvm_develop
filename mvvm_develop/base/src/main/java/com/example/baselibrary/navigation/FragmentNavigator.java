@@ -190,7 +190,7 @@ public class FragmentNavigator extends Navigator<FragmentNavigator.Destination> 
 
         final @IdRes int destId = destination.getId();
         final boolean initialNavigation = mBackStack.isEmpty();
-        // TODO Build first class singleTop behavior for fragments
+        //  Build first class singleTop behavior for fragments
         final boolean isSingleTopReplacement = navOptions != null && !initialNavigation
                 && navOptions.shouldLaunchSingleTop()
                 && mBackStack.peekLast() == destId;

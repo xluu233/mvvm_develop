@@ -24,7 +24,7 @@ object BitmapUtil {
 //    先记录旋转角度，在转为bitmap之后再旋转回来
 
     /**
-     * TODO file转bitmap
+     *  file转bitmap
      */
     fun convertToBitmap(file: File?): Bitmap? {
         if (file==null) return null
@@ -34,7 +34,7 @@ object BitmapUtil {
     }
 
     /**
-     * TODO filePath转bitmap
+     *  filePath转bitmap
      */
     fun convertToBitmap(path: String?): Bitmap? {
         val rotate = getRotateDegree(path)
@@ -43,7 +43,7 @@ object BitmapUtil {
     }
 
     /**
-     * TODO Uri转Bitmap
+     *  Uri转Bitmap
      */
     fun convertToBitmap(uri: Uri?, context: Context): Bitmap? {
         if (uri==null) return null
@@ -55,7 +55,7 @@ object BitmapUtil {
     }
 
     /**
-     * TODO Assert资源文件转Bitmap
+     *  Assert资源文件转Bitmap
      */
     fun assert2Bitmap(fileName: String, context: Context) : Bitmap?{
         var ins: InputStream? = null
@@ -68,7 +68,7 @@ object BitmapUtil {
     }
 
     /**
-     * TODO 获取图片的旋转角度
+     *  获取图片的旋转角度
      * 只能通过原始文件获取，如果已经进行过bitmap操作无法获取。
      */
     private fun getRotateDegree(path: String?): Float {
@@ -93,7 +93,7 @@ object BitmapUtil {
     }
 
     /**
-     * TODO 处理图片旋转
+     *  处理图片旋转
      */
     private fun rotateBitmap(bitmap: Bitmap?, rotate: Float): Bitmap? {
         if (bitmap == null) return null
@@ -112,7 +112,7 @@ object BitmapUtil {
     }
 
     /**
-     * TODO Bitmap压缩
+     *  Bitmap压缩
      * @param quality 0-100
      */
     fun Bitmap.compressQuality(quality: Int = 90):Bitmap = apply{
@@ -124,7 +124,7 @@ object BitmapUtil {
 
 
     /**
-     * TODO Bitmap转ByteArray
+     *  Bitmap转ByteArray
      */
     fun convertToByteArray(bitmap: Bitmap?):ByteArray? {
         if (bitmap==null) return null
@@ -136,7 +136,7 @@ object BitmapUtil {
     }
 
     /**
-     * TODO Bitmap转ByteBuffer
+     *  Bitmap转ByteBuffer
      */
     fun convertToByteBuffer(bitmap: Bitmap?):ByteBuffer? {
         if (bitmap==null) return null
@@ -147,7 +147,7 @@ object BitmapUtil {
     }
 
     /**
-     * TODO byteArray转Bitmap
+     *  byteArray转Bitmap
      */
     fun byte2Bitmap(byteArray: ByteArray?):Bitmap?{
         if (byteArray==null) return null
@@ -179,7 +179,7 @@ object BitmapUtil {
     }
 
     /**
-     * TODO 最佳缩放Bitmap
+     *  最佳缩放Bitmap
      */
     fun zoomBitmap(bm: Bitmap?, width: Int, height: Int): Bitmap? {
         if (bm==null || bm.isRecycled){

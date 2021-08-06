@@ -38,7 +38,7 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
 
 
     /**
-     * TODO 初始化底部导航栏
+     *  初始化底部导航栏
      * 如果有滑动需求可以采用viewpager实现
      */
     private fun initBottomNav() {

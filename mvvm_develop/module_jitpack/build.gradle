@@ -7,10 +7,11 @@ plugins {
     id 'com.xlu.version'
 }
 
-// JitPack Maven
-apply plugin: 'com.github.dcendents.android-maven'
-//xluu233是自己的github用户名
-group='com.github.xluu233'
+//apply plugin: 'android-maven'
+//// JitPack Maven
+//apply plugin: 'com.github.dcendents.android-maven'
+////xluu233是自己的github用户名
+//group='com.github.xluu233'
 
 
 android {
@@ -21,8 +22,6 @@ android {
         //applicationId Dependency.ProjectConfig.applicationId
         minSdkVersion Dependency.ProjectConfig.minSdkVersion
         targetSdkVersion Dependency.ProjectConfig.targetSdkVersion
-        versionCode Dependency.ProjectConfig.versionCode
-        versionName Dependency.ProjectConfig.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

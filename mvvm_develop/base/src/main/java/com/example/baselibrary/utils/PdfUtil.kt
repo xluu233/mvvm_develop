@@ -23,7 +23,7 @@ object PdfUtil {
     const val pdf_save_path = "ABC啦啦啦"
 
     /**
-     * TODO Bitmap保存为PDF文件
+     *  Bitmap保存为PDF文件
      * 目录：外部存储->Download->pdf_save_path
      */
     fun saveBitmapForPdf(bitmaps: ArrayList<Bitmap>, fileName: String, context: Context): File? {

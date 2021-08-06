@@ -4,7 +4,7 @@ import com.example.baselibrary.BaseApp
 
 /**
  * @ClassName App
- * @Description TODO
+ * @Description
  * @Author AlexLu_1406496344@qq.com
  * @Date 2021/8/6 15:52
  */

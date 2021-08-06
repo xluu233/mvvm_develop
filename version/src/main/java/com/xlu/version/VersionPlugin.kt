@@ -5,7 +5,7 @@ import org.gradle.api.Project
 
 /**
  * @ClassName DependencyVersionPlugin
- * @Description TODO
+ * @Description
  * @Author AlexLu_1406496344@qq.com
  * @Date 2021/8/5 11:23
  */

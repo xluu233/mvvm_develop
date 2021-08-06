@@ -13,11 +13,8 @@ android {
     buildToolsVersion Dependency.ProjectConfig.buildToolsVersion
 
     defaultConfig {
-        //applicationId Dependency.ProjectConfig.applicationId
         minSdkVersion Dependency.ProjectConfig.minSdkVersion
         targetSdkVersion Dependency.ProjectConfig.targetSdkVersion
-        versionCode Dependency.ProjectConfig.versionCode
-        versionName Dependency.ProjectConfig.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

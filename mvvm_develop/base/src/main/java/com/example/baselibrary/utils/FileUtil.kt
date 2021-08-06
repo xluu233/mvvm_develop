@@ -19,7 +19,7 @@ import java.io.*
 object FileUtil {
 
     /**
-     * TODO 私有目录-cache
+     *  私有目录-cache
      * @param context
      * @param subDir 子目录文件夹名称
      * @return
@@ -36,7 +36,7 @@ object FileUtil {
 
 
     /**
-     * TODO 私有目录-files
+     *  私有目录-files
      * @param context
      * @param subDir 子目录文件夹名称
      * @return
@@ -53,7 +53,7 @@ object FileUtil {
 
 
     /**
-     * TODO 外部目录-Pictures
+     *  外部目录-Pictures
      * @param subDir 子目录文件夹名称
      * @return
      */
@@ -70,7 +70,7 @@ object FileUtil {
     }
 
     /**
-     * TODO 外部目录-Download
+     *  外部目录-Download
      * @param subDir 子目录文件夹名称
      * @return
      */
@@ -87,7 +87,7 @@ object FileUtil {
     }
 
     /**
-     * TODO 外部目录-DCIM
+     *  外部目录-DCIM
      * @param subDir 子目录文件夹名称
      * @return
      */
@@ -104,7 +104,7 @@ object FileUtil {
     }
 
     /**
-     * TODO 外部目录-Music
+     *  外部目录-Music
      * @param subDir 子目录文件夹名称
      * @return
      */
@@ -121,7 +121,7 @@ object FileUtil {
     }
 
     /**
-     * TODO 内部存储-临时目录，cache -> temp
+     *  内部存储-临时目录，cache -> temp
      */
     fun getAppTempPath(context: Context):String{
         val path = StringBuilder(context.cacheDir.absolutePath)
@@ -135,7 +135,7 @@ object FileUtil {
     }
 
     /**
-     * TODO 分区存储-Cache目录
+     *  分区存储-Cache目录
      * @param context
      * @param subDir 子目录文件夹名称
      * @return
@@ -151,7 +151,7 @@ object FileUtil {
     }
 
     /**
-     * TODO 分区存储-File目录
+     *  分区存储-File目录
      * @param context
      * @param subDir 子目录文件夹名称
      * @return
@@ -165,7 +165,7 @@ object FileUtil {
 
 
     /**
-     * TODO Uri转File
+     *  Uri转File
      */
     fun uri2File(context: Context, uri: Uri): File? {
         var path: String ?= null
@@ -231,7 +231,7 @@ object FileUtil {
     }
 
     /**
-     * TODO File转Uri
+     *  File转Uri
      */
     fun file2Uri(context: Context, file: File?):Uri?{
         if (file==null) return null
@@ -246,7 +246,7 @@ object FileUtil {
 
 
     /**
-     * TODO 将文件转换成byte数组
+     *  将文件转换成byte数组
      */
     fun file2Byte(file: File?): ByteArray? {
         if (file==null) return null

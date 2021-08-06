@@ -8,7 +8,7 @@ import com.example.baselibrary.BuildConfig.DEBUG
 
 /**
  * @ClassName App
- * @Description TODO
+ * @Description
  * @Author AlexLu_1406496344@qq.com
  * @Date 2021/7/26 17:09
  */

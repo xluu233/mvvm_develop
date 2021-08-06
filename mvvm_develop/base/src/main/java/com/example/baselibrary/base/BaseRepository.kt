@@ -7,7 +7,7 @@ import java.lang.Exception
 
 /**
  * @ClassName BaseRepository
- * @Description TODO
+ * @Description
  * @Author AlexLu_1406496344@qq.com
  * @Date 2021/5/12 10:03
  */
@@ -30,7 +30,7 @@ open class BaseRepository(private val coroutineScope: CoroutineScope) {
                     0,200 -> {
                         //请求成功，判断数据是否为空
                         if (baseResp.data == null || baseResp.data is List<*> && (baseResp.data as List<*>).size == 0) {
-                            //TODO: 数据为空,结构变化时需要修改判空条件
+                            //: 数据为空,结构变化时需要修改判空条件
                             baseResp.state = NetState.STATE_EMPTY
                         } else {
                             //请求成功并且数据为空的情况下，为STATE_SUCCESS

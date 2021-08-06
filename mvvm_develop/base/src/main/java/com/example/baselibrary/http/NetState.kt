@@ -2,7 +2,7 @@ package com.example.baselibrary.http
 
 /**
  * @ClassName NetState
- * @Description TODO 赋值LiveData的网络状态
+ * @Description  赋值LiveData的网络状态
  * @Author AlexLu_1406496344@qq.com
  * @Date 2021/5/12 11:21
  */

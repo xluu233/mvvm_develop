@@ -2,7 +2,7 @@ package com.xlu.module_jitpack
 
 /**
  * @ClassName JitpackTest
- * @Description TODO
+ * @Description
  * @Author AlexLu_1406496344@qq.com
  * @Date 2021/8/6 14:50
  */
