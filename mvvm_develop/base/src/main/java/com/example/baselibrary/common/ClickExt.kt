@@ -3,6 +3,48 @@ package com.example.baselibrary.common
 import android.view.View
 import com.example.baselibrary.R
 
+
+var lastTime = 0L
+
+/***
+ * TODO 重复点击，方法一
+ */
+fun <T : View> T.click(delay: Long = 500, block: (T) -> Unit) {
+    triggerDelay = delay
+    setOnClickListener {
+        if (clickEnable()) {
+            block(this)
+        }
+    }
+}
+
+/***
+ * TODO 重复点击，方法二
+ * 同时注册多个view
+ */
+fun setNoRepeatClick(vararg views: View, interval: Long = 400, onClick: (View) -> Unit) {
+    views.forEach {
+        it.clickNoRepeat(interval = interval) { view ->
+            onClick.invoke(view)
+        }
+    }
+}
+
+/***
+ * TODO 重复点击，方法三
+ */
+fun View.clickNoRepeat(interval: Long = 400, onClick: (View) -> Unit) {
+    setOnClickListener {
+        val currentTime = System.currentTimeMillis()
+        if (lastTime != 0L && (currentTime - lastTime < interval)) {
+            return@setOnClickListener
+        }
+        lastTime = currentTime
+        onClick(it)
+    }
+}
+
+
 /**
  * get set
  * 给view添加一个上次触发时间的属性（用来屏蔽连击操作）
@@ -34,50 +76,4 @@ private fun <T : View> T.clickEnable(): Boolean {
     }
     triggerLastTime = currentClickTime
     return clickable
-}
-
-/***
- * 带延迟过滤点击事件的 View 扩展
- * @param delay Long 延迟时间，默认500毫秒
- * @param block: (T) -> Unit 函数
- * @return Unit
- */
-fun <T : View> T.click(delay: Long = 500, block: (T) -> Unit) {
-    triggerDelay = delay
-    setOnClickListener {
-        if (clickEnable()) {
-            block(this)
-        }
-    }
-}
-
-
-/*--------------方法二---------------*/
-
-/**
- * 防止重复点击,可同时注册多个view
- */
-fun setNoRepeatClick(vararg views: View, interval: Long = 400, onClick: (View) -> Unit) {
-    views.forEach {
-        it.clickNoRepeat(interval = interval) { view ->
-            onClick.invoke(view)
-        }
-    }
-}
-
-/**
- * 防止重复点击
- * @param interval 重复间隔
- * @param onClick  事件响应
- */
-var lastTime = 0L
-fun View.clickNoRepeat(interval: Long = 400, onClick: (View) -> Unit) {
-    setOnClickListener {
-        val currentTime = System.currentTimeMillis()
-        if (lastTime != 0L && (currentTime - lastTime < interval)) {
-            return@setOnClickListener
-        }
-        lastTime = currentTime
-        onClick(it)
-    }
 }

@@ -11,6 +11,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="textAllCaps">false</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -22,4 +23,9 @@
     <style name="Theme.MVVM_Develop.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.MVVM_Develop.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+<!--
+    <style name="myTextAppearanceButton" parent="TextAppearance.AppCompat.Widget.Button">
+        <item name="textAllCaps">false</item>
+    </style>-->
+
 </resources>

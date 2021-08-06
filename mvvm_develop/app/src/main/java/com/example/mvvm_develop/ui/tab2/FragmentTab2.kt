@@ -10,10 +10,13 @@ import androidx.fragment.app.activityViewModels
 import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.base_databinding.DataBindingBaseFragment2
 import com.example.baselibrary.common.clickNoRepeat
+import com.example.baselibrary.common.setNoRepeatClick
+import com.example.baselibrary.common.toast
 import com.example.baselibrary.delegate.viewBinding
 import com.example.mvvm_develop.CommonViewModel
 import com.example.mvvm_develop.R
 import com.example.mvvm_develop.databinding.FragmentTab2Binding
+import com.xlu.module_jitpack.JitpackTest
 
 class FragmentTab2 : BaseFragment(R.layout.fragment_tab2) {
 
@@ -31,9 +34,23 @@ class FragmentTab2 : BaseFragment(R.layout.fragment_tab2) {
     }
 
     private fun initClick() {
+/*
         binding.button2.clickNoRepeat {
             navigate(R.id.action_mainFragment_to_dataBindingFragment)
         }
+*/
+
+        setNoRepeatClick(views = arrayOf(binding.button2,binding.button3),onClick = {
+            when(it){
+                binding.button2 -> {
+                    navigate(R.id.action_mainFragment_to_dataBindingFragment)
+                }
+                binding.button3 -> {
+                    toast(JitpackTest.getTime())
+                }
+            }
+        })
+
     }
 
 }
