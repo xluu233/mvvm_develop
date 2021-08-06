@@ -5,11 +5,11 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'com.xlu.version'
-    
-    // JitPack Maven
-    id 'com.github.dcendents.android-maven'
-
 }
+
+// JitPack Maven
+apply plugin: 'com.github.dcendents.android-maven'
+//xluu233是自己的github用户名
 group='com.github.xluu233'
 
 

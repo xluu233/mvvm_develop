@@ -10,8 +10,18 @@ import org.gradle.internal.impldep.org.apache.maven.lifecycle.Lifecycle
  */
 object Dependency  {
 
+    //是否允许module独立允许
+    object RunAlone{
+        const val base = false
+        const val home = true   //以home独立允许为例
+        const val login = false
+        const val jitpack = false
+    }
+
     object ProjectConfig {
         const val applicationId = "com.example.mvvm_develop"
+        const val applicationId_home = "com.xlu.test"
+
         const val compileSdkVersion = 30
         const val buildToolsVersion = "30.0.1"
         const val minSdkVersion = 21

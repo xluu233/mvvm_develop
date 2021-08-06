@@ -1,19 +1,27 @@
 import com.xlu.version.Dependency
 
 plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
     id 'com.xlu.version'
 }
 
+if (Dependency.RunAlone.home.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Dependency.ProjectConfig.compileSdkVersion
     buildToolsVersion Dependency.ProjectConfig.buildToolsVersion
 
     defaultConfig {
-        //applicationId Dependency.ProjectConfig.applicationId
+        if (Dependency.RunAlone.home.toBoolean()) {
+            applicationId Dependency.ProjectConfig.applicationId_home
+        }
+
         minSdkVersion Dependency.ProjectConfig.minSdkVersion
         targetSdkVersion Dependency.ProjectConfig.targetSdkVersion
         versionCode Dependency.ProjectConfig.versionCode
@@ -33,8 +41,22 @@ android {
         dataBinding = true
         viewBinding = true
     }
+
+    sourceSets {
+        main {
+            // 独立调试与集成调试时使用不同的 AndroidManifest.xml 文件
+            if (Dependency.RunAlone.home.toBoolean()) {
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
 }
 
 dependencies {
     implementation project(path: ':base')
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
 }
