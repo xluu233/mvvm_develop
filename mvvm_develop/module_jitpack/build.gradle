@@ -5,12 +5,27 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'com.xlu.version'
+    
+    // JitPack Maven
+    id 'com.github.dcendents.android-maven'
+
 }
+group='com.github.xluu233'
 
 
 android {
     compileSdkVersion Dependency.ProjectConfig.compileSdkVersion
     buildToolsVersion Dependency.ProjectConfig.buildToolsVersion
+
+    defaultConfig {
+        //applicationId Dependency.ProjectConfig.applicationId
+        minSdkVersion Dependency.ProjectConfig.minSdkVersion
+        targetSdkVersion Dependency.ProjectConfig.targetSdkVersion
+        versionCode Dependency.ProjectConfig.versionCode
+        versionName Dependency.ProjectConfig.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -23,11 +38,5 @@ android {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    //Kotlin
-    api Dependency.DependencyImp.Kotlin
-    api Dependency.DependencyImp.CoreKtx
-
+    implementation project(path: ':base')
 }
