@@ -5,10 +5,11 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.mvvm_develop.ui.databinding.DataBindViewModel" />
+            type="com.example.mvvm_develop.test.databinding.DataBindViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

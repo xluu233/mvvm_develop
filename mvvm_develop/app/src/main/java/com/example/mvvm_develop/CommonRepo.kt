@@ -5,7 +5,7 @@ import com.example.baselibrary.base.BaseRepository
 import com.example.baselibrary.http.ApiResponse
 import com.example.baselibrary.http.ResultLiveData
 import com.example.mvvm_develop.api.Api
-import com.example.mvvm_develop.api.RetrofitManager
+import com.xlu.common.net.RetrofitManager
 import com.example.mvvm_develop.bean.BannerData
 import kotlinx.coroutines.CoroutineScope
 
@@ -17,7 +17,7 @@ import kotlinx.coroutines.CoroutineScope
  */
 class CommonRepo(scope: CoroutineScope) : BaseRepository(scope) {
 
-    private var mService: Api = RetrofitManager.getApiService(Api::class.java)
+    private var mService = RetrofitManager.getApiService(Api::class.java)
 
     fun laod(resultLiveData: ResultLiveData<List<BannerData>>){
         launch(

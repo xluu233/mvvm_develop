@@ -8,17 +8,11 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import com.example.baselibrary.R
 import com.example.baselibrary.base.BaseFragment
-import com.example.baselibrary.databinding.BaseFragmentLayoutBinding
-import com.example.baselibrary.navigation.NavHostFragment
 
-abstract class DataBindingBaseFragment<T : ViewDataBinding>(@LayoutRes private val layout: Int) : BaseFragment(layout) {
+abstract class DataBindingBaseFragment<T : ViewDataBinding>(@LayoutRes private val layout: Int, lazyInit:Boolean = false) : BaseFragment(layout = layout,lazyInit = lazyInit) {
 
     private var _mBinding: T? = null
-    private lateinit var mBaseContainBinding: BaseFragmentLayoutBinding
     val mBinding get() = _mBinding!!
 
 
@@ -27,14 +21,19 @@ abstract class DataBindingBaseFragment<T : ViewDataBinding>(@LayoutRes private v
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBaseContainBinding = DataBindingUtil.inflate(inflater, R.layout.base_fragment_layout, container, false)
         _mBinding = DataBindingUtil.inflate(inflater, layout, container, false)
-
-        mBaseContainBinding.baseContainer.addView(_mBinding?.root)
-        return mBaseContainBinding.root
+        return mBinding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //LiveData needs the lifecycle owner
+        mBinding.lifecycleOwner = requireActivity()
+    }
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _mBinding?.unbind()
+    }
 
 }

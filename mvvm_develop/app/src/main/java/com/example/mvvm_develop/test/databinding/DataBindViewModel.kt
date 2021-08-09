@@ -1,7 +1,6 @@
-package com.example.mvvm_develop.ui.databinding
+package com.example.mvvm_develop.test.databinding
 
 import androidx.databinding.ObservableField
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.baselibrary.base.BaseViewModel
 import com.example.baselibrary.log.xLog

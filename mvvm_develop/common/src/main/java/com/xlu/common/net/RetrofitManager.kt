@@ -1,4 +1,4 @@
-package com.example.mvvm_develop.api
+package com.xlu.common.net
 
 object RetrofitManager {
 
@@ -7,7 +7,7 @@ object RetrofitManager {
      */
     private val map = mutableMapOf<Class<*>, Any>()
 
-    var baseUrl = "https://www.wanandroid.com/"
+    private val baseUrl = "https://www.wanandroid.com/"
 
     private val retrofit by lazy {
         RetrofitFactory.factory(baseUrl)

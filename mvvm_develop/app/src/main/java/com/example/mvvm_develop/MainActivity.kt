@@ -3,10 +3,14 @@ package com.example.mvvm_develop
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.baselibrary.base.BaseActivity
 import com.example.baselibrary.delegate.viewBinding
 import com.example.mvvm_develop.databinding.ActivityMainBinding
+import com.xlu.common.constants.ConstantARouter
 
+
+@Route(path = ConstantARouter.MainActivity)
 class MainActivity : BaseActivity(R.layout.activity_main){
 
     //viewbinding创建方法见：

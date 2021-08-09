@@ -1,13 +1,12 @@
-package com.example.mvvm_develop.api
+package com.xlu.common.net
 
-import com.example.mvvm_develop.BuildConfig
+import com.xlu.common.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-import java.util.logging.Level
 
 
 object RetrofitFactory {

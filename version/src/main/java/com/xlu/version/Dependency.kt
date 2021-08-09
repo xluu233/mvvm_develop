@@ -113,6 +113,7 @@ object Dependency  {
         //ARouter https://github.com/alibaba/ARouter/blob/master/README_CN.md
         const val ARoute = "com.alibaba:arouter-api:${Version.ARoute}"
         const val ARouteCompiler = "com.alibaba:arouter-compiler:${Version.ARouteCompiler}"
+        const val ARouteRegister = "com.alibaba:arouter-register:${Version.ARoute}"
         //eventBus
         const val EventBus = "org.greenrobot:eventbus:${Version.EventBus}"
         const val EventBusAPT = "org.greenrobot:eventbus-annotation-processor:${Version.EventBus}"

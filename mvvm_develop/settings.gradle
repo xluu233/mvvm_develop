@@ -6,3 +6,4 @@ include ':app'
 //includeBuild("version")
 includeBuild "../version"
 rootProject.name = "mvvm_develop"
+include ':common'

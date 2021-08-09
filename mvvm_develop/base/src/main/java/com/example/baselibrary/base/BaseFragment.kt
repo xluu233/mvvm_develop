@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import com.alibaba.android.arouter.launcher.ARouter
 import com.example.baselibrary.log.xLog
 import com.example.baselibrary.navigation.NavHostFragment
 
@@ -38,14 +39,8 @@ abstract class BaseFragment(@LayoutRes private val layout: Int, private val lazy
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        xLog.d(TAG,"onCreate")
-    }
-
     override fun onResume() {
         super.onResume()
-        xLog.d(TAG,"onResume")
         //Fragment是否可见
         if (!isLoaded && !isHidden && lazyInit) {
             initData()
@@ -53,19 +48,6 @@ abstract class BaseFragment(@LayoutRes private val layout: Int, private val lazy
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        xLog.d(TAG,"onCreateView")
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        xLog.d(TAG,"onActivityCreated")
-    }
 
 
     /**
@@ -85,8 +67,8 @@ abstract class BaseFragment(@LayoutRes private val layout: Int, private val lazy
 
     override fun onDestroyView() {
         super.onDestroyView()
-        isLoaded = false
         xLog.d(TAG,"onDestroyView")
+        isLoaded = false
     }
     
 }

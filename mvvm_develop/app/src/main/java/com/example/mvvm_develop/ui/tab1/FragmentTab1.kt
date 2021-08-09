@@ -31,7 +31,6 @@ class FragmentTab1 : BaseFragment(R.layout.fragment_tab1) {
             tab.text = "OBJECT ${(position + 1)}"
         }.attach()*/
 
-
         commonViewModel.load()
 
         commonViewModel.liveData.observe(viewLifecycleOwner, Observer {
