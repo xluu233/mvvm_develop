@@ -1,6 +1,7 @@
 package com.xlu.test
 
 import com.example.baselibrary.BaseApp
+import com.example.baselibrary.common.toast
 
 /**
  * @ClassName App
@@ -8,10 +9,15 @@ import com.example.baselibrary.BaseApp
  * @Author AlexLu_1406496344@qq.com
  * @Date 2021/8/6 15:52
  */
-class App : BaseApp() {
+class AppHome : BaseApp() {
 
     override fun onCreate() {
         super.onCreate()
+        initSDK()
+    }
+
+    private fun initSDK() {
+        toast("initSDK")
     }
 
 }

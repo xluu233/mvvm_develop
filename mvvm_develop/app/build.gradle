@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'com.xlu.version'
+    id 'com.hm.plugin.lifecycle'
 }
 
 android {
@@ -27,9 +28,15 @@ android {
     }
 
     buildTypes {
+        /*debug {
+            minifyEnabled true
+            useProguard true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }*/
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
@@ -46,14 +53,14 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':base')
+    implementation project(path: ':common')
     implementation project(path: ':module_login')
     implementation project(path: ':module_jitpack')
 
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation Dependency.DependencyImp.ARoute
-    implementation project(path: ':common')
     kapt Dependency.DependencyImp.ARouteCompiler
+    annotationProcessor Dependency.DependencyImp.AppLifecycleCompiler
+    //implementation Dependency.DependencyImp.AppLifecyclePlugin
 
 }

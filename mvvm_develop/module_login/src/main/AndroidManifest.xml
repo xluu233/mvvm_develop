@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xlu.module_login">
 
-    <application>
-        <activity android:name=".LoginActivity"></activity>
+
+    <application android:name=".AppHome">
+        <activity android:name=".LoginActivity"/>
     </application>
 
 </manifest>

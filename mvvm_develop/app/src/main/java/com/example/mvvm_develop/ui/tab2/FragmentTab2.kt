@@ -6,17 +6,14 @@ import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.common.setNoRepeatClick
 import com.example.baselibrary.common.toast
 import com.example.baselibrary.delegate.viewBinding
-import com.example.baselibrary.log.xLog
 import com.example.mvvm_develop.CommonViewModel
 import com.example.mvvm_develop.R
 import com.example.mvvm_develop.bean.RouterBeanSerializable
 import com.xlu.common.constants.ConstantARouter
 import com.example.mvvm_develop.databinding.FragmentTab2Binding
-import com.xlu.common.login.LoginInterface
 import com.xlu.common.constants.ConstantParams
-import com.xlu.common.login.LoginUtil.getLoginServer
+import com.xlu.common.server.LoginUtil.getLoginServer
 import com.xlu.module_jitpack.JitpackTest
-import kotlin.math.log
 
 class FragmentTab2 : BaseFragment(R.layout.fragment_tab2) {
 
@@ -29,9 +26,9 @@ class FragmentTab2 : BaseFragment(R.layout.fragment_tab2) {
     private val viewmodel by activityViewModels<CommonViewModel>()
 
     override fun initData() {
-
         initClick()
     }
+
 
     private fun initClick() {
 
@@ -58,7 +55,6 @@ class FragmentTab2 : BaseFragment(R.layout.fragment_tab2) {
                 binding.button6 -> {
                     val token:String = getLoginServer().getToken()
                     toast(token)
-                    //xLog.d("token:${token}")
                 }
             }
         })

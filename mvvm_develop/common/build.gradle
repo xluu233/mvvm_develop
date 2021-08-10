@@ -39,8 +39,10 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':base')
+    api project(path: ':base')
 
     implementation Dependency.DependencyImp.ARoute
     kapt Dependency.DependencyImp.ARouteCompiler
+    annotationProcessor Dependency.DependencyImp.AppLifecycleCompiler
+
 }

@@ -2,12 +2,9 @@ package com.example.baselibrary.base
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import com.alibaba.android.arouter.launcher.ARouter
 import com.example.baselibrary.log.xLog
 import com.example.baselibrary.navigation.NavHostFragment
 
@@ -19,7 +16,7 @@ import com.example.baselibrary.navigation.NavHostFragment
  */
 abstract class BaseFragment(@LayoutRes private val layout: Int, private val lazyInit:Boolean = false) : Fragment(layout) {
 
-    private val TAG by lazy {
+    val TAG by lazy {
         this.javaClass.name;
     }
 

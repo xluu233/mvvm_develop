@@ -1,9 +1,9 @@
 include ':module_jitpack'
 include ':module_home'
 include ':module_login'
+include ':common'
 include ':base'
 include ':app'
 //includeBuild("version")
 includeBuild "../version"
 rootProject.name = "mvvm_develop"
-include ':common'

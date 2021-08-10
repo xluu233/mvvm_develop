@@ -11,7 +11,7 @@ import android.util.Log
 object xLog {
 
     var sLogName = "xLog"
-    var sIsShow = false
+    var sIsShow = true
 
     fun init(logName: String, isShow: Boolean) {
         sLogName = logName

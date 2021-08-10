@@ -1,7 +1,7 @@
-package com.xlu.common.login
+package com.xlu.common.server
 
 import com.alibaba.android.arouter.launcher.ARouter
-import com.xlu.common.constants.ConstantARouter
+import com.xlu.common.api.LoginItf
 
 /**
  * @ClassName LoginUtil
@@ -11,8 +11,8 @@ import com.xlu.common.constants.ConstantARouter
  */
 object LoginUtil {
 
-    fun getLoginServer():LoginInterface{
-        return ARouter.getInstance().navigation(LoginInterface::class.java)//如果只有一个实现，这种方式也可以
+    fun getLoginServer(): LoginItf {
+        return ARouter.getInstance().navigation(LoginItf::class.java)//如果只有一个实现，这种方式也可以
         //return ARouter.getInstance().build(ConstantARouter.LoginItfImpl).navigation() as LoginInterface
     }
 }

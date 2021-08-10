@@ -25,6 +25,11 @@ android {
         targetSdkVersion Dependency.ProjectConfig.targetSdkVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
     }
 
     compileOptions {
@@ -38,5 +43,9 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':base')
+    implementation project(path: ':common')
+
+    implementation Dependency.DependencyImp.ARoute
+    kapt Dependency.DependencyImp.ARouteCompiler
+    annotationProcessor Dependency.DependencyImp.AppLifecycleCompiler
 }

@@ -67,6 +67,7 @@ object Dependency  {
         const val Coil = "1.3.2"                            // Kotlin图片加载框架
         const val Room = "2.3.0"                            //数据库
         const val Glide = "4.12.0"
+        const val AppLifecycle = "1.0.4"
     }
 
     object DependencyImp{
@@ -95,7 +96,10 @@ object Dependency  {
         const val SaveState = "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Version.Lifecycle}"
         const val Livedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Version.Lifecycle}"
         const val Viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.Lifecycle}"
-
+        //Application生命周期分发  https://github.com/hufeiyang/Android-AppLifecycleMgr
+        const val AppLifecycle = "com.github.hufeiyang.Android-AppLifecycleMgr:applifecycle-api:${Version.AppLifecycle}"
+        //const val AppLifecyclePlugin = "com.github.hufeiyang.Android-AppLifecycleMgr:applifecycle-plugin:${Version.AppLifecycle}"
+        const val AppLifecycleCompiler = "com.github.hufeiyang.Android-AppLifecycleMgr:applifecycle-compiler:${Version.AppLifecycle}"
         //recyclerView
         const val RecyclerView = "androidx.recyclerview:recyclerview:1.2.1"
         //viewPager

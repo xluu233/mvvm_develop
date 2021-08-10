@@ -1,7 +1,7 @@
 package com.xlu.module_login
 
+import android.app.Application
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -26,12 +26,12 @@ class LoginActivity : BaseActivity(R.layout.activity_login) {
     @JvmField var test : String = ""
 
     override fun initData(savedInstanceState: Bundle?) {
-        initParams()
+        //initParams()
 
         //自动注入,我这里放在BaseFragment/Activity中执行
-        //ARouter.getInstance().inject(this)
-
+        ARouter.getInstance().inject(this)
         initView()
+
     }
 
     /**

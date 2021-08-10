@@ -1,4 +1,6 @@
-package com.xlu.common.login
+package com.xlu.common.api
+
+import com.alibaba.android.arouter.facade.template.IProvider
 
 
 /**
@@ -7,7 +9,7 @@ package com.xlu.common.login
  * @Author AlexLu_1406496344@qq.com
  * @Date 2021/8/9 15:57
  */
-interface LoginInterface {
+interface LoginItf : IProvider{
 
     fun getToken():String
 

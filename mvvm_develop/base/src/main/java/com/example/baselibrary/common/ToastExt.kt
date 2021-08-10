@@ -30,13 +30,15 @@ fun Context.toast(content: String, duration: Int = Toast.LENGTH_SHORT) {
 }
 
 
-fun toast(content: Any, duration: Int = Toast.LENGTH_SHORT) {
+fun toast(content: Any?, duration: Int = Toast.LENGTH_SHORT) {
+    if (content==null) return
     val text = content.toString()
     if (TextUtils.isEmpty(text))return
     BaseApp.getContext().toast(text, duration)
 }
 
-fun longToast(content: Any, duration: Int = Toast.LENGTH_LONG) {
+fun longToast(content: Any?, duration: Int = Toast.LENGTH_LONG) {
+    if (content==null) return
     val text = content.toString()
     if (TextUtils.isEmpty(text))return
     BaseApp.getContext().toast(text, duration)
