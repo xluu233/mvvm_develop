@@ -68,7 +68,11 @@ android {
 dependencies {
     implementation project(path: ':common')
 
+    //ARouter
     implementation Dependency.DependencyImp.ARoute
     kapt Dependency.DependencyImp.ARouteCompiler
-    annotationProcessor Dependency.DependencyImp.AppLifecycleCompiler
+
+    //AutoService
+    //implementation Dependency.DependencyImp.AutoService
+    annotationProcessor Dependency.DependencyImp.AutoServiceAnnotations
 }

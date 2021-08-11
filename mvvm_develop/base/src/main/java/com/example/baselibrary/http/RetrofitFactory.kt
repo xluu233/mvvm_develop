@@ -1,6 +1,6 @@
-package com.xlu.common.net
+package com.example.baselibrary.http
 
-import com.xlu.common.BuildConfig
+import com.example.baselibrary.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -13,26 +13,21 @@ object RetrofitFactory {
 
     private val okHttpClientBuilder: OkHttpClient.Builder by lazy {
         OkHttpClient.Builder()
-            .readTimeout(
-                10000,
-                TimeUnit.MILLISECONDS
-            )
-            .connectTimeout(
-                10000,
-                TimeUnit.MILLISECONDS
-            )
+            .connectTimeout(10, TimeUnit.SECONDS)
+            .writeTimeout(10, TimeUnit.SECONDS)
+            .readTimeout(10, TimeUnit.SECONDS)
+            .retryOnConnectionFailure(true)
             .addInterceptor(getLogInterceptor())
     }
 
 
-    fun factory(baseUrl:String): Retrofit {
+    fun factory(baseUrl: String): Retrofit {
         val okHttpClient = okHttpClientBuilder.build()
-        val retrofit = Retrofit.Builder()
-                .client(okHttpClient)
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(baseUrl)
-                .build()
-        return retrofit
+        return Retrofit.Builder()
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(baseUrl)
+            .build()
     }
 
 
@@ -40,10 +35,9 @@ object RetrofitFactory {
      * 获取日志拦截器
      */
     private fun getLogInterceptor(): Interceptor {
-        val logger = HttpLoggingInterceptor().also {
+        return HttpLoggingInterceptor().also {
             it.level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         }
-        return logger
     }
 
 

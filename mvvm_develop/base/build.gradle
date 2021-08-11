@@ -58,7 +58,6 @@ dependencies {
     api Dependency.DependencyImp.Lifecycle
     api Dependency.DependencyImp.Livedata
     api Dependency.DependencyImp.Viewmodel
-    api Dependency.DependencyImp.AppLifecycle
 
     /*-------核心工具库-------*/
     //eventBus

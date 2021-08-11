@@ -3,7 +3,7 @@
     package="com.xlu.module_login">
 
 
-    <application android:name=".AppHome">
+    <application>
         <activity android:name=".LoginActivity"/>
     </application>
 

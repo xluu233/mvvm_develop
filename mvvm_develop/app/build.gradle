@@ -57,10 +57,12 @@ dependencies {
     implementation project(path: ':module_login')
     implementation project(path: ':module_jitpack')
 
-
+    //ARouter
     implementation Dependency.DependencyImp.ARoute
     kapt Dependency.DependencyImp.ARouteCompiler
-    annotationProcessor Dependency.DependencyImp.AppLifecycleCompiler
-    //implementation Dependency.DependencyImp.AppLifecyclePlugin
+
+    //AutoService
+    //implementation Dependency.DependencyImp.AutoService
+    annotationProcessor Dependency.DependencyImp.AutoServiceAnnotations
 
 }

@@ -5,7 +5,7 @@ import com.example.baselibrary.base.BaseRepository
 import com.example.baselibrary.http.ApiResponse
 import com.example.baselibrary.http.ResultLiveData
 import com.example.mvvm_develop.api.Api
-import com.xlu.common.net.RetrofitManager
+import com.example.baselibrary.http.RetrofitManager
 import com.example.mvvm_develop.bean.BannerData
 import kotlinx.coroutines.CoroutineScope
 
