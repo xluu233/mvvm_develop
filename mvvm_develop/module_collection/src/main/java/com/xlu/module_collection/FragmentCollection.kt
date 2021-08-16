@@ -6,8 +6,10 @@ import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.common.setNoRepeatClick
 import com.example.baselibrary.common.toast
 import com.example.baselibrary.delegate.viewBinding
+import com.xlu.common.bean.RouterBeanSerializable
 import com.xlu.common.constants.ConstantARouter
-import com.xlu.common.server.LoginUtil.getLoginServer
+import com.xlu.common.constants.ConstantParams
+import com.xlu.common.server.ServerUtil.getLoginServer
 import com.xlu.module_collection.databinding.FragmentCollectionBinding
 
 class FragmentCollection : BaseFragment(R.layout.fragment_collection) {
@@ -41,11 +43,13 @@ class FragmentCollection : BaseFragment(R.layout.fragment_collection) {
                 }
                 binding.button5 -> {
                     //携带参数跳转
-//                    ARouter.getInstance().build(ConstantARouter.LoginActivity)
-//                        .withLong(ConstantParams.key1, 666L)
-//                        .withString(ConstantParams.key2, "888")
-//                        .withSerializable(ConstantParams.key3,RouterBeanSerializable(id = 123,name = "哈哈哈哈"))
-//                        .navigation()
+                    ARouter.getInstance().build(ConstantARouter.LoginActivity)
+                        .withLong(ConstantParams.key1, 666L)
+                        .withString(ConstantParams.key2, "888")
+                        .withSerializable(ConstantParams.key3,
+                            RouterBeanSerializable(id = 123,name = "哈哈哈哈")
+                        )
+                        .navigation()
                 }
                 binding.button6 -> {
                     val token:String = getLoginServer().getToken()

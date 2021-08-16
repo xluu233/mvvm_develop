@@ -1,4 +1,4 @@
-package com.example.mvvm_develop.bean
+package com.xlu.common.bean
 
 import android.os.Parcel
 import android.os.Parcelable

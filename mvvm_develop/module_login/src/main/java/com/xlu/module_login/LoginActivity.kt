@@ -1,6 +1,7 @@
 package com.xlu.module_login
 
 import android.app.Application
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Autowired
@@ -9,13 +10,14 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.example.baselibrary.base.BaseActivity
 import com.example.baselibrary.delegate.viewBinding
 import com.example.baselibrary.log.xLog
+import com.xlu.common.api.LoginItf
 import com.xlu.common.constants.ConstantARouter
 import com.xlu.common.constants.ConstantParams
 import com.xlu.module_login.databinding.ActivityLoginBinding
 
 
 @Route(path = ConstantARouter.LoginActivity)
-class LoginActivity : BaseActivity(R.layout.activity_login) {
+class LoginActivity : BaseActivity(R.layout.activity_login){
 
     private val binding by viewBinding(ActivityLoginBinding::bind)
 
@@ -62,6 +64,23 @@ class LoginActivity : BaseActivity(R.layout.activity_login) {
 
     }
 
+/*
+    override fun getToken(): String {
+        return "123"
+    }
+
+    override fun getUserName(): String {
+        return "123"
+    }
+
+    override fun getUserID(): Int {
+        return 123
+    }
+
+    override fun init(context: Context?) {
+
+    }
+*/
 
 
 }

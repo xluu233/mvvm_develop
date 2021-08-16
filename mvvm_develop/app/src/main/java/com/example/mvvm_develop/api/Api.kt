@@ -1,7 +1,7 @@
 package com.example.mvvm_develop.api
 
 import com.example.baselibrary.http.ApiResponse
-import com.example.mvvm_develop.bean.BannerData
+import com.xlu.common.bean.BannerData
 import retrofit2.http.GET
 
 /**

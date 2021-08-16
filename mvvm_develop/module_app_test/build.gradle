@@ -74,6 +74,6 @@ dependencies {
     kapt Dependency.DependencyImp.ARouteCompiler
 
     //AutoService
-    //implementation Dependency.DependencyImp.AutoService
+    implementation Dependency.DependencyImp.AutoService
     annotationProcessor Dependency.DependencyImp.AutoServiceAnnotations
 }

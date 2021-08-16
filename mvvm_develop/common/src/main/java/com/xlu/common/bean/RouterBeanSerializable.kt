@@ -1,9 +1,6 @@
-package com.example.mvvm_develop.bean
+package com.xlu.common.bean
 
-import android.content.Context
-import com.alibaba.android.arouter.facade.service.SerializationService
 import java.io.Serializable
-import java.lang.reflect.Type
 
 /**
  * @ClassName RouterBean
