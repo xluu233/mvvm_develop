@@ -1,5 +1,7 @@
 package com.xlu.common.constants
 
+import androidx.fragment.app.Fragment
+
 /**
  * @ClassName ARouter
  * @Description arouter路径
@@ -16,4 +18,7 @@ object ConstantARouter {
     const val LoginActivity = "/login/LoginActivity"
 
     const val LoginItfImpl = "/login/LoginImpl"
+
+    const val FragmentTab1_Main = "/tab1/MainFragment"
+
 }

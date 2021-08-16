@@ -1,10 +1,12 @@
-include ':module_jitpack'
+include ':app'
+include ':base'
+include ':common'
 include ':module_home'
 include ':module_login'
-include ':module_tab1'
-include ':common'
-include ':base'
-include ':app'
+include ':module_center'
+include ':module_collection'
+include ':module_app_test'
+include ':module_jitpack_test'
 //includeBuild("version")
 includeBuild "../version"
 rootProject.name = "mvvm_develop"

@@ -2,30 +2,13 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
+    android:id="@+id/navigation_main"
     app:startDestination="@+id/mainFragment">
-
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.mvvm_develop.MainFragment"
-        android:label="MainFragment" >
-        <action
-            android:id="@+id/action_mainFragment_to_dataBindingFragment"
-            app:destination="@id/dataBindingFragment"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"  />
-        <action
-            android:id="@+id/action_mainFragment_to_ARouterFragment"
-            app:destination="@id/ARouterFragment"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"  />
-    </fragment>
-
+        android:label="MainFragment" />
 
     <fragment
         android:id="@+id/dataBindingFragment"
@@ -37,6 +20,8 @@
         android:name="com.example.mvvm_develop.test.arouter.ARouterFragment"
         android:label="fragment_arouter"
         tools:layout="@layout/fragment_arouter" />
+
+
 
 
 </navigation>

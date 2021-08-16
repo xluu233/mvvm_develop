@@ -11,7 +11,7 @@ object Dependency  {
     //是否允许module独立允许
     object RunAlone{
         const val base = false
-        const val home = true   //以home独立允许为例
+        const val app_test = false   //以home独立允许为例
         const val login = false
         const val jitpack = false
     }
@@ -48,7 +48,7 @@ object Dependency  {
         
         // JetPack---------------------------------------------------------------
         const val Lifecycle = "2.3.1"
-        const val Navigation = "2.3.5"
+        const val Navigation = "2.4.0-alpha05"
 
         // GitHub----------------------------------------------------------------
         const val OkHttp = "4.9.0"                          // OkHttp

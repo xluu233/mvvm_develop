@@ -21,7 +21,6 @@ class MainActivity : BaseActivity(R.layout.activity_main){
     //https://developer.android.com/topic/libraries/architecture/viewmodel?hl=zh-cn
     private val viewmodel by viewModels<CommonViewModel>()
 
-
     override fun initData(savedInstanceState: Bundle?) {
 
     }
@@ -39,5 +38,8 @@ class MainActivity : BaseActivity(R.layout.activity_main){
         }
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        return viewmodel.currentNavController?.value?.navigateUp() ?: false
+    }
 
 }

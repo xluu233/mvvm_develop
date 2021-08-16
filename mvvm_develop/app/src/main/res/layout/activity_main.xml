@@ -10,12 +10,17 @@
     修改为：
     android:name="com.example.baselibrary.navigation.NavHostFragment"-->
 
-    <fragment
-        android:id="@+id/navigation_main"
-        android:name="com.example.baselibrary.navigation.NavHostFragment"
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/main_fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:name="com.example.baselibrary.navigation.NavHostFragment"
         app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_main"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -49,14 +49,16 @@ android {
 dependencies {
     implementation project(path: ':common')
     implementation project(path: ':module_login')
-    implementation project(path: ':module_jitpack')
+    implementation project(path: ':module_home')
+    implementation project(path: ':module_collection')
+    implementation project(path: ':module_center')
 
     //ARouter
     implementation Dependency.DependencyImp.ARoute
     kapt Dependency.DependencyImp.ARouteCompiler
 
     //AutoService
-    //implementation Dependency.DependencyImp.AutoService
+    implementation Dependency.DependencyImp.AutoService
     annotationProcessor Dependency.DependencyImp.AutoServiceAnnotations
 
 }
