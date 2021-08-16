@@ -9,20 +9,20 @@ plugins {
 
 
 android {
-    compileSdkVersion Dependency.ProjectConfig.compileSdkVersion
-    buildToolsVersion Dependency.ProjectConfig.buildToolsVersion
+    compileSdk 31
 
     defaultConfig {
         minSdkVersion Dependency.ProjectConfig.minSdkVersion
         targetSdkVersion Dependency.ProjectConfig.targetSdkVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
+        consumerProguardFiles "consumer-rules.pro"
         kapt {
             arguments {
                 arg("AROUTER_MODULE_NAME", project.getName())
             }
         }
+
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -32,20 +32,13 @@ android {
         jvmTarget = '11'
         useIR = true
     }
-    buildFeatures {
-        viewBinding = true
-        dataBinding = true
-    }
 }
 
+
 dependencies {
-    api project(path: ':base')
+    implementation project(path: ':common')
 
     //ARouter
     implementation Dependency.DependencyImp.ARoute
     kapt Dependency.DependencyImp.ARouteCompiler
-
-    //AutoService
-    //implementation Dependency.DependencyImp.AutoService
-    annotationProcessor Dependency.DependencyImp.AutoServiceAnnotations
 }

@@ -26,12 +26,14 @@ dependencies {
 
 compileKotlin {
     kotlinOptions {
-        jvmTarget = 1.8
+        jvmTarget = '11'
+        useIR = true
     }
 }
 compileTestKotlin {
     kotlinOptions {
-        jvmTarget = 1.8
+        jvmTarget = '11'
+        useIR = true
     }
 }
 

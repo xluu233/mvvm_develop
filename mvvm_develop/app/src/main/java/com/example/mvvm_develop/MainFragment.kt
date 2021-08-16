@@ -18,7 +18,6 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
 
     private val commonViewModel by activityViewModels<CommonViewModel>()
 
-
     private val fragmentTab1 by lazy {
         FragmentTab1.newInstance()
     }

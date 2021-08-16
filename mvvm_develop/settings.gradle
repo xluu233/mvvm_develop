@@ -1,6 +1,7 @@
 include ':module_jitpack'
 include ':module_home'
 include ':module_login'
+include ':module_tab1'
 include ':common'
 include ':base'
 include ':app'

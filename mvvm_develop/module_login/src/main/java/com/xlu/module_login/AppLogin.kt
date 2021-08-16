@@ -15,9 +15,9 @@ import com.google.auto.service.AutoService
  * @Date 2021/8/10 15:17
  */
 @AutoService(ApplicationLifecycle::class)
-class AppHome : ApplicationLifecycle {
+class AppLogin : ApplicationLifecycle {
 
-    private val TAG = "AppHome"
+    private val TAG = "AppLogin"
 
     override fun onAttachBaseContext(context: Context) {
     }
