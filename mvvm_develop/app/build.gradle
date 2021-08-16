@@ -5,7 +5,6 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'com.xlu.version'
-    id 'com.hm.plugin.lifecycle'
 }
 
 android {

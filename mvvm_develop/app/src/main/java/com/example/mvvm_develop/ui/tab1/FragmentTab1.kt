@@ -25,18 +25,13 @@ class FragmentTab1 : BaseFragment(R.layout.fragment_tab1) {
     private val commonViewModel: CommonViewModel by activityViewModels<CommonViewModel>()
 
     override fun initData() {
-/*        binding.viewPager.initFragment(this, listOf<Fragment>(FragmentTab1(0), FragmentTab1(1)))
-
-        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
-            tab.text = "OBJECT ${(position + 1)}"
-        }.attach()*/
 
         commonViewModel.load()
 
         commonViewModel.liveData.observe(viewLifecycleOwner, Observer {
-            it.data?.forEach {
-                xLog.d("BannerData",it.url)
-            }
+//            it.data?.forEach {
+//                xLog.d("BannerData",it.url)
+//            }
         })
 
     }

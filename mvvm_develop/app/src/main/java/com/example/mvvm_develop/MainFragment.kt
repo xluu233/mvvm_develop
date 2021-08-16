@@ -32,7 +32,6 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     }
 
     override fun initData() {
-
         initBottomNav()
     }
 

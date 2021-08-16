@@ -22,7 +22,7 @@ object Dependency  {
 
         const val compileSdkVersion = 30
         const val buildToolsVersion = "30.0.2"
-        const val minSdkVersion = 21
+        const val minSdkVersion = 23
         const val targetSdkVersion = 30
 
         const val versionCode = 1
@@ -67,6 +67,7 @@ object Dependency  {
         const val Coil = "1.3.2"                            // Kotlin图片加载框架
         const val Room = "2.3.0"                            //数据库
         const val Glide = "4.12.0"
+
     }
 
     object DependencyImp{
@@ -192,6 +193,7 @@ object Dependency  {
         //动画库 https://lottiefiles.com/
         const val Lottie  = "com.airbnb.android:lottie:3.7.0"
 
+        const val ToastBox = "com.github.xluu233:ToastBox:0.5.1"
     }
 
 }
