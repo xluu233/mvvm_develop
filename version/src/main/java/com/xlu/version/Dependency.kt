@@ -56,7 +56,7 @@ object Dependency  {
         const val Retrofit = "2.9.0"                        // Retrofit
         const val RetrofitConverterGson = "2.9.0"           // Retrofit Gson 转换器
         const val Gson = "2.8.7"                            // Gson
-        const val MMKV = "1.2.9"                            // 腾讯 MMKV 替代SP
+        const val MMKV = "1.2.10"                            // 腾讯 MMKV 替代SP
         const val ARoute = "1.5.2"                          // 阿里路由
         const val ARouteCompiler = "1.5.2"                  // 阿里路由 APT
         const val RecyclerViewAdapter = "3.0.4"             // RecyclerViewAdapter

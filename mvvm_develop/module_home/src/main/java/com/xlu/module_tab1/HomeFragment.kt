@@ -3,6 +3,7 @@ package com.xlu.module_tab1
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.bus.LiveDataBus
@@ -36,6 +37,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         setNoRepeatClick(views = arrayOf(binding.button,binding.button2,binding.button3),onClick = {
             when(it){
                 binding.button -> {
+                    findNavController().navigate(R.id.action_homeFragment_to_fragment_mmkv)
+                    //navigate(R.id.action_homeFragment_to_fragment_mmkv)
                 }
                 binding.button2 -> {
 

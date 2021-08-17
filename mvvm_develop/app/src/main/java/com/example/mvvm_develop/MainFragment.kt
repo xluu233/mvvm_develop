@@ -1,18 +1,10 @@
 package com.example.mvvm_develop
 
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
-import androidx.navigation.ui.NavigationUI.setupWithNavController
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.drake.channel.receiveEvent
 import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.common.toast
 import com.example.baselibrary.delegate.viewBinding
@@ -38,9 +30,7 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     }
 
     private fun initObserver() {
-        receiveEvent<String> {
-            toast(it)
-        }
+
     }
 
     private fun initBottomNav() {

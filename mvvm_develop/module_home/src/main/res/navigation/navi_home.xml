@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navi_home"
     app:startDestination="@id/homeFragment">
 
@@ -8,6 +9,17 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.xlu.module_tab1.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_fragment_mmkv"
+            app:destination="@id/fragment_mmkv"
+            app:enterAnim="@anim/anim_in"
+            app:exitAnim="@anim/anim_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_mmkv"
+        android:name="com.xlu.module_tab1.mmkv.Fragment_mmkv"
+        android:label="fragment_mmkv"
+        tools:layout="@layout/fragment_mmkv" />
 
 </navigation>
