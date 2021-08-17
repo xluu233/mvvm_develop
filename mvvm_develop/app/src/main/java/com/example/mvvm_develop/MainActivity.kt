@@ -3,14 +3,16 @@ package com.example.mvvm_develop
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.baselibrary.base.BaseActivity
+import com.example.baselibrary.bus.LiveDataBus
 import com.example.baselibrary.common.toast
 import com.example.baselibrary.delegate.viewBinding
+import com.example.baselibrary.log.xLog
 import com.example.baselibrary.navigation.NavHostFragment
 import com.example.mvvm_develop.databinding.ActivityMainBinding
-import com.xlu.common.api.AppItf
 import com.xlu.common.constants.ConstantARouter
 
 
@@ -29,6 +31,7 @@ class MainActivity : BaseActivity(R.layout.activity_main){
 
     override fun initData(savedInstanceState: Bundle?) {
         navController = (supportFragmentManager.findFragmentById(R.id.main_fragment_container) as NavHostFragment).navController
+
     }
 
     override fun onBackPressed() {

@@ -2,15 +2,14 @@ package com.xlu.module_tab1
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.alibaba.android.arouter.launcher.ARouter
 import com.example.baselibrary.base.BaseFragment
+import com.example.baselibrary.bus.LiveDataBus
 import com.example.baselibrary.common.setNoRepeatClick
 import com.example.baselibrary.delegate.viewBinding
-import com.xlu.common.api.AppItf
+import com.example.baselibrary.log.xLog
 import com.xlu.common.constants.ConstantARouter
-import com.xlu.common.constants.ConstantARouter.ARouterFragment
-import com.xlu.common.server.ServerUtil.getAppServer
 import com.xlu.module_tab1.databinding.FragmentHomeBinding
 
 @Route(path = ConstantARouter.FragmentTab1_Main)
@@ -26,23 +25,24 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
 
     override fun initData() {
-
         initClick()
 
+        LiveDataBus.with<String>("test").observe(this, Observer {
+            xLog.d(it)
+        })
     }
 
     private fun initClick() {
-        setNoRepeatClick(views = arrayOf(binding.button,binding.button2),onClick = {
+        setNoRepeatClick(views = arrayOf(binding.button,binding.button2,binding.button3),onClick = {
             when(it){
                 binding.button -> {
-                    //navigate(R.id.action_mainFragment_to_dataBindingFragment)
-                    getAppServer().navigation(ConstantARouter.ARouterFragment)
                 }
                 binding.button2 -> {
-                    //toast(JitpackTest.getTime())
-                    ARouter.getInstance().build(ConstantARouter.MainActivity).navigation()
-                }
 
+                }
+                binding.button3 -> {
+                    LiveDataBus.with<String>("test").postData("ahahahhah")
+                }
             }
         })
     }

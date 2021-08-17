@@ -12,7 +12,9 @@ import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.drake.channel.receiveEvent
 import com.example.baselibrary.base.BaseFragment
+import com.example.baselibrary.common.toast
 import com.example.baselibrary.delegate.viewBinding
 import com.example.baselibrary.navigation.NavHostFragment
 import com.example.mvvm_develop.databinding.FragmentMainBinding
@@ -32,6 +34,13 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
 
     override fun initData() {
         initBottomNav()
+        initObserver()
+    }
+
+    private fun initObserver() {
+        receiveEvent<String> {
+            toast(it)
+        }
     }
 
     private fun initBottomNav() {
