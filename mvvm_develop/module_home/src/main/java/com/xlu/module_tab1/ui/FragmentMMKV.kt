@@ -1,4 +1,4 @@
-package com.xlu.module_tab1.mmkv
+package com.xlu.module_tab1.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -16,7 +16,7 @@ import com.xlu.module_tab1.databinding.FragmentHomeBinding
 import com.xlu.module_tab1.databinding.FragmentMmkvBinding
 
 
-class Fragment_mmkv : BaseFragment(R.layout.fragment_mmkv) {
+class FragmentMMKV : BaseFragment(R.layout.fragment_mmkv) {
 
     private val binding by viewBinding(FragmentMmkvBinding::bind)
     private val viewModel: HomeViewModel by activityViewModels()
@@ -26,22 +26,25 @@ class Fragment_mmkv : BaseFragment(R.layout.fragment_mmkv) {
     override fun initData() {
 
         binding.write.setOnClickListener {
-            MMKVUtil.encode(key,"app_test")
+            MMKVUtil.get(MMKV_TYPE.APP).encode(key,"this is mmkv_app params")
         }
+        binding.write2.setOnClickListener {
+            MMKVUtil.get(MMKV_TYPE.USER).encode(key,"this is mmkv_user params")
+        }
+
 
         binding.read.setOnClickListener {
-            binding.result.text = MMKVUtil.decodeString(key)
+            binding.result.text = MMKVUtil.get(MMKV_TYPE.APP).decodeString(key)
+        }
+        binding.read2.setOnClickListener {
+            binding.result.text = MMKVUtil.get(MMKV_TYPE.USER).decodeString(key)
         }
 
-
-        binding.change.setOnClickListener {
-            //切换到用户相关配置
-            MMKVUtil.changeMMKV(MMKV_TYPE.USER).encode(key,"user_test")
-        }
 
 
         binding.delete.setOnClickListener {
-            MMKVUtil.clearAll(MMKV_TYPE.USER)
+            MMKVUtil.get(MMKV_TYPE.USER).clearAll()
+            MMKVUtil.get(MMKV_TYPE.APP).clearAll()
         }
 
 

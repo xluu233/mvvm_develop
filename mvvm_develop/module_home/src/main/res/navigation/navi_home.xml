@@ -3,23 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navi_home"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/testFragment">
 
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.xlu.module_tab1.HomeFragment"
-        android:label="HomeFragment" >
-        <action
-            android:id="@+id/action_homeFragment_to_fragment_mmkv"
-            app:destination="@id/fragment_mmkv"
-            app:enterAnim="@anim/anim_in"
-            app:exitAnim="@anim/anim_out" />
-    </fragment>
+        android:name="com.xlu.module_tab1.FragmentHome"
+        android:label="HomeFragment" />
+
+
     <fragment
         android:id="@+id/fragment_mmkv"
-        android:name="com.xlu.module_tab1.mmkv.Fragment_mmkv"
+        android:name="com.xlu.module_tab1.ui.FragmentMMKV"
         android:label="fragment_mmkv"
         tools:layout="@layout/fragment_mmkv" />
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.xlu.module_tab1.ui.FragmentHomeMain"
+        android:label="TestFragment" >
+        <action
+            android:id="@+id/action_testFragment_to_fragment_mmkv"
+            app:destination="@id/fragment_mmkv"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
 
 </navigation>

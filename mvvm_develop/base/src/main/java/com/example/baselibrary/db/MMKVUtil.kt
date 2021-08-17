@@ -19,35 +19,42 @@ enum class MMKV_TYPE{
 }
 
 
-object MMKVUtil {
+class MMKVUtil {
 
-    //对于app和用户可以设置不同的mmkv
-    private var mmkv: MMKV ?= null
+    companion object{
 
-    //用户相关
-    private val userMMKV by lazy {
-        MMKV.mmkvWithID("user",MMKV.MULTI_PROCESS_MODE)
-    }
+        @JvmField
+        val instance = MMKVUtil()
 
-    //app配置相关
-    private val appMMKV by lazy {
-        MMKV.mmkvWithID("app",MMKV.MULTI_PROCESS_MODE)
-    }
+        //对于app和用户可以设置不同的mmkv
+        @Volatile
+        var mmkv: MMKV ?= null
 
-    //初始化
-    fun init(app:Application){
-        MMKV.initialize(app)
-        mmkv = appMMKV
-    }
+        //用户相关
+        private val userMMKV by lazy {
+            MMKV.mmkvWithID("user",MMKV.MULTI_PROCESS_MODE)
+        }
 
-    @Synchronized
-    fun changeMMKV(type : MMKV_TYPE):MMKVUtil = apply{
-        when(type){
-            MMKV_TYPE.USER -> {
-                mmkv = userMMKV
-            }
-            MMKV_TYPE.APP -> {
-                mmkv = appMMKV
+        //app配置相关
+        private val appMMKV by lazy {
+            MMKV.mmkvWithID("app",MMKV.MULTI_PROCESS_MODE)
+        }
+
+        //初始化
+        fun init(app:Application){
+            MMKV.initialize(app)
+            mmkv = appMMKV
+        }
+
+        @Synchronized
+        fun get(type: MMKV_TYPE):MMKVUtil = instance.apply{
+            mmkv = when(type){
+                MMKV_TYPE.USER -> {
+                    userMMKV
+                }
+                MMKV_TYPE.APP -> {
+                    appMMKV
+                }
             }
         }
     }
@@ -127,15 +134,8 @@ object MMKVUtil {
     }
 
     //删除所有
-    fun clearAll(type:MMKV_TYPE) {
-        when(type){
-            MMKV_TYPE.USER -> {
-                userMMKV.clearAll()
-            }
-            MMKV_TYPE.APP -> {
-                appMMKV.clearAll()
-            }
-        }
+    fun clearAll() {
+        mmkv?.clearAll()
         mmkv = null
     }
 

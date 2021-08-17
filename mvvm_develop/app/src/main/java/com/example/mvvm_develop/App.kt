@@ -2,6 +2,7 @@ package com.example.mvvm_develop
 
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.baselibrary.BaseApp
+import com.example.baselibrary.db.MMKVUtil
 import com.example.baselibrary.log.xLog
 
 /**
@@ -17,6 +18,7 @@ class App : BaseApp(){
         super.onCreate()
         xLog.d("App_init")
 
+        MMKVUtil.init(this)
         initARouter()
     }
 

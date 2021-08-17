@@ -11,7 +11,7 @@
 
     <fragment
         android:id="@+id/navi_home"
-        android:name="com.xlu.module_tab1.HomeFragment"
+        android:name="com.xlu.module_tab1.FragmentHome"
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/navi_collection"

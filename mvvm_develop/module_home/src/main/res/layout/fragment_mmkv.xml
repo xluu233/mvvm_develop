@@ -5,7 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mmkv.Fragment_mmkv">
+    tools:context=".ui.FragmentMMKV">
+
+    <Button
+        android:id="@+id/read2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Read mmkv_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/read" />
+
+    <Button
+        android:id="@+id/write2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Write mmkv_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/write" />
 
     <TextView
         android:id="@+id/result"
@@ -21,10 +40,9 @@
         android:id="@+id/write"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
-        android:text="Write"
+        android:layout_marginTop="100dp"
+        android:text="Write mmkv_app"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/result" />
 
@@ -32,29 +50,21 @@
         android:id="@+id/read"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Read"
+        android:layout_marginTop="50dp"
+        android:text="Read mmkv_app"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/write" />
-
-    <Button
-        android:id="@+id/change"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        android:text="change mmkv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/read" />
+        app:layout_constraintTop_toBottomOf="@+id/write2" />
 
     <Button
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text="DELETE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/change" />
+        app:layout_constraintTop_toBottomOf="@+id/read2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
