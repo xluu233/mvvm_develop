@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.squareup.leakcanary:leakcanary-android-utils:2.7@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/3f834506a77642ec70283e8a304cd0f1/transformed/leakcanary-android-utils-2.7/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3f834506a77642ec70283e8a304cd0f1/transformed/leakcanary-android-utils-2.7/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3f834506a77642ec70283e8a304cd0f1/transformed/leakcanary-android-utils-2.7/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-android-utils/2.7/b29829aac9c69fbc3d76e726011995321264e7b9/leakcanary-android-utils-2.7-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-android-utils/2.7/89f41f76a81f8725211f307f21e4bb3155e10250/leakcanary-android-utils-2.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

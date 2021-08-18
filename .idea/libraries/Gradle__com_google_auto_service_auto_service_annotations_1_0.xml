@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.auto.service:auto-service-annotations:1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.auto.service/auto-service-annotations/1.0/c628bf87e8b708c707aa523033d90fb0eb2d6495/auto-service-annotations-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.auto.service/auto-service-annotations/1.0/9aadccf95f146bf31e210a69b129f6f82c375679/auto-service-annotations-1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.auto.service/auto-service-annotations/1.0/e74644efef9539bdc0be265ca07aeb9eb5e3c28/auto-service-annotations-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

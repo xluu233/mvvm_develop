@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.auto:auto-common:1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.auto/auto-common/1.0/41d5dbfadf17625071d3f4a8b7f7a6d70dcd3c8f/auto-common-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.auto/auto-common/1.0/a4d5f74a733a18ba80d8a3344248dbcd995b1c1a/auto-common-1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.auto/auto-common/1.0/e5221013dfc116701cd84d03013cfd21561f8035/auto-common-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

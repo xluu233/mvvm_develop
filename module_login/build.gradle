@@ -1,0 +1,19 @@
+apply from: '../base.gradle'
+
+import com.xlu.buildsrc.Dependency
+
+android {
+
+}
+
+dependencies {
+    implementation project(path: ':common')
+
+    //ARouter
+    implementation Dependency.DependencyImp.ARoute
+    kapt Dependency.DependencyImp.ARouteCompiler
+
+    //AutoService
+    implementation Dependency.DependencyImp.AutoService
+    annotationProcessor Dependency.DependencyImp.AutoServiceAnnotations
+}

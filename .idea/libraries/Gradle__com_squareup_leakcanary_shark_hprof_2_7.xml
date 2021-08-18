@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.squareup.leakcanary:shark-hprof:2.7">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/shark-hprof/2.7/cec3884bff3f140571df1c03995f7a4edd003d60/shark-hprof-2.7.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/shark-hprof/2.7/9ed9ed341c8665f8c7f8cf9b1bad0048c0a7f8dd/shark-hprof-2.7-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/shark-hprof/2.7/2e75d2837e8cd847664ebe37213dee21437e1627/shark-hprof-2.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

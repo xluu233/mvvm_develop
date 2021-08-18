@@ -1,7 +1,0 @@
-
-*.iml
-.gradle/
-.idea/
-.idea/libraries/
-
-/local.properties

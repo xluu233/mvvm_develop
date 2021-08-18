@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-support-fragments:2.7@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7ffef04930d9243f0a51bfd25ab1a5b6/transformed/leakcanary-object-watcher-android-support-fragments-2.7/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/6c0e1cafebea3dd2d08e6a992a739d0d/transformed/jetified-leakcanary-object-watcher-android-support-fragments-2.7/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6c0e1cafebea3dd2d08e6a992a739d0d/transformed/jetified-leakcanary-object-watcher-android-support-fragments-2.7/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6c0e1cafebea3dd2d08e6a992a739d0d/transformed/jetified-leakcanary-object-watcher-android-support-fragments-2.7/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-object-watcher-android-support-fragments/2.7/4b7f0c8b2d2694265a56c0ab8e1daedbb421f860/leakcanary-object-watcher-android-support-fragments-2.7-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-object-watcher-android-support-fragments/2.7/994399c8c1dff079c7fad276cf52bd1b217fed11/leakcanary-object-watcher-android-support-fragments-2.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

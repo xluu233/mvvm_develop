@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.squareup.leakcanary:leakcanary-object-watcher-android-androidx:2.7@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/899e08ead22ec0788a783236ac1afd17/transformed/leakcanary-object-watcher-android-androidx-2.7/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/899e08ead22ec0788a783236ac1afd17/transformed/leakcanary-object-watcher-android-androidx-2.7/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/899e08ead22ec0788a783236ac1afd17/transformed/leakcanary-object-watcher-android-androidx-2.7/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-object-watcher-android-androidx/2.7/4b7f0c8b2d2694265a56c0ab8e1daedbb421f860/leakcanary-object-watcher-android-androidx-2.7-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-object-watcher-android-androidx/2.7/1de83163ac9beed59d4175b97dc9e88d41d2b905/leakcanary-object-watcher-android-androidx-2.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
