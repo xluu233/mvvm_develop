@@ -19,7 +19,7 @@
         android:label="CenterFragment" />
     <fragment
         android:id="@+id/navi_center"
-        android:name="com.xlu.module_center.CenterFragment"
+        android:name="com.xlu.module_center.FragmentCenter"
         android:label="FragmentCollection" />
 
 

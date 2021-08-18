@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import com.example.baselibrary.base.BaseFragment
@@ -13,7 +14,7 @@ import com.example.baselibrary.delegate.viewBinding
 import com.example.baselibrary.navigation.NavHostFragment
 import com.example.mvvm_develop.databinding.FragmentMainBinding
 import com.google.android.material.navigation.NavigationBarView
-import com.xlu.module_center.CenterFragment
+import com.xlu.module_center.FragmentCenter
 import com.xlu.module_collection.FragmentCollection
 import com.xlu.module_tab1.FragmentHome
 
@@ -30,6 +31,18 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     private lateinit var navController: NavController
     private lateinit var navHostFragment: NavHostFragment
 
+    private val fragmentTab1 by lazy {
+        FragmentHome.newInstance()
+    }
+
+    private val fragmentTab2 by lazy {
+        FragmentCollection.newInstance()
+    }
+
+    private val fragmentTab3 by lazy {
+        FragmentCenter.newInstance()
+    }
+
     override fun initData() {
         initBottomNav()
         initObserver()
@@ -43,8 +56,6 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
         binding.bottomNav.run {
             //取消着色
             itemIconTintList = null
-            //初始化
-            //selectedItemId = R.id.navi_home
             //去掉长按toast
             val ids = mutableListOf<Int>()
             ids.add(R.id.navi_home)
@@ -66,25 +77,42 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
 
         binding.bottomNav.setOnItemSelectedListener(object :NavigationBarView.OnItemSelectedListener{
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                navController.navigate(item.itemId)
+                //navController.navigate(item.itemId)
+                when (item.itemId) {
+                    R.id.navi_home -> {
+                        switchFragment(fragmentTab1)
+                    }
+                    R.id.navi_collection -> {
+                        switchFragment(fragmentTab2)
+                    }
+                    R.id.navi_center -> {
+                        switchFragment(fragmentTab3)
+                    }
+                }
+
                 return true
             }
         })
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        val callBack = object :OnBackPressedCallback(true){
-            override fun handleOnBackPressed() {
-                val currentFragment = navHostFragment.childFragmentManager.primaryNavigationFragment
-                Log.d(TAG, "handleOnBackPressed: ${currentFragment?.javaClass?.name}")
-                if (currentFragment is FragmentHome || currentFragment is FragmentCollection || currentFragment is CenterFragment){
-                    requireActivity().finish()
+    private var currentFragment: Fragment? = null
+    private fun switchFragment(fragment: Fragment){
+        parentFragmentManager.beginTransaction().apply {
+            if (currentFragment==null){
+                add(R.id.home_fragment_container,fragment).show(fragment)
+            }else if (currentFragment==fragment){
+                return
+            }else{
+                hide(currentFragment!!)
+                if (fragment.isAdded){
+                    show(fragment)
                 }else{
-                    return
+                    add(R.id.home_fragment_container,fragment).show(fragment)
                 }
             }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(callBack)
+            currentFragment = fragment
+        }.commit()
     }
+
+
 }

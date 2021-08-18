@@ -9,4 +9,6 @@ package com.xlu.common.constants
 object ConstantEvent {
 
 
+    const val app_go_databinding_fragment = "app_go_databinding_fragment"
+
 }

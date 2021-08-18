@@ -8,7 +8,20 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.mvvm_develop.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment" >
+
+        <action
+            android:id="@+id/action_mainFragment_to_dataBindingFragment"
+            app:destination="@id/dataBindingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/mainFragment"/>
+    </fragment>
+
+    <!--            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"-->
 
     <fragment
         android:id="@+id/dataBindingFragment"

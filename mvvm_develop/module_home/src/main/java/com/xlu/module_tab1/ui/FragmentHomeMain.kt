@@ -8,6 +8,8 @@ import com.example.baselibrary.bus.LiveDataBus
 import com.example.baselibrary.common.setNoRepeatClick
 import com.example.baselibrary.delegate.viewBinding
 import com.example.baselibrary.log.xLog
+import com.xlu.common.constants.ConstantEvent
+import com.xlu.common.constants.ConstantParams
 import com.xlu.module_tab1.HomeViewModel
 import com.xlu.module_tab1.R
 import com.xlu.module_tab1.databinding.FragmentTestBinding
@@ -31,17 +33,19 @@ class FragmentHomeMain : BaseFragment(R.layout.fragment_test) {
 
 
     private fun initClick() {
-        setNoRepeatClick(views = arrayOf(binding.button,binding.button2,binding.button3),onClick = {
+        setNoRepeatClick(views = arrayOf(binding.button,binding.button2,binding.button3,binding.button4),onClick = {
             when(it){
                 binding.button -> {
-                    //findNavController().navigate(R.id.action_testFragment_to_fragment_mmkv)
                     navigate(R.id.action_testFragment_to_fragment_mmkv)
                 }
                 binding.button2 -> {
-                    findNavController().navigate(R.id.action_testFragment_to_fragment_mmkv)
+
                 }
                 binding.button3 -> {
                     LiveDataBus.with<String>("test").postData("ahahahhah")
+                }
+                binding.button4 -> {
+                    LiveDataBus.with<Boolean>(ConstantEvent.app_go_databinding_fragment).postData(true)
                 }
             }
         })

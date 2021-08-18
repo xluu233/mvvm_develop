@@ -19,5 +19,15 @@
 
     <translate android:fromXDelta="100%" android:toXDelta="0%"
                android:fromYDelta="0%" android:toYDelta="0%"
-               android:duration="400"/>
+               android:duration="300"/>
+
+    <scale
+        android:duration="300"
+        android:fromXScale="0.9"
+        android:fromYScale="0.9"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toXScale="1"
+        android:toYScale="1" />
+
 </set>

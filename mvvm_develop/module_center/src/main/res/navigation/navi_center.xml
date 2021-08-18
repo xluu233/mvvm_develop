@@ -8,6 +8,6 @@
 
     <fragment
         android:id="@+id/centerFragment"
-        android:name="com.xlu.module_center.CenterFragment"
+        android:name="com.xlu.module_center.FragmentCenter"
         android:label="CenterFragment" />
 </navigation>

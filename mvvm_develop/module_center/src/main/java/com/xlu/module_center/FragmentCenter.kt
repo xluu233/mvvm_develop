@@ -5,11 +5,11 @@ import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.delegate.viewBinding
 import com.xlu.module_center.databinding.FragmentCenterBinding
 
-class CenterFragment : BaseFragment(R.layout.fragment_center) {
+class FragmentCenter : BaseFragment(R.layout.fragment_center) {
 
     companion object {
         @JvmStatic
-        fun newInstance() = CenterFragment()
+        fun newInstance() = FragmentCenter()
     }
 
     private val binding by viewBinding(FragmentCenterBinding::bind)
