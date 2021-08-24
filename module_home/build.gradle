@@ -1,4 +1,5 @@
 apply from: '../base.gradle'
+apply plugin: 'kotlin-android'
 
 import com.xlu.buildsrc.Dependency
 
@@ -11,9 +12,16 @@ dependencies {
 
     //ARouter
     implementation Dependency.DependencyImp.ARoute
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt Dependency.DependencyImp.ARouteCompiler
 
     //AutoService
     implementation Dependency.DependencyImp.AutoService
     annotationProcessor Dependency.DependencyImp.AutoServiceAnnotations
+
+    //room
+    implementation Dependency.DependencyImp.Room
+    annotationProcessor Dependency.DependencyImp.RoomAnnotationProcessor
+    kapt Dependency.DependencyImp.RoomAnnotationProcessor
+
 }

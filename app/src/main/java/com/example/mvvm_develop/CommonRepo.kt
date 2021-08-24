@@ -24,7 +24,7 @@ class CommonRepo(scope: CoroutineScope) : BaseRepository(scope) {
             block = {
                 mService.loadProjectTree()
             },
-            success = {
+            response = {
                 resultLiveData.postValue(it)
             }
         )
@@ -35,7 +35,7 @@ class CommonRepo(scope: CoroutineScope) : BaseRepository(scope) {
             block = {
                 mService.loadProjectTree()
             },
-            success = {
+            response = {
                 resultLiveData.postValue(it)
             }
         )

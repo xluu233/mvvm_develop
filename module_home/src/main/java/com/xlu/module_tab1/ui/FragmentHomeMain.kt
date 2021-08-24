@@ -33,13 +33,10 @@ class FragmentHomeMain : BaseFragment(R.layout.fragment_test) {
 
 
     private fun initClick() {
-        setNoRepeatClick(views = arrayOf(binding.button,binding.button2,binding.button3,binding.button4),onClick = {
+        setNoRepeatClick(views = arrayOf(binding.button,binding.button3,binding.button4),onClick = {
             when(it){
                 binding.button -> {
                     navigate(R.id.action_testFragment_to_fragment_mmkv)
-                }
-                binding.button2 -> {
-
                 }
                 binding.button3 -> {
                     LiveDataBus.with<String>("test").postData("ahahahhah")
@@ -49,6 +46,13 @@ class FragmentHomeMain : BaseFragment(R.layout.fragment_test) {
                 }
             }
         })
+
+
+        binding.button5.setOnClickListener {
+            navigate(R.id.action_HomeMainFragment_to_roomFragment)
+        }
+
+
     }
 
 

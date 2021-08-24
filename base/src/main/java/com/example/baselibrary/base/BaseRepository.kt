@@ -15,37 +15,38 @@ open class BaseRepository(private val coroutineScope: CoroutineScope) {
 
 
     protected fun <T> launch(
-            block : suspend () -> ApiResponse<T>,
-            success: suspend (ApiResponse<T>) -> Unit
+        block: suspend () -> ApiResponse<T>,
+        response: suspend (ApiResponse<T>) -> Unit,
+        db: (suspend (ApiResponse<T>) -> Unit) ?= null
     ){
         coroutineScope.launch(Dispatchers.IO){
-            var baseResp = ApiResponse<T>()
+            var result = ApiResponse<T>()
             try {
-                baseResp.state = NetState.STATE_LOADING
+                result.state = NetState.STATE_LOADING
                 //开始请求数据
                 val invoke = block.invoke()
                 //将结果复制给baseResp
-                baseResp = invoke
-                when(baseResp.code){
+                result = invoke
+                when(result.code){
                     0,200 -> {
                         //请求成功，判断数据是否为空
-                        if (baseResp.data == null || baseResp.data is List<*> && (baseResp.data as List<*>).size == 0) {
-                            //: 数据为空,结构变化时需要修改判空条件
-                            baseResp.state = NetState.STATE_EMPTY
+                        if (result.data == null || result.data is List<*> && (result.data as List<*>).size == 0) {
+                            //数据为空,结构变化时需要修改判空条件
+                            result.state = NetState.STATE_EMPTY
                         } else {
                             //请求成功并且数据为空的情况下，为STATE_SUCCESS
-                            baseResp.state = NetState.STATE_SUCCESS
+                            result.state = NetState.STATE_SUCCESS
                         }
                     }
                     400,401 -> {
-                        baseResp.state = NetState.STATE_FAILED
+                        result.state = NetState.STATE_FAILED
                     }
                 }
             }catch (e:Exception){
-                baseResp.state = NetState.STATE_ERROR
+                result.state = NetState.STATE_ERROR
                 e.printStackTrace()
             }finally {
-                success(baseResp)
+                response(result)
             }
         }
     }

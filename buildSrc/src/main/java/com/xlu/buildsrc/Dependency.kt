@@ -135,9 +135,7 @@ object Dependency  {
         const val MMKV = "com.tencent:mmkv-static:${Version.MMKV}"
         //room
         const val Room = "androidx.room:room-runtime:${Version.Room}"
-        const val RoomKapt = "androidx.room:room-compiler:${Version.Room}"
-        const val RoomKtx = "androidx.room:room-ktx:${Version.Room}"
-        const val RoomannotationProcessor = "androidx.room:room-compiler:${Version.Room}"
+        const val RoomAnnotationProcessor = "androidx.room:room-compiler:${Version.Room}"
 
         // Glide
         const val Glide = "com.github.bumptech.glide:glide:${Version.Glide}"

@@ -40,10 +40,8 @@ dependencies {
     api Dependency.DependencyImp.EventBus
     kapt Dependency.DependencyImp.EventBusAPT
     //room
-    api Dependency.DependencyImp.Room
-    kapt Dependency.DependencyImp.RoomKapt
-    api Dependency.DependencyImp.RoomKtx
-    annotationProcessor Dependency.DependencyImp.RoomannotationProcessor
+//    api Dependency.DependencyImp.Room
+//    kapt Dependency.DependencyImp.RoomAnnotationProcessor
     // mmkv
     api Dependency.DependencyImp.MMKV
     //Bugly

@@ -5,6 +5,9 @@ import java.io.Serializable
 
 class ApiResponse<T> : Serializable {
 
+//    "errorCode": 0,
+//    "errorMsg": ""
+
     var code : Int = 0
 
     var data : T ?= null

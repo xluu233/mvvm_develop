@@ -3,13 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navi_home"
-    app:startDestination="@id/testFragment">
-
+    app:startDestination="@id/HomeMainFragment">
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.xlu.module_tab1.FragmentHome"
-        android:label="HomeFragment" />
+        android:id="@+id/HomeMainFragment"
+        android:name="com.xlu.module_tab1.ui.FragmentHomeMain"
+        android:label="TestFragment" >
+        <action
+            android:id="@+id/action_testFragment_to_fragment_mmkv"
+            app:destination="@id/fragment_mmkv"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_HomeMainFragment_to_roomFragment"
+            app:destination="@id/roomFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"  />
+    </fragment>
 
 
     <fragment
@@ -18,14 +28,9 @@
         android:label="fragment_mmkv"
         tools:layout="@layout/fragment_mmkv" />
     <fragment
-        android:id="@+id/testFragment"
-        android:name="com.xlu.module_tab1.ui.FragmentHomeMain"
-        android:label="TestFragment" >
-        <action
-            android:id="@+id/action_testFragment_to_fragment_mmkv"
-            app:destination="@id/fragment_mmkv"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
-    </fragment>
+        android:id="@+id/roomFragment"
+        android:name="com.xlu.module_tab1.ui.RoomFragment"
+        android:label="RoomFragment" />
+
 
 </navigation>
