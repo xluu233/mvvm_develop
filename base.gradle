@@ -23,8 +23,10 @@ android {
         kapt {
             arguments {
                 arg("AROUTER_MODULE_NAME", project.getName())
+                arg("room.schemaLocation", "$projectDir/schemas")
             }
         }
+
     }
 
     compileOptions {
