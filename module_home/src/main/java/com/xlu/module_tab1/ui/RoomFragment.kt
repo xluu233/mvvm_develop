@@ -1,11 +1,6 @@
 package com.xlu.module_tab1.ui
 
-import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
@@ -14,7 +9,7 @@ import com.example.baselibrary.http.NetState
 import com.xlu.module_tab1.HomeViewModel
 import com.xlu.module_tab1.R
 import com.xlu.module_tab1.databinding.FragmentRoomBinding
-import com.xlu.module_tab1.db.Database
+import com.xlu.module_tab1.db.HomeDatabase
 import kotlinx.coroutines.*
 
 class RoomFragment : DataBindingBaseFragment<FragmentRoomBinding>(R.layout.fragment_room) {
@@ -22,28 +17,37 @@ class RoomFragment : DataBindingBaseFragment<FragmentRoomBinding>(R.layout.fragm
     private val viewModel: HomeViewModel by activityViewModels()
 
     private val homeDao by lazy {
-        Database.getInstance().homeDao()
+        HomeDatabase.getInstance().homeDao()
     }
 
     override fun initData() {
         initClick()
 
         viewModel.articleLiveData.observe(this, Observer {
-            if (it.state == NetState.STATE_SUCCESS){
-                it.data?.datas?.forEach {
-                    Log.d(TAG, "articleLiveData: ${it.toString()}")
+            //对于不同状态的处理
+            when(it.state) {
+                NetState.STATE_SUCCESS -> {
+
+                }
+                NetState.STATE_ERROR -> {
+
+                }
+                else -> {
+
                 }
             }
+
+            it.data?.datas?.forEach {
+                Log.d(TAG, "articleLiveData: ${it.toString()}")
+            }
         })
-
-
-
 
     }
 
     private fun initClick() {
         mBinding.getArticle.setOnClickListener {
-            viewModel.getHomeArticle(1)
+            //viewModel.getHomeArticle(1)
+            viewModel.test()
         }
 
         mBinding.query.setOnClickListener {
@@ -51,7 +55,6 @@ class RoomFragment : DataBindingBaseFragment<FragmentRoomBinding>(R.layout.fragm
                 val allData = homeDao.getAllData()
                 allData.forEach {
                     Log.d(TAG, " ---------------------------")
-
                     it.datas.forEach {
                         Log.d(TAG, "${it.toString()}")
                     }

@@ -23,22 +23,22 @@ class FragmentHome : BaseFragment(R.layout.fragment_home) {
     private val binding by viewBinding(FragmentHomeBinding::bind)
     private val viewModel: HomeViewModel by activityViewModels()
 
-    override fun onAttach(context: Context) {
+/*    override fun onAttach(context: Context) {
         super.onAttach(context)
         val callBack = object : OnBackPressedCallback(true){
             override fun handleOnBackPressed() {
                 val navHostFragment = childFragmentManager.findFragmentById(R.id.home_fragment_container) as NavHostFragment
                 val currentFragment = navHostFragment.childFragmentManager.primaryNavigationFragment
                 Log.d(TAG, "handleOnBackPressed: ${currentFragment?.javaClass?.name}")
-//                if (currentFragment is ){
-//                    requireActivity().finish()
-//                }else{
-//                    //return
-//                }
+                if (currentFragment is FragmentHome){
+                    requireActivity().finish()
+                }else{
+                    //return
+                }
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(callBack)
-    }
+    }*/
 
     override fun initData() {
 

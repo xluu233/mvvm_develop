@@ -45,18 +45,18 @@ class MainActivity : BaseActivity(R.layout.activity_main){
         })
 
     }
-
-    override fun onBackPressed() {
-        //获取当前所在的fragment
-        val fragment = navHostFragment.childFragmentManager.primaryNavigationFragment
-
-        Log.d(TAG, "onBackPressed: ${fragment?.javaClass?.name}")
-        if (fragment is MainFragment) {
-            this.finish()
-            //navController.navigateUp()
-        }else{
-            super.onBackPressed()
-        }
-    }
+//
+//    override fun onBackPressed() {
+//        //获取当前所在的fragment
+//        val fragment = navHostFragment.childFragmentManager.primaryNavigationFragment
+//
+//        Log.d(TAG, "onBackPressed: ${fragment?.javaClass?.name}")
+//        if (fragment is MainFragment) {
+//            this.finish()
+//            //navController.navigateUp()
+//        }else{
+//            super.onBackPressed()
+//        }
+//    }
 
 }

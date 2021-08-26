@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import androidx.core.content.FileProvider
+import com.example.baselibrary.BaseApp
 import java.io.*
 
 
@@ -18,14 +19,15 @@ import java.io.*
  */
 object FileUtil {
 
+    
     /**
      *  私有目录-cache
-     * @param context
+     *
      * @param subDir 子目录文件夹名称
      * @return
      */
-    fun getAppCachePath(context: Context, subDir:String?=null):String{
-        val path = StringBuilder(context.cacheDir.absolutePath)
+    fun getAppCachePath(subDir:String?=null):String{
+        val path = StringBuilder(BaseApp.getContext().cacheDir.absolutePath)
         subDir?.let {
             path.append(File.separator).append(it).append(File.separator)
         }
@@ -37,12 +39,12 @@ object FileUtil {
 
     /**
      *  私有目录-files
-     * @param context
+     *
      * @param subDir 子目录文件夹名称
      * @return
      */
-    fun getAppFilePath(context: Context, subDir:String?=null): String {
-        val path = StringBuilder(context.filesDir.absolutePath)
+    fun getAppFilePath(subDir:String?=null): String {
+        val path = StringBuilder(BaseApp.getContext().filesDir.absolutePath)
         subDir?.let {
             path.append(File.separator).append(it).append(File.separator)
         }
@@ -91,7 +93,7 @@ object FileUtil {
      * @param subDir 子目录文件夹名称
      * @return
      */
-    fun getExternalCameraPath(context: Context, subDir:String?=null): String{
+    fun getExternalCameraPath(subDir:String?=null): String{
         val path = StringBuilder(Environment.getExternalStorageDirectory().absolutePath)
             .append(File.separator)
             .append(Environment.DIRECTORY_DCIM)
@@ -108,7 +110,7 @@ object FileUtil {
      * @param subDir 子目录文件夹名称
      * @return
      */
-    fun getExternalMusicPath(context: Context, subDir:String?=null): String{
+    fun getExternalMusicPath(subDir:String?=null): String{
         val path = StringBuilder(Environment.getExternalStorageDirectory().absolutePath)
             .append(File.separator)
             .append(Environment.DIRECTORY_MUSIC)
@@ -123,8 +125,8 @@ object FileUtil {
     /**
      *  内部存储-临时目录，cache -> temp
      */
-    fun getAppTempPath(context: Context):String{
-        val path = StringBuilder(context.cacheDir.absolutePath)
+    fun getAppTempPath():String{
+        val path = StringBuilder(BaseApp.getContext().cacheDir.absolutePath)
             .append(File.separator)
             .append("temp")
             .append(File.separator)
@@ -136,12 +138,12 @@ object FileUtil {
 
     /**
      *  分区存储-Cache目录
-     * @param context
+     *
      * @param subDir 子目录文件夹名称
      * @return
      */
-    fun getExternalAppCachePath(context: Context,subDir: String?=null):String{
-        val path = StringBuilder(context.externalCacheDir?.absolutePath)
+    fun getExternalAppCachePath(subDir: String?=null):String{
+        val path = StringBuilder(BaseApp.getContext().externalCacheDir?.absolutePath)
         subDir?.let {
             path.append(File.separator).append(it).append(File.separator)
         }
@@ -152,12 +154,12 @@ object FileUtil {
 
     /**
      *  分区存储-File目录
-     * @param context
+     *
      * @param subDir 子目录文件夹名称
      * @return
      */
-    fun getExternalAppFilePath(context: Context,subDir: String?=null):String{
-        val path = context.getExternalFilesDir(subDir)?.absolutePath
+    fun getExternalAppFilePath(subDir: String?=null):String{
+        val path = BaseApp.getContext().getExternalFilesDir(subDir)?.absolutePath
         val dir = File(path.toString())
         if (!dir.exists()) dir.mkdir()
         return path.toString()
@@ -167,14 +169,14 @@ object FileUtil {
     /**
      *  Uri转File
      */
-    fun uri2File(context: Context, uri: Uri): File? {
+    fun uri2File(uri: Uri): File? {
         var path: String ?= null
         when(uri.scheme){
             "file" -> {
                 path = uri.encodedPath
                 if (path != null) {
                     path = Uri.decode(path)
-                    val cr = context.contentResolver
+                    val cr = BaseApp.getContext().contentResolver
                     val buff = StringBuffer()
                     buff.append("(").append(MediaStore.Images.ImageColumns.DATA).append("=")
                         .append("'$path'").append(")")
@@ -210,7 +212,7 @@ object FileUtil {
             "content" -> {
                 // 4.2.2以后
                 val proj = arrayOf(MediaStore.Images.Media.DATA)
-                val cursor: Cursor? = context.contentResolver.query(uri, proj, null, null, null)
+                val cursor: Cursor? = BaseApp.getContext().contentResolver.query(uri, proj, null, null, null)
                 cursor?.let {
                     if (cursor.moveToFirst()) {
                         val columnIndex: Int = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
@@ -233,12 +235,12 @@ object FileUtil {
     /**
      *  File转Uri
      */
-    fun file2Uri(context: Context, file: File?):Uri?{
+    fun file2Uri(file: File?):Uri?{
         if (file==null) return null
 
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             //适配Android 7.0文件权限，通过FileProvider创建一个content类型的Uri
-            FileProvider.getUriForFile(context, "${context.packageName}.fileProvider", file)
+            FileProvider.getUriForFile(BaseApp.getContext(), "${BaseApp.getContext().packageName}.fileProvider", file)
         } else {
             Uri.fromFile(file)
         }

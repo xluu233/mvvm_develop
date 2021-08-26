@@ -17,8 +17,10 @@ class HomeViewModel : BaseViewModel() {
 
     val articleLiveData = ResultLiveData<Article>()
     fun getHomeArticle(page:Int){
-        repo.getHomeArticle(page,articleLiveData)
+        repo.getHomeArticleWithRoom(page,articleLiveData)
     }
 
-
+    fun test(){
+        repo.test()
+    }
 }
