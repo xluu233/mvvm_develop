@@ -10,22 +10,33 @@ Android技术迭代不休，今天学会的东西明天可能记过时了，不�
 
 ## 主要技术点
 
+### 基础功能封装
+
+> 这里包含了对BaseActivity、BaseFragment封装设计，比如viewBidning和databinding的处理。
+
+参考：[写一个MVVM快速开发框架（一）基础类封装](https://juejin.cn/post/6989918599007698957)
+
+
 ### 组件化搭建
 > 各个module采用统一依赖管理，页面跳转采用ARouter,页面通信采用接口编程思想，module对外提供服务,application初始化采用@AutoService
 
+参考：[写一个MVVM快速开发框架（二）组件化改造](https://juejin.cn/post/6995082240287850527)
 <!-- ![组件化架构.jpg](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1cb79735d1be4b1ab88777f78b7e2be9~tplv-k3u1fbpfcp-watermark.image) -->
 
 
-### 网络封装
-> 使用viewModel+liveData+协程 处理网络数据，Retrofit处理网络访问，具体参考博客。
-<!-- 整体架构如下：
+### 单Activity+多Fragment模式
+> 将Activity作为容器，使用Navigation作为导航，可以有效提高页面跳转效率。
 
-![网络架构.jpg](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6674f40d300243d1a6e7a4a96beb8596~tplv-k3u1fbpfcp-watermark.image) -->
+参考：[谈一谈“单Activity+多Fragment”模式](https://juejin.cn/post/6997422487654891533)
 
-## 参考博客：
 
-#### 写一个MVVM快速开发框架（一）基础类封装
-https://juejin.cn/post/6989918599007698957
+### 数据处理
+> 使用LiveData进行事件通信，Room+mmkv数据处理，网络缓存设计
 
-#### 写一个MVVM快速开发框架（二）组件化改造
-https://juejin.cn/post/6995082240287850527
+参考：[写一个MVVM快速开发框架（四）优雅的数据处理](https://juejin.cn/post/7000627451575566373)
+
+
+
+
+---
+欢迎大家Star，`master`分支目前没有更新，请切换至`develop`分支
