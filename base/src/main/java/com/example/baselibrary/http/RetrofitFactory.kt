@@ -1,14 +1,12 @@
 package com.example.baselibrary.http
 
 import android.content.Context
-import android.util.Log
 import com.example.baselibrary.BuildConfig
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-import android.net.NetworkInfo
 
 import android.net.ConnectivityManager
 import com.example.baselibrary.BaseApp

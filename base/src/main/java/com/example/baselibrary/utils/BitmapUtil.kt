@@ -181,7 +181,7 @@ object BitmapUtil {
     /**
      *  最佳缩放Bitmap
      */
-    fun zoomBitmap(bm: Bitmap?, width: Int, height: Int): Bitmap? {
+    fun scaleBitmap(bm: Bitmap?, width: Int, height: Int): Bitmap? {
         if (bm==null || bm.isRecycled){
             return null
         }
