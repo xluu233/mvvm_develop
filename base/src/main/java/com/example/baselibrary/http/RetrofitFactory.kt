@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit
 
 import android.net.ConnectivityManager
 import com.example.baselibrary.BaseApp
+import com.example.baselibrary.utils.FilePath
 import com.example.baselibrary.utils.FileUtil
 import java.io.File
 
@@ -19,7 +20,7 @@ object RetrofitFactory {
     const val TAG = "RetrofitFactory"
 
     //添加Cache拦截器，有网时添加到缓存中，无网时取出缓存
-    var file: File = File(FileUtil.getAppCachePath())
+    var file: File = File(FilePath.getAppCachePath())
     var cache = Cache(file, 1024 * 1024 * 100)
 
     private val okHttpClientBuilder: OkHttpClient.Builder by lazy {

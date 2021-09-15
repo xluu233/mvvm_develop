@@ -72,7 +72,7 @@ object PdfUtil {
             return File(uri.toString())
 
         } else {
-            val filePath = FileUtil.getExternalDownloadPath(pdf_save_path)
+            val filePath = FilePath.getExternalDownloadPath(pdf_save_path)
             val file = File(filePath, fileName)
             var outputStream: FileOutputStream? = null
             try {
