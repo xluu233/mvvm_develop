@@ -2,14 +2,12 @@ package com.xlu.module_tab1.ui
 
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.bus.LiveDataBus
 import com.example.baselibrary.common.setNoRepeatClick
 import com.example.baselibrary.delegate.viewBinding
 import com.example.baselibrary.log.xLog
 import com.xlu.common.constants.ConstantEvent
-import com.xlu.common.constants.ConstantParams
 import com.xlu.module_tab1.HomeViewModel
 import com.xlu.module_tab1.R
 import com.xlu.module_tab1.databinding.FragmentTestBinding

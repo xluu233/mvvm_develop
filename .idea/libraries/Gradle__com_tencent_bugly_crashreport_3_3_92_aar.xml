@@ -4,6 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/f41fbfa79155ffd4ee970ce7f3072a04/transformed/crashreport-3.3.92/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f41fbfa79155ffd4ee970ce7f3072a04/transformed/crashreport-3.3.92/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f41fbfa79155ffd4ee970ce7f3072a04/transformed/crashreport-3.3.92/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/759fe5a56410003ed6440983c34d7aba/transformed/jetified-crashreport-3.3.92/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/759fe5a56410003ed6440983c34d7aba/transformed/jetified-crashreport-3.3.92/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/759fe5a56410003ed6440983c34d7aba/transformed/jetified-crashreport-3.3.92/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tencent.bugly/crashreport/3.3.92/4b0617e31c47394b7256f4b0b1410bc684161c66/crashreport-3.3.92-javadoc.jar!/" />

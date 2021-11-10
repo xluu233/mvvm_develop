@@ -4,6 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/bd21a718949dba60fe6a18f72692171e/transformed/savedstate-1.1.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bd21a718949dba60fe6a18f72692171e/transformed/savedstate-1.1.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bd21a718949dba60fe6a18f72692171e/transformed/savedstate-1.1.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1527ee9f44934a6a9b639a5493d2706a/transformed/jetified-savedstate-1.1.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/1527ee9f44934a6a9b639a5493d2706a/transformed/jetified-savedstate-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1527ee9f44934a6a9b639a5493d2706a/transformed/jetified-savedstate-1.1.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

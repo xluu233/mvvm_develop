@@ -4,6 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/8865e68abbede5f53aa90652a144906d/transformed/curtains-1.0.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/8865e68abbede5f53aa90652a144906d/transformed/curtains-1.0.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/8865e68abbede5f53aa90652a144906d/transformed/curtains-1.0.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6db5ee247b98ac4b1f59b9f6d4090a59/transformed/jetified-curtains-1.0.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/6db5ee247b98ac4b1f59b9f6d4090a59/transformed/jetified-curtains-1.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6db5ee247b98ac4b1f59b9f6d4090a59/transformed/jetified-curtains-1.0.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.curtains/curtains/1.0.1/add3786f162ada0ec25e07108130b683cd8fec4a/curtains-1.0.1-javadoc.jar!/" />

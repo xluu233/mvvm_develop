@@ -1,8 +1,10 @@
 package com.example.baselibrary.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.media.ExifInterface
+import androidx.arch.core.executor.ArchTaskExecutor
 import androidx.core.app.ActivityCompat
 import java.io.*
 import java.text.SimpleDateFormat
@@ -29,24 +31,20 @@ private fun copyExif(sourcePath: String, targetPath: String) {
     }
 }
 
-/**
- * 日期格式字符串转换成时间戳
- * @param date 字符串日期
- * @param format 如：yyyy-MM-dd HH:mm:ss
- * @return
- */
-fun getCurentTime(): String {
-    val timeStamp = System.currentTimeMillis() //获取当前时间戳
-    //SimpleDateFormat("yyyy 年 MM 月 dd 日 HH 时 mm 分 ss 秒")
-    val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-    val sd = sdf.format(Date(timeStamp.toString().toLong())) // 时间戳转换成时间
-    return sd
-}
-
 fun Context.hasPermission(permission: String): Boolean {
     return ActivityCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
 }
 
 
+/**
+ * TODO 判断是否在主线程
+ * @param methodName
+ */
+@SuppressLint("RestrictedApi")
+fun assertMainThread(methodName: String ?= ""){
+    check(ArchTaskExecutor.getInstance().isMainThread) {
+        ("Cannot invoke $methodName on a background thread")
+    }
+}
 
 

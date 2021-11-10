@@ -4,6 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/17800460c671ec7d9fe106e29b92d9eb/transformed/rxbinding-4.0.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/17800460c671ec7d9fe106e29b92d9eb/transformed/rxbinding-4.0.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/17800460c671ec7d9fe106e29b92d9eb/transformed/rxbinding-4.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e198ec3a1f095ff281c3c16e86e7677c/transformed/jetified-rxbinding-4.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/e198ec3a1f095ff281c3c16e86e7677c/transformed/jetified-rxbinding-4.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e198ec3a1f095ff281c3c16e86e7677c/transformed/jetified-rxbinding-4.0.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton.rxbinding4/rxbinding/4.0.0/50f5dc7fa7e4ffc4c41490981981abefee50c5d6/rxbinding-4.0.0-javadoc.jar!/" />

@@ -1,6 +1,5 @@
 package com.example.baselibrary.http
 
-import androidx.room.Entity
 import java.io.Serializable
 
 

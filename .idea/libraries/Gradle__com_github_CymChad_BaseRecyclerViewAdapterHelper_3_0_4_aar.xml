@@ -4,6 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9671b757f5f7257eed5c880b5e3cb3a4/transformed/BaseRecyclerViewAdapterHelper-3.0.4/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9671b757f5f7257eed5c880b5e3cb3a4/transformed/BaseRecyclerViewAdapterHelper-3.0.4/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9671b757f5f7257eed5c880b5e3cb3a4/transformed/BaseRecyclerViewAdapterHelper-3.0.4/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/40204ddc33bad5b4527e1b5d143d7aa3/transformed/jetified-BaseRecyclerViewAdapterHelper-3.0.4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/40204ddc33bad5b4527e1b5d143d7aa3/transformed/jetified-BaseRecyclerViewAdapterHelper-3.0.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/40204ddc33bad5b4527e1b5d143d7aa3/transformed/jetified-BaseRecyclerViewAdapterHelper-3.0.4/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

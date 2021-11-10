@@ -12,7 +12,7 @@ class CommonViewModel : BaseViewModel() {
 
     val liveData = ResultLiveData<List<BannerData>>()
     fun load(){
-        repo.laod(liveData)
+        repo.load2(liveData)
     }
 
 

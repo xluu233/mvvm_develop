@@ -1,7 +1,5 @@
 package com.xlu.module_login
 
-import android.app.Application
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Autowired
@@ -10,7 +8,6 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.example.baselibrary.base.BaseActivity
 import com.example.baselibrary.delegate.viewBinding
 import com.example.baselibrary.log.xLog
-import com.xlu.common.api.LoginItf
 import com.xlu.common.constants.ConstantARouter
 import com.xlu.common.constants.ConstantParams
 import com.xlu.module_login.databinding.ActivityLoginBinding

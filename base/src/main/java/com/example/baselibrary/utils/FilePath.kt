@@ -1,16 +1,16 @@
 package com.example.baselibrary.utils
 
-import android.Manifest
+import android.content.ContentResolver
 import android.content.Context
 import android.database.Cursor
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
+import android.os.FileUtils
 import android.provider.MediaStore
-import android.util.Log
+import android.webkit.MimeTypeMap
 import androidx.core.content.FileProvider
 import com.example.baselibrary.BaseApp
-import com.tbruyelle.rxpermissions3.RxPermissions
 import java.io.*
 import kotlin.concurrent.thread
 
@@ -27,9 +27,33 @@ fun getContext():Context{
 
 object FilePath {
 
+    /*----------------------外部：分区存储目录------------------------*/
+    /**
+     *  分区存储-Cache目录
+     */
+    fun getAppExternalCachePath(subDir: String?=null):String{
+        val path = StringBuilder(getContext().externalCacheDir?.absolutePath)
+        subDir?.let {
+            path.append(File.separator).append(it).append(File.separator)
+        }
+        val dir = File(path.toString())
+        if (!dir.exists()) dir.mkdir()
+        return path.toString()
+    }
+
+    /**
+     *  分区存储-File目录
+     */
+    fun getAppExternalFilePath(subDir: String?=null):String{
+        val path = getContext().getExternalFilesDir(subDir)?.absolutePath
+        val dir = File(path.toString())
+        if (!dir.exists()) dir.mkdir()
+        return path.toString()
+    }
+    /*--------------------------------------------------*/
 
 
-    /*-----------------------内部私有目录--------------------------*/
+    /*-----------------------内部：私有目录--------------------------*/
 
     /**
      *  私有目录-files
@@ -59,49 +83,29 @@ object FilePath {
 
     /*------------------------cache子目录------------------------*/
     fun getAudioPathEndWithSeparator(): String {
-        val path = StringBuilder(getContext().filesDir.absolutePath)
-        path.append(File.separator).append("audio").append(File.separator)
-        val dir = File(path.toString())
-        if (!dir.exists()) dir.mkdir()
-        return path.toString()
+        return getAppCachePath("audio")
     }
 
     fun getTxtPathEndWithSeparator(): String {
-        val path = StringBuilder(getContext().filesDir.absolutePath)
-        path.append(File.separator).append("txt").append(File.separator)
-        val dir = File(path.toString())
-        if (!dir.exists()) dir.mkdir()
-        return path.toString()
+        return getAppCachePath("txt")
     }
 
     fun getMp3PathEndWithSeparator(): String {
-        val path = StringBuilder(getContext().filesDir.absolutePath)
-        path.append(File.separator).append("mp3").append(File.separator)
-        val dir = File(path.toString())
-        if (!dir.exists()) dir.mkdir()
-        return path.toString()
+        return getAppCachePath("mp3")
     }
 
     fun getTempPathEndWithSeparator(): String {
-        val path = StringBuilder(getContext().filesDir.absolutePath)
-        path.append(File.separator).append("temp").append(File.separator)
-        val dir = File(path.toString())
-        if (!dir.exists()) dir.mkdir()
-        return path.toString()
+        return getAppCachePath("temp")
     }
 
     fun getXmlPathEndWithSeparator(): String {
-        val path = StringBuilder(getContext().filesDir.absolutePath)
-        path.append(File.separator).append("xml").append(File.separator)
-        val dir = File(path.toString())
-        if (!dir.exists()) dir.mkdir()
-        return path.toString()
+        return getAppCachePath("xml")
     }
     /*--------------------------------------------------*/
 
 
 
-    /*-----------------公共目录（需要权限）----------------*/
+    /*-----------------外部：公共目录（需要权限）----------------*/
     /**
      *  Pictures
      */
@@ -164,36 +168,6 @@ object FilePath {
     /*---------------------------------------------------------*/
 
 
-
-
-    /*----------------------分区存储目录------------------------*/
-    /**
-     *  分区存储-Cache目录
-     */
-    fun getExternalCachePath(subDir: String?=null):String{
-        val path = StringBuilder(getContext().externalCacheDir?.absolutePath)
-        subDir?.let {
-            path.append(File.separator).append(it).append(File.separator)
-        }
-        val dir = File(path.toString())
-        if (!dir.exists()) dir.mkdir()
-        return path.toString()
-    }
-
-    /**
-     *  分区存储-File目录
-     */
-    fun getExternalAppFilePath(subDir: String?=null):String{
-        val path = getContext().getExternalFilesDir(subDir)?.absolutePath
-        val dir = File(path.toString())
-        if (!dir.exists()) dir.mkdir()
-        return path.toString()
-    }
-    /*--------------------------------------------------*/
-
-
-
-
 }
 
 object FileUtil{
@@ -243,66 +217,98 @@ object FileUtil{
     /**
      *  Uri转File
      */
-    fun uri2File(uri: Uri): File? {
-        var path: String ?= null
-        when(uri.scheme){
-            "file" -> {
-                path = uri.encodedPath
-                if (path != null) {
-                    path = Uri.decode(path)
-                    val cr = getContext().contentResolver
-                    val buff = StringBuffer()
-                    buff.append("(").append(MediaStore.Images.ImageColumns.DATA).append("=")
-                        .append("'$path'").append(")")
-                    val cur: Cursor? = cr.query(
-                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                        arrayOf(
-                            MediaStore.Images.ImageColumns._ID,
-                            MediaStore.Images.ImageColumns.DATA
-                        ),
-                        buff.toString(),
-                        null,
-                        null
-                    )
-                    var index = 0
-                    var dataIdx = 0
-                    cur?.let {
-                        cur.moveToFirst()
-                        while (!cur.isAfterLast()) {
-                            index = cur.getColumnIndex(MediaStore.Images.ImageColumns._ID)
-                            index = cur.getInt(index)
-                            dataIdx = cur.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
-                            path = cur.getString(dataIdx)
-                            cur.moveToNext()
+    fun uri2File(uri: Uri?): File? {
+        if (uri==null) return null
+        var file:File ?= File(uri.toString())
+        if (file!=null && file.exists()) return file
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            when (uri.scheme) {
+                ContentResolver.SCHEME_FILE -> {
+                    file = File(requireNotNull(uri.path))
+                }
+                ContentResolver.SCHEME_CONTENT -> {
+                    //把文件保存到沙盒
+                    val contentResolver = getContext().contentResolver
+                    val displayName = "${TimeUtil.getCurrentTime()}.${
+                        MimeTypeMap.getSingleton().getExtensionFromMimeType(
+                            contentResolver.getType(uri)
+                        )
+                    }".replace(".bin","")
+                    val ios = contentResolver.openInputStream(uri)
+                    if (ios != null) {
+                        file = File(FilePath.getTxtPathEndWithSeparator(), displayName).apply {
+                            val fos = FileOutputStream(this)
+                            FileUtils.copy(ios, fos)
+                            fos.close()
+                            ios.close()
                         }
-                        cur.close()
-                    }
-                    if (index != 0) {
-                        val u = Uri.parse("content://media/external/images/media/$index")
-                        println("temp uri is :$u")
                     }
                 }
-            }
-            "content" -> {
-                // 4.2.2以后
-                val proj = arrayOf(MediaStore.Images.Media.DATA)
-                val cursor: Cursor? = getContext().contentResolver.query(uri, proj, null, null, null)
-                cursor?.let {
-                    if (cursor.moveToFirst()) {
-                        val columnIndex: Int = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-                        path = cursor.getString(columnIndex)
-                    }
-                    cursor.close()
+                else -> {
+
                 }
             }
-            else -> {
-                return null
-            }
-        }
-        return if (path.isNullOrEmpty()){
-            null
+            return file
         }else{
-            File(path)
+            var path: String? = null
+            when(uri.scheme){
+                "file" -> {
+                    path = uri.encodedPath
+                    if (path != null) {
+                        path = Uri.decode(path)
+                        val cr = getContext().contentResolver
+                        val buff = StringBuffer()
+                        buff.append("(").append(MediaStore.Images.ImageColumns.DATA).append("=")
+                            .append("'$path'").append(")")
+                        val cur: Cursor? = cr.query(
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                            arrayOf(
+                                MediaStore.Images.ImageColumns._ID,
+                                MediaStore.Images.ImageColumns.DATA
+                            ),
+                            buff.toString(),
+                            null,
+                            null
+                        )
+                        var index = 0
+                        var dataIdx = 0
+                        cur?.let {
+                            cur.moveToFirst()
+                            while (!cur.isAfterLast()) {
+                                index = cur.getColumnIndex(MediaStore.Images.ImageColumns._ID)
+                                index = cur.getInt(index)
+                                dataIdx = cur.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
+                                path = cur.getString(dataIdx)
+                                cur.moveToNext()
+                            }
+                            cur.close()
+                        }
+                        if (index == 0) {
+                        } else {
+                            val u = Uri.parse("content://media/external/images/media/$index")
+                            println("temp uri is :$u")
+                        }
+                    }
+                }
+                "content" -> {
+                    // 4.2.2以后
+                    val proj = arrayOf(MediaStore.Images.Media.DATA)
+                    val cursor: Cursor? = getContext().contentResolver.query(uri, proj, null, null, null)
+                    cursor?.let {
+                        if (cursor.moveToFirst()) {
+                            val columnIndex: Int = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+                            path = cursor.getString(columnIndex)
+                        }
+                        cursor.close()
+                    }
+                }
+                else -> {
+                    //Log.i(TAG, "Uri Scheme:" + uri.getScheme());
+                }
+            }
+            return File(path)
         }
     }
 

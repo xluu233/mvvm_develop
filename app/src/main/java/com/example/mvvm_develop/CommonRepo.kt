@@ -19,7 +19,7 @@ class CommonRepo(scope: CoroutineScope) : BaseRepository(scope) {
 
     private var mService = RetrofitManager.getApiService(Api::class.java)
 
-    fun laod(resultLiveData: ResultLiveData<List<BannerData>>){
+    fun load(resultLiveData: ResultLiveData<List<BannerData>>){
         launch(
             block = {
                 mService.loadProjectTree()
@@ -30,15 +30,9 @@ class CommonRepo(scope: CoroutineScope) : BaseRepository(scope) {
         )
     }
 
-    fun laod2(resultLiveData: MutableLiveData<ApiResponse<List<BannerData>>>){
-        launch(
-            block = {
-                mService.loadProjectTree()
-            },
-            response = {
-                resultLiveData.postValue(it)
-            }
-        )
+    fun load2(resultLiveData: MutableLiveData<ApiResponse<List<BannerData>>>){
+        val result = execute { mService.loadProjectTree() }
+        resultLiveData.postValue(result)
     }
 
 }
