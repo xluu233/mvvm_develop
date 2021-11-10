@@ -3,6 +3,5 @@
 /app/.cxx/
 /base/build/
 /base/build/intermediates/javac/debug/classes/
-*.iml
-*.bin
-*.lock
+.gradle
+.idea
