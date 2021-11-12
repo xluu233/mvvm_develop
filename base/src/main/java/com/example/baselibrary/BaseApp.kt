@@ -3,6 +3,7 @@ package com.example.baselibrary
 import android.app.Application
 import android.content.Context
 import android.util.Log
+import androidx.startup.AppInitializer
 import com.example.baselibrary.lifecycle.LoadModuleProxy
 import kotlinx.coroutines.*
 import kotlin.system.measureTimeMillis
@@ -23,6 +24,7 @@ open class BaseApp :Application() {
         super.onCreate()
         mLoadModuleProxy.onCreate(this)
 
+        //AppInitializer.getInstance(this).initializeComponent(AppInit::class.java)
         // 策略初始化第三方依赖
         initDepends()
     }

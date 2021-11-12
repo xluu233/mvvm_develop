@@ -1,72 +1,85 @@
-/*
- * Copyright (c) 2021. Dylan Cai
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-@file:Suppress("unused")
-
 package com.example.baselibrary.utils.net
 
 import android.Manifest.permission.ACCESS_NETWORK_STATE
+import android.Manifest.permission.ACCESS_WIFI_STATE
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkCapabilities.*
 import android.net.NetworkRequest
+import android.net.wifi.WifiManager
 import android.os.Build
 import androidx.annotation.RequiresPermission
 import androidx.lifecycle.LiveData
 import com.example.baselibrary.utils.activity.application
 
 
-/**
- * @author Dylan Cai
- */
+inline val connectivityManager: ConnectivityManager? get() = application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
 
 @get:RequiresPermission(ACCESS_NETWORK_STATE)
-inline val isNetworkAvailable: Boolean
-  get() {
-    val connectivityManager = application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-      connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)?.run {
+val isNetworkAvailable: Boolean
+  get() = connectivityManager?.run {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+      getNetworkCapabilities(activeNetwork)?.run {
         hasCapability(NET_CAPABILITY_INTERNET) && hasCapability(NET_CAPABILITY_VALIDATED)
       }
     } else {
       @Suppress("DEPRECATION")
-      connectivityManager.activeNetworkInfo?.isConnectedOrConnecting
-    } ?: false
-  }
+      activeNetworkInfo?.isConnectedOrConnecting
+    }
+  } ?: false
+
+@get:RequiresPermission(ACCESS_NETWORK_STATE)
+val isWifiConnected: Boolean
+  get() = connectivityManager?.run {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+      getNetworkCapabilities(activeNetwork)?.hasTransport(TRANSPORT_WIFI)
+    } else {
+      @Suppress("DEPRECATION")
+      activeNetworkInfo?.run { isConnected && type == ConnectivityManager.TYPE_WIFI }
+    }
+  } ?: false
+
+@get:RequiresPermission(ACCESS_NETWORK_STATE)
+val isMobileData: Boolean
+  get() = connectivityManager?.run {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+      getNetworkCapabilities(activeNetwork)?.hasTransport(TRANSPORT_CELLULAR)
+    } else {
+      @Suppress("DEPRECATION")
+      activeNetworkInfo?.run { isAvailable && type == ConnectivityManager.TYPE_MOBILE }
+    }
+  } ?: false
+
+@get:RequiresPermission(ACCESS_WIFI_STATE)
+inline val isWifiEnabled: Boolean
+  get() = (application.getSystemService(Context.WIFI_SERVICE) as WifiManager?)?.isWifiEnabled == true
+
+
 
 class NetworkAvailableLiveData @RequiresPermission(ACCESS_NETWORK_STATE) constructor() : LiveData<Boolean>() {
-
-  private val connectivityManager = application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
   @RequiresPermission(ACCESS_NETWORK_STATE)
   override fun onActive() {
     super.onActive()
     when {
       Build.VERSION.SDK_INT >= Build.VERSION_CODES.N ->
-        connectivityManager.registerDefaultNetworkCallback(networkCallback)
+        connectivityManager?.registerDefaultNetworkCallback(networkCallback)
       else ->
-        connectivityManager.registerNetworkCallback(networkRequest, networkCallback)
+        connectivityManager?.registerNetworkCallback(networkRequest, networkCallback)
     }
   }
 
   override fun onInactive() {
     super.onInactive()
-    connectivityManager.unregisterNetworkCallback(networkCallback)
+    connectivityManager?.unregisterNetworkCallback(networkCallback)
+  }
+
+  override fun setValue(value: Boolean) {
+    if (this.value != value) {
+      super.setValue(value)
+    }
   }
 
   private val networkRequest by lazy {
@@ -96,5 +109,4 @@ class NetworkAvailableLiveData @RequiresPermission(ACCESS_NETWORK_STATE) constru
       postValue(false)
     }
   }
-
 }
