@@ -107,6 +107,12 @@ object Dependency  {
         const val ConstraintLayout = "androidx.constraintlayout:constraintlayout:${Version.ConstraintLayout}"
 
 
+        /*----------JetPack-----------*/
+        const val StartUp = "androidx.startup:startup-runtime:1.1.0"
+
+
+
+
         /*----------通信----------*/
         //ARouter https://github.com/alibaba/ARouter/blob/master/README_CN.md
         const val ARoute = "com.alibaba:arouter-api:${Version.ARoute}"
@@ -179,7 +185,7 @@ object Dependency  {
         const val Mkloader  = "com.tuyenmonkey:mkloader:1.4.0"
         //动画库 https://lottiefiles.com/
         const val Lottie  = "com.airbnb.android:lottie:3.7.0"
-        const val ToastBox = "com.github.xluu233:ToastBox:0.5.1"
+        const val ToastBox = "com.github.xluu233:ToastBox:0.6.1"
     }
 
 }

@@ -2,9 +2,9 @@ package com.example.baselibrary.db
 
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.baselibrary.BaseApp
 import com.example.baselibrary.db.dao.NetCacheDao
 import com.example.baselibrary.db.entity.NetCache
+import com.example.baselibrary.utils.activity.application
 
 
 /**
@@ -28,7 +28,7 @@ abstract class BaseDatabase : RoomDatabase(){
         }
 
         private fun buildDatabase() =
-            Room.databaseBuilder(BaseApp.getContext(), BaseDatabase::class.java, dbName).build()
+            Room.databaseBuilder(application, BaseDatabase::class.java, dbName).build()
     }
 
 

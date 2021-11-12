@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.example.baselibrary.lifecycle.ApplicationLifecycle
 import com.example.baselibrary.lifecycle.InitDepend
-import com.example.baselibrary.log.xLog
+import com.example.baselibrary.utils.log.xLog
 import com.google.auto.service.AutoService
 
 

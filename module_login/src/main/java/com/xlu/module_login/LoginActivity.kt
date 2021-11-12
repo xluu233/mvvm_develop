@@ -7,7 +7,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.baselibrary.base.BaseActivity
 import com.example.baselibrary.delegate.viewBinding
-import com.example.baselibrary.log.xLog
+import com.example.baselibrary.utils.log.xLog
 import com.xlu.common.constants.ConstantARouter
 import com.xlu.common.constants.ConstantParams
 import com.xlu.module_login.databinding.ActivityLoginBinding

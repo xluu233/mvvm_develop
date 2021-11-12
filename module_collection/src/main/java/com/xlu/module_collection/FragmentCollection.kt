@@ -3,9 +3,9 @@ package com.xlu.module_collection
 import androidx.fragment.app.activityViewModels
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.baselibrary.base.BaseFragment
-import com.example.baselibrary.common.setNoRepeatClick
-import com.example.baselibrary.common.toast
 import com.example.baselibrary.delegate.viewBinding
+import com.example.baselibrary.utils.view.setNoRepeatClick
+import com.example.xlulibrary.ToastBox.Companion.toast
 import com.xlu.common.bean.RouterBeanSerializable
 import com.xlu.common.constants.ConstantARouter
 import com.xlu.common.constants.ConstantParams

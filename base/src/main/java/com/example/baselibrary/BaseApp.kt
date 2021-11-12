@@ -1,10 +1,8 @@
 package com.example.baselibrary
 
-import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import android.util.Log
-import com.example.baselibrary.lifecycle.ActivityLifecycleCallbacksImpl
 import com.example.baselibrary.lifecycle.LoadModuleProxy
 import kotlinx.coroutines.*
 import kotlin.system.measureTimeMillis
@@ -15,14 +13,6 @@ open class BaseApp :Application() {
     private val mCoroutineScope by lazy(mode = LazyThreadSafetyMode.NONE) { MainScope() }
     private val mLoadModuleProxy by lazy(mode = LazyThreadSafetyMode.NONE) { LoadModuleProxy() }
 
-    companion object{
-
-        private lateinit var baseApplication: BaseApp
-
-        fun getContext(): Context {
-            return baseApplication
-        }
-    }
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
@@ -31,11 +21,6 @@ open class BaseApp :Application() {
 
     override fun onCreate() {
         super.onCreate()
-        baseApplication = this
-
-        // 全局监听 Activity 生命周期
-        registerActivityLifecycleCallbacks(ActivityLifecycleCallbacksImpl())
-
         mLoadModuleProxy.onCreate(this)
 
         // 策略初始化第三方依赖

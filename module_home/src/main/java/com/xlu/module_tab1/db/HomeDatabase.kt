@@ -5,6 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.baselibrary.BaseApp
+import com.example.baselibrary.utils.activity.application
 import com.xlu.module_tab1.bean.Article
 
 
@@ -39,7 +40,7 @@ abstract class HomeDatabase : RoomDatabase(){
 
         private fun buildDatabase() =
             Room.databaseBuilder(
-                BaseApp.getContext(),
+                application,
                 HomeDatabase::class.java, dbName)
                 .addMigrations(MIGRATION_1_2)
                 .build()

@@ -4,7 +4,7 @@ import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.example.baselibrary.log.xLog
+import com.example.baselibrary.utils.log.xLog
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**

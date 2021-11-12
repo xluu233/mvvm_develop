@@ -4,9 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5f8fe2adf21fbcbc8b0e321d746adff4/transformed/mkloader-1.4.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5f8fe2adf21fbcbc8b0e321d746adff4/transformed/mkloader-1.4.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5f8fe2adf21fbcbc8b0e321d746adff4/transformed/mkloader-1.4.0/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/10fe8888b2fbf1933561479bb523efc0/transformed/jetified-mkloader-1.4.0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/10fe8888b2fbf1933561479bb523efc0/transformed/jetified-mkloader-1.4.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/10fe8888b2fbf1933561479bb523efc0/transformed/jetified-mkloader-1.4.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/260886560c40b231a1103afefdec7673/transformed/jetified-mkloader-1.4.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/260886560c40b231a1103afefdec7673/transformed/jetified-mkloader-1.4.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/260886560c40b231a1103afefdec7673/transformed/jetified-mkloader-1.4.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tuyenmonkey/mkloader/1.4.0/13b67b67e06f948a798be597a9cca3be57b5f1a2/mkloader-1.4.0-javadoc.jar!/" />

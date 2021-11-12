@@ -4,9 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/c01cd172c5a835e74cc7366b14fa92db/transformed/nativecrashreport-3.9.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c01cd172c5a835e74cc7366b14fa92db/transformed/nativecrashreport-3.9.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c01cd172c5a835e74cc7366b14fa92db/transformed/nativecrashreport-3.9.1/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d5018152345b61ff20bc8d71c8a0dc2d/transformed/jetified-nativecrashreport-3.9.1/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d5018152345b61ff20bc8d71c8a0dc2d/transformed/jetified-nativecrashreport-3.9.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d5018152345b61ff20bc8d71c8a0dc2d/transformed/jetified-nativecrashreport-3.9.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/63ebf768b6a91333f446e25cae6ae48b/transformed/jetified-nativecrashreport-3.9.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/63ebf768b6a91333f446e25cae6ae48b/transformed/jetified-nativecrashreport-3.9.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/63ebf768b6a91333f446e25cae6ae48b/transformed/jetified-nativecrashreport-3.9.1/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tencent.bugly/nativecrashreport/3.9.1/c17221c5f5943ad029116272bc3c87476550ec94/nativecrashreport-3.9.1-javadoc.jar!/" />

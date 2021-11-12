@@ -1,14 +1,13 @@
 package com.example.baselibrary.utils
 
 import android.annotation.SuppressLint
+import android.content.ClipboardManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.media.ExifInterface
 import androidx.arch.core.executor.ArchTaskExecutor
 import androidx.core.app.ActivityCompat
-import java.io.*
-import java.text.SimpleDateFormat
-import java.util.*
+import com.example.xlulibrary.ToastBox.Companion.toast
 
 /**
  * 复制原图Exif信息到压缩后图片的Exif信息
@@ -45,6 +44,16 @@ fun assertMainThread(methodName: String ?= ""){
     check(ArchTaskExecutor.getInstance().isMainThread) {
         ("Cannot invoke $methodName on a background thread")
     }
+}
+
+
+/**
+ * 复制剪切板
+ */
+fun copy(context: Context, msg: String) {
+    val clip = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+    clip.text = msg
+    toast("已复制")
 }
 
 

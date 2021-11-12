@@ -9,9 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 import android.net.ConnectivityManager
-import com.example.baselibrary.BaseApp
-import com.example.baselibrary.utils.FilePath
-import com.example.baselibrary.utils.FileUtil
+import com.example.baselibrary.utils.other.FilePath
+import com.example.baselibrary.utils.activity.application
 import java.io.File
 
 
@@ -89,7 +88,7 @@ object RetrofitFactory {
      * 网络状态判断
      */
     private fun isNetworkConnected(): Boolean {
-        val mConnectivityManager = BaseApp.getContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val mConnectivityManager = application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val mNetworkInfo = mConnectivityManager.activeNetworkInfo
         if (mNetworkInfo != null) {
             return mNetworkInfo.isAvailable

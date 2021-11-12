@@ -3,7 +3,7 @@ package com.example.mvvm_develop
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.baselibrary.BaseApp
 import com.example.baselibrary.db.MMKVUtil
-import com.example.baselibrary.log.xLog
+import com.example.baselibrary.utils.log.xLog
 
 /**
  * @ClassName App

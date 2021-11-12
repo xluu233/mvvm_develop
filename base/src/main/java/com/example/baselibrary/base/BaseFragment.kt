@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import com.example.baselibrary.log.xLog
 import com.example.baselibrary.navigation.NavHostFragment
 
 /**
@@ -30,7 +29,6 @@ abstract class BaseFragment(@LayoutRes private val layout: Int, private val lazy
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        xLog.d(TAG,"onViewCreated")
         if (!lazyInit){
             initData()
         }
@@ -62,7 +60,6 @@ abstract class BaseFragment(@LayoutRes private val layout: Int, private val lazy
 
     override fun onDestroyView() {
         super.onDestroyView()
-        xLog.d(TAG,"onDestroyView")
         isLoaded = false
     }
     

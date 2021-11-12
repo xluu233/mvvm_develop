@@ -3,7 +3,7 @@ package com.example.mvvm_develop.test.databinding
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import com.example.baselibrary.base.BaseViewModel
-import com.example.baselibrary.log.xLog
+import com.example.baselibrary.utils.log.xLog
 
 /**
  * @ClassName DataBindViewModel

@@ -14,7 +14,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-
     //Android
     api Dependency.DependencyImp.AppCompat
     api Dependency.DependencyImp.Material
@@ -35,6 +34,10 @@ dependencies {
     api Dependency.DependencyImp.Lifecycle
     api Dependency.DependencyImp.Livedata
     api Dependency.DependencyImp.Viewmodel
+
+    // https://blog.csdn.net/guolin_blog/article/details/108026357
+    api Dependency.DependencyImp.StartUp
+
 
     /*-------核心工具库-------*/
     //eventBus
@@ -99,11 +102,6 @@ dependencies {
     api Dependency.DependencyImp.FlexBox
     //ConstraintLayout
     api Dependency.DependencyImp.ConstraintLayout
-
-    //smartFreshLayout
-//    api Dependency.DependencyImp.smartFreshLayout
-//    api Dependency.DependencyImp.smartFresh1
-//    api Dependency.DependencyImp.smartFresh2
     //banner
     api Dependency.DependencyImp.YouthBanner
     //base-recyclerview

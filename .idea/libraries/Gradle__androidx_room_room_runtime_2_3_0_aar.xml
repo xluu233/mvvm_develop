@@ -2,15 +2,15 @@
   <library name="Gradle: androidx.room:room-runtime:2.3.0@aar">
     <ANNOTATIONS>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/71d4aa5fa8103e3386a453c5b4bc62d6/transformed/room-runtime-2.3.0/annotations.zip!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/87a56c315095ed81e2856a510ba1df2c/transformed/room-runtime-2.3.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/1ef5978a676d6355c74334e000b291b7/transformed/room-runtime-2.3.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/71d4aa5fa8103e3386a453c5b4bc62d6/transformed/room-runtime-2.3.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/71d4aa5fa8103e3386a453c5b4bc62d6/transformed/room-runtime-2.3.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/71d4aa5fa8103e3386a453c5b4bc62d6/transformed/room-runtime-2.3.0/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/87a56c315095ed81e2856a510ba1df2c/transformed/room-runtime-2.3.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/87a56c315095ed81e2856a510ba1df2c/transformed/room-runtime-2.3.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/87a56c315095ed81e2856a510ba1df2c/transformed/room-runtime-2.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1ef5978a676d6355c74334e000b291b7/transformed/room-runtime-2.3.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1ef5978a676d6355c74334e000b291b7/transformed/room-runtime-2.3.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/1ef5978a676d6355c74334e000b291b7/transformed/room-runtime-2.3.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

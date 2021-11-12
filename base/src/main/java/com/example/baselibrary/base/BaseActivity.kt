@@ -3,7 +3,6 @@ package com.example.baselibrary.base
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import com.example.baselibrary.log.xLog
 
 abstract class BaseActivity(@LayoutRes private val layout: Int ?= null) : AppCompatActivity() {
 
@@ -13,7 +12,6 @@ abstract class BaseActivity(@LayoutRes private val layout: Int ?= null) : AppCom
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        xLog.d(TAG,"onCreate")
         layout?.let {
             setContentView(it)
         }

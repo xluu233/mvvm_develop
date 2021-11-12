@@ -1,7 +1,7 @@
 package com.xlu.test
 
 import com.example.baselibrary.BaseApp
-import com.example.baselibrary.common.toast
+import com.example.xlulibrary.ToastBox.Companion.toast
 
 /**
  * @ClassName App

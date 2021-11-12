@@ -1,9 +1,7 @@
 package com.example.mvvm_develop
 
-import com.alibaba.android.arouter.facade.annotation.Route
-import com.example.baselibrary.common.toast
+import com.example.xlulibrary.ToastBox.Companion.toast
 import com.xlu.common.api.AppItf
-import com.xlu.common.constants.ConstantARouter
 
 /**
  * @ClassName AppImpl

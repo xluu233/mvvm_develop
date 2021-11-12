@@ -1,20 +1,16 @@
 package com.xlu.module_tab1
 
 import android.util.Log
-import com.airbnb.lottie.LottieCompositionFactory.fromJson
 import com.example.baselibrary.base.BaseRepository
 import com.example.baselibrary.db.BaseDatabase
 import com.example.baselibrary.db.entity.NetCache
 import com.example.baselibrary.http.*
-import com.example.baselibrary.utils.JsonUtil
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.xlu.module_tab1.api.HomeApi
 import com.xlu.module_tab1.bean.Article
 import com.xlu.module_tab1.db.HomeDatabase
 import kotlinx.coroutines.CoroutineScope
-import java.lang.Exception
-import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
 /**
@@ -122,6 +118,7 @@ class HomeRepo(scope: CoroutineScope) : BaseRepository(scope) {
                         val type: Type = object : TypeToken<Article>() {}.type
                         it.data = Gson().fromJson(netCache.response, type)
                     }
+                    else -> {}
                 }
 
                 it.data?.datas?.forEach {

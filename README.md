@@ -6,7 +6,21 @@ Android技术迭代不休，今天学会的东西明天可能记过时了，不�
 
 本库主要采用Kotlin+Jetpack组件+组件化，采用MVVM模式，目标是搭建一个自己顺手的快速开发框架。
 
-> 由于本人太菜，可能这个库并不适合你，如果有错误和不同的地方，欢迎大家指点。
+
+module名称 | 作用
+---|---
+app | 宿主app
+base | 基础功能封装
+util | 工具类库
+buildSrc | 统一依赖管理
+common | 业务基础功能封装
+module_app_test | 独立app模块测试
+module_center| 业务module(个人中心)
+module_collection | 业务module(收藏)
+module_home| 业务module(首页)
+module_login | 业务module(登录)
+
+
 
 ## 主要技术点
 
