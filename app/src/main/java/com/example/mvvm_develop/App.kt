@@ -4,6 +4,8 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.example.baselibrary.BaseApp
 import com.example.baselibrary.db.MMKVUtil
 import com.example.baselibrary.utils.log.xLog
+import com.example.xlulibrary.ToastBox
+import com.example.xlulibrary.ToastBoxRegister
 
 /**
  * @ClassName App
@@ -20,6 +22,7 @@ class App : BaseApp(){
 
         MMKVUtil.init(this)
         initARouter()
+        ToastBoxRegister.init(this)
     }
 
 

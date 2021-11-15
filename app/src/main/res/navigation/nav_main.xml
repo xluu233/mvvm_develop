@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.mvvm_develop.MainFragment"
+        android:name="com.example.mvvm_develop.ui.MainFragment"
         android:label="MainFragment" >
 
         <action
@@ -15,24 +15,64 @@
             app:destination="@id/dataBindingFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
-            app:popUpTo="@id/mainFragment"/>
-    </fragment>
-
-    <!--            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_mainFragment_to_ARouterFragment"
+            app:destination="@id/ARouterFragment"
+            app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"-->
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_fragmentMMKV"
+            app:destination="@id/fragmentMMKV"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_fragmentNet2"
+            app:destination="@id/fragmentNet2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_fragmentRoom"
+            app:destination="@id/fragmentRoom"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+
+    </fragment>
+
+
 
     <fragment
         android:id="@+id/dataBindingFragment"
-        android:name="com.example.mvvm_develop.test.databinding.DataBindingFragment"
+        android:name="com.xlu.module_tab1.ui.DataBindingFragment"
         android:label="DataBindingFragment" />
 
     <fragment
         android:id="@+id/ARouterFragment"
-        android:name="com.example.mvvm_develop.test.arouter.ARouterFragment"
+        android:name="com.xlu.module_tab1.ui.ARouterFragment"
         android:label="fragment_arouter"
         tools:layout="@layout/fragment_arouter" />
+    <fragment
+        android:id="@+id/fragmentMMKV"
+        android:name="com.xlu.module_tab1.ui.FragmentMMKV"
+        android:label="FragmentMMKV" />
+    <fragment
+        android:id="@+id/fragmentNet2"
+        android:name="com.xlu.module_tab1.ui.FragmentNet"
+        android:label="FragmentNet" />
+    <fragment
+        android:id="@+id/fragmentRoom"
+        android:name="com.xlu.module_tab1.ui.FragmentRoom"
+        android:label="FragmentRoom" />
 
 
 </navigation>

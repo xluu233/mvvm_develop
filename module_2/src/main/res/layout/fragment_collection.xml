@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/test_arouter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试ARouter"/>
+
+    <Button
+        android:id="@+id/test_arouter_params"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ARouter携带参数"/>
+
+    <Button
+        android:id="@+id/test_provider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试外部module接口"/>
+
+</LinearLayout>

@@ -4,11 +4,6 @@
     android:id="@+id/nav_module"
     app:startDestination="@+id/navi_home">
 
-<!--    <include app:graph="@navigation/navi_home"/>-->
-<!--    <include app:graph="@navigation/navi_collection"/>-->
-<!--    <include app:graph="@navigation/navi_center"/>-->
-
-
     <fragment
         android:id="@+id/navi_home"
         android:name="com.xlu.module_tab1.FragmentHome"
@@ -21,6 +16,5 @@
         android:id="@+id/navi_center"
         android:name="com.xlu.module_center.FragmentCenter"
         android:label="FragmentCollection" />
-
 
 </navigation>

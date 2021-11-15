@@ -13,7 +13,7 @@ interface NetCacheDao {
 
     /*获取全部数据*/
     @Query("select * from NetCache")
-    fun getAllData():List<NetCache>
+    fun getAllData():List<NetCache>?
 
     /*删除全部数据*/
     @Query("DELETE FROM NetCache")
@@ -29,11 +29,11 @@ interface NetCacheDao {
 
     /*查询单组数据*/
     @Query("SELECT * FROM NetCache WHERE md = :md")
-    fun query(md:String):NetCache
+    fun query(md:String):NetCache?
 
     /*查询多组数据*/
     @Query("select * from NetCache where md in (:mds)")
-    fun query(mds: List<String>): List<NetCache>
+    fun query(mds: List<String>): List<NetCache>?
 
     /*插入单组数据*/
     @Insert(onConflict = OnConflictStrategy.REPLACE)

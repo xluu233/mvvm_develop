@@ -1,6 +1,6 @@
 package com.example.mvvm_develop.activity
 
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
@@ -11,7 +11,7 @@ import com.example.baselibrary.base.BaseActivity
 import com.example.baselibrary.bus.LiveDataBus
 import com.example.baselibrary.delegate.viewBinding
 import com.example.baselibrary.navigation.NavHostFragment
-import com.example.mvvm_develop.CommonViewModel
+import com.example.mvvm_develop.vm.CommonViewModel
 import com.example.mvvm_develop.R
 import com.example.mvvm_develop.databinding.ActivityMainBinding
 import com.xlu.common.constants.ConstantARouter
@@ -40,19 +40,18 @@ class MainActivity : BaseActivity(R.layout.activity_main){
 
     private fun initObserver() {
 
-        LiveDataBus.with<Boolean>(ConstantEvent.app_go_databinding_fragment).observe(this, Observer {
-            navController.navigate(R.id.action_mainFragment_to_dataBindingFragment)
+        LiveDataBus.with<String>(ConstantEvent.NAVIGATION_FRAGMENT_EVENT).observe(this, Observer {
+            when(it){
+                ConstantEvent.FRAGMENT_NET -> navController.navigate(R.id.action_mainFragment_to_fragmentNet2)
+                ConstantEvent.FRAGMENT_ROOM -> navController.navigate(R.id.action_mainFragment_to_fragmentRoom)
+                ConstantEvent.FRAGMENT_MMKV -> navController.navigate(R.id.action_mainFragment_to_fragmentMMKV)
+                ConstantEvent.FRAGMENT_DATABIND -> navController.navigate(R.id.action_mainFragment_to_dataBindingFragment)
+                else -> {
+
+                }
+            }
         })
 
-        viewModel.load()
-        
-        
-        viewModel.liveData.observe(this, Observer {
-            Log.d(TAG, "initObserver: ${it.data()}")
-        })
-
-
-        startActivity(Intent(this,TestActivity::class.java))
     }
 
 

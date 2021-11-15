@@ -1,6 +1,8 @@
 package com.example.baselibrary.base
 
 import android.util.Log
+import com.example.baselibrary.db.BaseDatabase
+import com.example.baselibrary.db.entity.NetCache
 import com.example.baselibrary.http.ApiResponse
 import com.example.baselibrary.http.NetState
 import com.google.gson.Gson
@@ -51,14 +53,6 @@ open class BaseRepository(private val coroutineScope: CoroutineScope) {
             result.state = NetState.STATE_ERROR
             e.printStackTrace()
         }finally {
-            if (result.state == NetState.STATE_ERROR){
-                val type: Type = object : TypeToken<ApiResponse<T>>() {}.type
-                //val response: ApiResponse<T> = Gson().fromJson(json, type)
-            }
-            if (result.state == NetState.STATE_SUCCESS){
-                val json = Gson().toJson(result)
-            }
-
             response(result)
         }
     }
@@ -98,6 +92,30 @@ open class BaseRepository(private val coroutineScope: CoroutineScope) {
             }
         }
         return result
+    }
+
+
+    /**
+     * TODO room数据库缓存接口json数据
+     * @param T
+     * @param it
+     * @param key
+     */
+    inline fun<T> cacheJson(it:ApiResponse<T>,key:String){
+        val cacheDao = BaseDatabase.getInstance().netCacheDao()
+        when(it.state){
+            NetState.STATE_SUCCESS -> {
+                val json = Gson().toJson(it.data)
+                val netCache = NetCache(key,json)
+                cacheDao.insert(netCache)
+            }
+            NetState.STATE_FAILED,NetState.STATE_ERROR -> {
+                val netCache = cacheDao.query(key)
+                val type: Type = object : TypeToken<T>() {}.type
+                it.data = Gson().fromJson(netCache?.response, type)
+            }
+            else -> {}
+        }
     }
 
 }

@@ -21,6 +21,5 @@ object ConstantARouter {
 
     const val FragmentTab1_Main = "/tab1/MainFragment"
 
-    const val AppItfImpl = "/app/AppItfImpl"
 
 }

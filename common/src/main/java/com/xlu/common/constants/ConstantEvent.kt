@@ -8,7 +8,18 @@ package com.xlu.common.constants
  */
 object ConstantEvent {
 
+    const val NAVIGATION_FRAGMENT_EVENT = "NAVIGATION_FRAGMENT_EVENT"
 
-    const val app_go_databinding_fragment = "app_go_databinding_fragment"
+
+    //module_1
+    const val FRAGMENT_MMKV = "FRAGMENT_MMKV"
+    const val FRAGMENT_NET = "FRAGMENT_NET"
+    const val FRAGMENT_ROOM = "FRAGMENT_ROOM"
+    const val FRAGMENT_DATABIND = "FRAGMENT_DATABIND"
+    const val FRAGMENT_AROUTER ="FRAGMENT_AROUTER"
+
+    //module_2
+
+    //module_3
 
 }

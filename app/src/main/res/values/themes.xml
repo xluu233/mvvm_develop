@@ -1,5 +1,4 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Theme.MVVM_Develop" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
@@ -15,17 +14,8 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.MVVM_Develop.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
     <style name="Theme.MVVM_Develop.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.MVVM_Develop.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-<!--
-    <style name="myTextAppearanceButton" parent="TextAppearance.AppCompat.Widget.Button">
-        <item name="textAllCaps">false</item>
-    </style>-->
 
 </resources>

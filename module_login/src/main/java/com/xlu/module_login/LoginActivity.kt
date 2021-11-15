@@ -25,12 +25,11 @@ class LoginActivity : BaseActivity(R.layout.activity_login){
     @JvmField var test : String = ""
 
     override fun initData(savedInstanceState: Bundle?) {
-        //initParams()
-
-        //自动注入,我这里放在BaseFragment/Activity中执行
+        //自动注入,不建议使用
         ARouter.getInstance().inject(this)
-        initView()
 
+        //initParams()
+        initView()
     }
 
     /**
@@ -40,7 +39,6 @@ class LoginActivity : BaseActivity(R.layout.activity_login){
         val key1 = intent?.getLongExtra(ConstantParams.key1,0L)
         val key2 = intent?.getStringExtra(ConstantParams.key2)
         val key3 = intent?.getSerializableExtra(ConstantParams.key3)
-
         xLog.d("key1:${key1},key2:${key2},key3:${key3}")
     }
 
@@ -49,35 +47,13 @@ class LoginActivity : BaseActivity(R.layout.activity_login){
      * 获取fragment实例
      */
     private fun initView() {
-        xLog.d("key1:${key1},key2:${test}")
-
         val fragment: Fragment = ARouter.getInstance().build(ConstantARouter.ARouterFragment)
             .withLong("id", key1)
             .withString("name", test)
             .navigation() as Fragment
 
-        supportFragmentManager.beginTransaction()
-            .add(binding.fragmentContainerViewLogin.id,fragment).commit()
-
+        supportFragmentManager.beginTransaction().add(binding.fragmentContainerViewLogin.id,fragment).commit()
     }
-
-/*
-    override fun getToken(): String {
-        return "123"
-    }
-
-    override fun getUserName(): String {
-        return "123"
-    }
-
-    override fun getUserID(): Int {
-        return 123
-    }
-
-    override fun init(context: Context?) {
-
-    }
-*/
 
 
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navi_home"
+    app:startDestination="@id/HomeMainFragment">
+
+
+    <fragment
+        android:id="@+id/HomeMainFragment"
+        android:name="com.xlu.module_tab1.ui.FragmentHomeMain"
+        android:label="TestFragment" >
+        <action
+            android:id="@+id/action_testFragment_to_fragment_mmkv"
+            app:destination="@id/fragment_mmkv"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_HomeMainFragment_to_roomFragment"
+            app:destination="@id/roomFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"  />
+        <action
+            android:id="@+id/action_HomeMainFragment_to_fragmentNet"
+            app:destination="@id/fragmentNet"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"   />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/fragment_mmkv"
+        android:name="com.xlu.module_tab1.ui.FragmentMMKV"
+        android:label="fragment_mmkv"
+        tools:layout="@layout/fragment_mmkv" />
+
+    <fragment
+        android:id="@+id/roomFragment"
+        android:name="com.xlu.module_tab1.ui.FragmentRoom"
+        android:label="RoomFragment" />
+
+    <fragment
+        android:id="@+id/fragmentNet"
+        android:name="com.xlu.module_tab1.ui.FragmentNet"
+        android:label="fragment_net"
+        tools:layout="@layout/fragment_net" />
+
+
+</navigation>

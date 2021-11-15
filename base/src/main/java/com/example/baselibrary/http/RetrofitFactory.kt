@@ -30,7 +30,7 @@ object RetrofitFactory {
             .retryOnConnectionFailure(true)
             .cache(cache)
             .addInterceptor(getLogInterceptor())
-            //.addInterceptor(getCacheInterceptor())  //设置缓存
+            .addInterceptor(getCacheInterceptor())  //设置缓存
     }
 
 
