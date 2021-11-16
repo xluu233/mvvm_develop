@@ -1,6 +1,6 @@
 package com.example.mvvm_develop.vm
 
-import com.example.baselibrary.base.BaseRepository
+import com.example.baselibrary.vm.BaseRepository
 import kotlinx.coroutines.CoroutineScope
 
 /**

@@ -1,12 +1,12 @@
 package com.xlu.module_tab1.ui
 
 import androidx.fragment.app.activityViewModels
-import com.example.baselibrary.base_databinding.DataBindingBaseFragment
+import com.example.baselibrary.base_databinding.BaseBindingFragment
 import com.xlu.module_tab1.HomeViewModel
 import com.xlu.module_tab1.R
 import com.xlu.module_tab1.databinding.FragmentDatabindBinding
 
-class DataBindingFragment : DataBindingBaseFragment<FragmentDatabindBinding>(R.layout.fragment_databind) {
+class BindingFragment : BaseBindingFragment<FragmentDatabindBinding>(R.layout.fragment_databind) {
 
     private val viewmodel by activityViewModels<HomeViewModel>()
 

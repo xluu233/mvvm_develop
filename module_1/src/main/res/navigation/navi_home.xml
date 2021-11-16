@@ -36,7 +36,7 @@
 
     <fragment
         android:id="@+id/roomFragment"
-        android:name="com.xlu.module_tab1.ui.FragmentRoom"
+        android:name="com.xlu.module_tab1.ui.BindingFragmentRoom"
         android:label="RoomFragment" />
 
     <fragment

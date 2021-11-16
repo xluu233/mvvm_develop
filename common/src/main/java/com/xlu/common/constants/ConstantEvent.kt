@@ -17,6 +17,7 @@ object ConstantEvent {
     const val FRAGMENT_ROOM = "FRAGMENT_ROOM"
     const val FRAGMENT_DATABIND = "FRAGMENT_DATABIND"
     const val FRAGMENT_AROUTER ="FRAGMENT_AROUTER"
+    const val FRAGMENT_RECYCLERVIEW = "FRAGMENT_RECYCLERVIEW"
 
     //module_2
 

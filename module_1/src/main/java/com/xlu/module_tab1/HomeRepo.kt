@@ -1,7 +1,7 @@
 package com.xlu.module_tab1
 
 import android.util.Log
-import com.example.baselibrary.base.BaseRepository
+import com.example.baselibrary.vm.BaseRepository
 import com.example.baselibrary.http.*
 import com.xlu.module_tab1.api.HomeApi
 import com.xlu.module_tab1.bean.Article

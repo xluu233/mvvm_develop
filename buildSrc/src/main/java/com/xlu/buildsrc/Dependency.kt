@@ -186,6 +186,8 @@ object Dependency  {
         //动画库 https://lottiefiles.com/
         const val Lottie  = "com.airbnb.android:lottie:3.7.0"
         const val ToastBox = "com.github.xluu233:ToastBox:0.6.1"
+        //https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/readme/0-BaseRecyclerViewAdapterHelper.md
+        const val BRVA = "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7"
     }
 
 }

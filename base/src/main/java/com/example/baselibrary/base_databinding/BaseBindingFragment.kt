@@ -1,6 +1,5 @@
 package com.example.baselibrary.base_databinding
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.example.baselibrary.base.BaseFragment
 
-abstract class DataBindingBaseFragment<T : ViewDataBinding>(@LayoutRes private val layout: Int, lazyInit:Boolean = false) : BaseFragment(layout = layout,lazyInit = lazyInit) {
+abstract class BaseBindingFragment<T : ViewDataBinding>(@LayoutRes private val layout: Int, lazyInit:Boolean = false) : BaseFragment(layout = layout,lazyInit = lazyInit) {
 
     private var _mBinding: T? = null
     val mBinding get() = _mBinding!!

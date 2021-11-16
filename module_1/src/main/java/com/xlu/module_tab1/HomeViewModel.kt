@@ -3,10 +3,9 @@ package com.xlu.module_tab1
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.baselibrary.base.BaseViewModel
+import com.example.baselibrary.vm.BaseViewModel
 import com.example.baselibrary.http.ResultLiveData
 import com.example.baselibrary.utils.log.xLog
-import com.xlu.common.bean.BannerData
 import com.xlu.module_tab1.bean.Article
 
 /**

@@ -1,6 +1,6 @@
 package com.xlu.module_collection
 
-import com.example.baselibrary.base.BaseViewModel
+import com.example.baselibrary.vm.BaseViewModel
 
 /**
  * @ClassName Tab1ViewModel

@@ -7,7 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.example.baselibrary.base.BaseActivity
 
-abstract class DataBindingBaseActivity<T : ViewDataBinding>(@LayoutRes private val layout: Int) : BaseActivity() {
+abstract class BaseBindingActivity<T : ViewDataBinding>(@LayoutRes private val layout: Int) : BaseActivity() {
 
     private var _mBinding: T ?= null
     val mBinding get() = _mBinding!!

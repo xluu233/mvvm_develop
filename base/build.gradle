@@ -44,7 +44,6 @@ dependencies {
     api Dependency.DependencyImp.EventBus
     kapt Dependency.DependencyImp.EventBusAPT
     //room
-    //room
     implementation Dependency.DependencyImp.Room
     annotationProcessor Dependency.DependencyImp.RoomAnnotationProcessor
     kapt Dependency.DependencyImp.RoomAnnotationProcessor
@@ -116,6 +115,7 @@ dependencies {
     api Dependency.DependencyImp.Lottie
     //toast工具   https://github.com/xluu233/ToastBox
     api Dependency.DependencyImp.ToastBox
+    api Dependency.DependencyImp.BRVA
 
 
 

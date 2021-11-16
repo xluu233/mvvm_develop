@@ -10,8 +10,11 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.viewbinding.ViewBinding
 import com.example.baselibrary.R
+import com.example.baselibrary.lifecycle.ActivityStack
 
 
 /**
@@ -22,7 +25,7 @@ abstract class BaseDialogFragment<VB : ViewBinding>(
 ) : DialogFragment() {
 
     val TAG by lazy {
-        this.javaClass.name;
+        this.javaClass.name
     }
 
     private var _binding: VB? = null
@@ -107,6 +110,5 @@ abstract class BaseDialogFragment<VB : ViewBinding>(
         super.onDestroy()
         _binding = null
     }
-
 
 }

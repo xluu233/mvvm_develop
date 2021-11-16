@@ -9,11 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.launcher.ARouter
+import com.example.baselibrary.base.BaseDialogFragment
 import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.bus.LiveDataBus
 import com.example.baselibrary.delegate.viewBinding
 import com.example.baselibrary.utils.log.xLog
 import com.example.baselibrary.utils.view.click
+import com.example.baselibrary.utils.view.dp
 import com.example.baselibrary.utils.view.setNoRepeatClick
 import com.xlu.common.constants.ConstantARouter
 import com.xlu.common.constants.ConstantEvent
@@ -21,6 +23,7 @@ import com.xlu.common.goLogin
 import com.xlu.common.server.ServerUtil
 import com.xlu.module_tab1.HomeViewModel
 import com.xlu.module_tab1.R
+import com.xlu.module_tab1.databinding.DialogTestBinding
 import com.xlu.module_tab1.databinding.FragmentHomeBinding
 import com.xlu.module_tab1.dialog.TestDialog
 
@@ -79,6 +82,9 @@ class FragmentHomeMain : BaseFragment(R.layout.fragment_home) {
             TestDialog.getInstance().show(requireActivity().supportFragmentManager,"test")
         }
 
+        binding.testBrva.click {
+            LiveDataBus.with<String>(ConstantEvent.NAVIGATION_FRAGMENT_EVENT).postData(ConstantEvent.FRAGMENT_RECYCLERVIEW)
+        }
     }
 
 

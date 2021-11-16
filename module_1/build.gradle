@@ -13,6 +13,7 @@ dependencies {
     //ARouter
     implementation Dependency.DependencyImp.ARoute
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
     kapt Dependency.DependencyImp.ARouteCompiler
 
     //AutoService

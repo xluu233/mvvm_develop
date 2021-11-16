@@ -1,6 +1,5 @@
-package com.example.baselibrary.base
+package com.example.baselibrary.vm
 
-import android.util.Log
 import com.example.baselibrary.db.BaseDatabase
 import com.example.baselibrary.db.entity.NetCache
 import com.example.baselibrary.http.ApiResponse
