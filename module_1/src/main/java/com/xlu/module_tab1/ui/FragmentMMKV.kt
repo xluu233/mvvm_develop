@@ -1,18 +1,12 @@
 package com.xlu.module_tab1.ui
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.db.MMKVUtil
 import com.example.baselibrary.db.MMKV_TYPE
-import com.example.baselibrary.delegate.viewBinding
+import com.example.baselibrary.viewbinding.viewBinding
 import com.xlu.module_tab1.HomeViewModel
 import com.xlu.module_tab1.R
-import com.xlu.module_tab1.databinding.FragmentHomeBinding
 import com.xlu.module_tab1.databinding.FragmentMmkvBinding
 
 

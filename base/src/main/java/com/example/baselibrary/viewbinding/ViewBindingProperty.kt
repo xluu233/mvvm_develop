@@ -1,4 +1,4 @@
-package com.example.baselibrary.delegate
+package com.example.baselibrary.viewbinding
 
 import android.app.Activity
 import android.os.Handler
@@ -23,11 +23,6 @@ import androidx.viewbinding.ViewBinding
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-/**
- * Property Delegate of ViewBinding
- *  <p>
- * Created by pengxr on 2/5/2021
- */
 
 // -------------------------------------------------------------------------------------
 // ViewBindingProperty for Activity
@@ -37,17 +32,19 @@ import kotlin.reflect.KProperty
 inline fun <V : ViewBinding> ComponentActivity.viewBinding(
     crossinline viewBinder: (View) -> V,
     crossinline viewProvider: (ComponentActivity) -> View = ::findRootView
-): ViewBindingProperty<ComponentActivity, V> = ActivityViewBindingProperty { activity: ComponentActivity ->
-    viewBinder(viewProvider(activity))
-}
+): ViewBindingProperty<ComponentActivity, V> =
+    ActivityViewBindingProperty { activity: ComponentActivity ->
+        viewBinder(viewProvider(activity))
+    }
 
 @JvmName("viewBindingActivity")
 inline fun <V : ViewBinding> ComponentActivity.viewBinding(
     crossinline viewBinder: (View) -> V,
     @IdRes viewBindingRootId: Int
-): ViewBindingProperty<ComponentActivity, V> = ActivityViewBindingProperty { activity: ComponentActivity ->
-    viewBinder(activity.requireViewByIdCompat(viewBindingRootId))
-}
+): ViewBindingProperty<ComponentActivity, V> =
+    ActivityViewBindingProperty { activity: ComponentActivity ->
+        viewBinder(activity.requireViewByIdCompat(viewBindingRootId))
+    }
 
 // -------------------------------------------------------------------------------------
 // ViewBindingProperty for Fragment / DialogFragment
@@ -109,17 +106,19 @@ inline fun <V : ViewBinding> ViewGroup.viewBinding(
 inline fun <V : ViewBinding> RecyclerView.ViewHolder.viewBinding(
     crossinline viewBinder: (View) -> V,
     crossinline viewProvider: (RecyclerView.ViewHolder) -> View = RecyclerView.ViewHolder::itemView
-): ViewBindingProperty<RecyclerView.ViewHolder, V> = LazyViewBindingProperty { holder: RecyclerView.ViewHolder ->
-    viewBinder(viewProvider(holder))
-}
+): ViewBindingProperty<RecyclerView.ViewHolder, V> =
+    LazyViewBindingProperty { holder: RecyclerView.ViewHolder ->
+        viewBinder(viewProvider(holder))
+    }
 
 @JvmName("viewBindingViewHolder")
 inline fun <V : ViewBinding> RecyclerView.ViewHolder.viewBinding(
     crossinline viewBinder: (View) -> V,
     @IdRes viewBindingRootId: Int
-): ViewBindingProperty<RecyclerView.ViewHolder, V> = LazyViewBindingProperty { holder: RecyclerView.ViewHolder ->
-    viewBinder(holder.itemView.requireViewByIdCompat(viewBindingRootId))
-}
+): ViewBindingProperty<RecyclerView.ViewHolder, V> =
+    LazyViewBindingProperty { holder: RecyclerView.ViewHolder ->
+        viewBinder(holder.itemView.requireViewByIdCompat(viewBindingRootId))
+    }
 
 // -------------------------------------------------------------------------------------
 // ViewBindingProperty

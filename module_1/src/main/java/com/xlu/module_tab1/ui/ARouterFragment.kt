@@ -5,7 +5,7 @@ import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.example.baselibrary.base.BaseFragment
-import com.example.baselibrary.delegate.viewBinding
+import com.example.baselibrary.viewbinding.viewBinding
 import com.xlu.common.constants.ConstantARouter
 import com.xlu.module_tab1.HomeViewModel
 import com.xlu.module_tab1.R

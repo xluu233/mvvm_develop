@@ -1,15 +1,13 @@
 package com.example.mvvm_develop.activity
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.baselibrary.base.BaseActivity
 import com.example.baselibrary.bus.LiveDataBus
-import com.example.baselibrary.delegate.viewBinding
+import com.example.baselibrary.viewbinding.viewBinding
 import com.example.baselibrary.navigation.NavHostFragment
 import com.example.mvvm_develop.vm.CommonViewModel
 import com.example.mvvm_develop.R

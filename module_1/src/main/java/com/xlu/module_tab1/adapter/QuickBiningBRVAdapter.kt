@@ -1,10 +1,11 @@
 package com.xlu.module_tab1.adapter
 
-import com.example.baselibrary.recyclerview.BaseAdapter
+import com.example.baselibrary.recyclerview.BaseBRVAdapter
+import com.example.baselibrary.recyclerview.test.Book
 import com.xlu.module_tab1.databinding.FragmentBrvaBinding
 
 
-class QuickBiningAdapter : BaseAdapter<Book,FragmentBrvaBinding>(FragmentBrvaBinding::inflate) {
+class QuickBiningBRVAdapter : BaseBRVAdapter<Book,FragmentBrvaBinding>(FragmentBrvaBinding::inflate) {
 
 
     override fun convert(holder: BaseBindingHolder, item: Book) {

@@ -3,7 +3,7 @@ package com.xlu.module_tab1.ui
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.example.baselibrary.base.BaseFragment
-import com.example.baselibrary.delegate.viewBinding
+import com.example.baselibrary.viewbinding.viewBinding
 import com.example.baselibrary.utils.log.xLog
 import com.example.baselibrary.utils.view.click
 import com.xlu.module_tab1.HomeViewModel

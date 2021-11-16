@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.example.baselibrary.base.BaseFragment
-import com.example.baselibrary.delegate.viewBinding
+import com.example.baselibrary.viewbinding.viewBinding
 import com.xlu.common.constants.ConstantARouter
 import com.xlu.module_tab1.databinding.FragmentContainerBinding
 

@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import com.example.baselibrary.base.BaseFragment
-import com.example.baselibrary.delegate.viewBinding
+import com.example.baselibrary.viewbinding.viewBinding
 import com.example.baselibrary.navigation.NavHostFragment
 import com.example.mvvm_develop.R
 import com.example.mvvm_develop.databinding.FragmentMainBinding
