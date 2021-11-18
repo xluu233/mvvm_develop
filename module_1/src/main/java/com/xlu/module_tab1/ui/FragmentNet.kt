@@ -19,7 +19,7 @@ class FragmentNet : BaseFragment(R.layout.fragment_net) {
 
         viewModel.articleLiveData.observe(this, Observer {
             //对于不同状态的处理
-            xLog.d(TAG, "articleLiveData: ${it.state}")
+            xLog.d(TAG, "articleLiveData: ${it.netState}")
 
             it.data?.datas?.forEach {
                 xLog.d(TAG, "articleLiveData: ${it}")

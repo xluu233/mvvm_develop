@@ -24,11 +24,12 @@ open class BaseRepository(private val coroutineScope: CoroutineScope) {
      */
     protected fun <T> launch(
         block: suspend () -> ApiResponse<T>,
-        response: suspend (ApiResponse<T>) -> Unit
+        response: suspend (ApiResponse<T>) -> Unit,
+        error: suspend () -> Unit = {  }
     ) = coroutineScope.launch(Dispatchers.IO){
         var result = ApiResponse<T>()
         try {
-            result.state = NetState.STATE_LOADING
+            result.netState = NetState.STATE_LOADING
             //开始请求数据
             val invoke = block.invoke()
             //将结果复制给baseResp
@@ -38,21 +39,31 @@ open class BaseRepository(private val coroutineScope: CoroutineScope) {
                     //请求成功，判断数据是否为空
                     if (result.data == null || result.data is List<*> && (result.data as List<*>).size == 0) {
                         //数据为空,结构变化时需要修改判空条件
-                        result.state = NetState.STATE_EMPTY
+                        result.netState = NetState.STATE_EMPTY
                     } else {
                         //请求成功并且数据为空的情况下，为STATE_SUCCESS
-                        result.state = NetState.STATE_SUCCESS
+                        result.netState = NetState.STATE_SUCCESS
                     }
                 }
                 400,401 -> {
-                    result.state = NetState.STATE_FAILED
+                    result.netState = NetState.STATE_FAILED
                 }
             }
-        }catch (e:Exception){
-            result.state = NetState.STATE_ERROR
+        }catch (e: Exception){
+            result.netState = NetState.STATE_ERROR
             e.printStackTrace()
         }finally {
-            response(result)
+            when (result.netState){
+                NetState.STATE_UNSTART,NetState.STATE_LOADING,NetState.STATE_EMPTY -> {
+
+                }
+                NetState.STATE_SUCCESS -> {
+                    response(result)
+                }
+                NetState.STATE_FAILED,NetState.STATE_ERROR -> {
+                    error()
+                }
+            }
         }
     }
 
@@ -65,7 +76,7 @@ open class BaseRepository(private val coroutineScope: CoroutineScope) {
         var result = ApiResponse<T>()
         runBlocking{
             try {
-                result.state = NetState.STATE_LOADING
+                result.netState = NetState.STATE_LOADING
                 //开始请求数据
                 val invoke = block.invoke()
                 //将结果复制给baseResp
@@ -75,18 +86,18 @@ open class BaseRepository(private val coroutineScope: CoroutineScope) {
                         //请求成功，判断数据是否为空
                         if (result.data == null || result.data is List<*> && (result.data as List<*>).size == 0) {
                             //数据为空,结构变化时需要修改判空条件
-                            result.state = NetState.STATE_EMPTY
+                            result.netState = NetState.STATE_EMPTY
                         } else {
                             //请求成功并且数据为空的情况下，为STATE_SUCCESS
-                            result.state = NetState.STATE_SUCCESS
+                            result.netState = NetState.STATE_SUCCESS
                         }
                     }
                     400,401 -> {
-                        result.state = NetState.STATE_FAILED
+                        result.netState = NetState.STATE_FAILED
                     }
                 }
             }catch (e:Exception){
-                result.state = NetState.STATE_ERROR
+                result.netState = NetState.STATE_ERROR
                 e.printStackTrace()
             }
         }
@@ -102,7 +113,7 @@ open class BaseRepository(private val coroutineScope: CoroutineScope) {
      */
     inline fun<T> cacheJson(it:ApiResponse<T>,key:String){
         val cacheDao = BaseDatabase.getInstance().netCacheDao()
-        when(it.state){
+        when(it.netState){
             NetState.STATE_SUCCESS -> {
                 val json = Gson().toJson(it.data)
                 val netCache = NetCache(key,json)

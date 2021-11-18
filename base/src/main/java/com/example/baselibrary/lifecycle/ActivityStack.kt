@@ -97,6 +97,13 @@ object ActivityStack {
     }
 
     /**
+     * 销毁当前activity
+     */
+    fun finishCurrent(){
+        currentActivity?.finish()
+    }
+
+    /**
      * 返回到指定Activity
      */
     fun backToActivity(activityClass: Class<*>) {

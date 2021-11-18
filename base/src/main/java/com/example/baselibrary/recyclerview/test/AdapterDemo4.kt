@@ -1,7 +1,6 @@
 package com.example.baselibrary.recyclerview.test
 
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
-import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.example.baselibrary.R
 import com.example.baselibrary.databinding.ListItemBinding
 import com.example.baselibrary.recyclerview.DataBindAdapter

@@ -69,7 +69,7 @@ class HomeRepo(scope: CoroutineScope) : BaseRepository(scope) {
                 mService.getHomeArticle(page)
             },
             response = {
-                if (it.state == NetState.STATE_SUCCESS){
+                if (it.netState == NetState.STATE_SUCCESS){
                     //数据存入数据库
                     it.data?.let { article ->
                         homeDao.apply {
@@ -80,7 +80,7 @@ class HomeRepo(scope: CoroutineScope) : BaseRepository(scope) {
                         }
                     }
                 }
-                if (it.state == NetState.STATE_ERROR){
+                if (it.netState == NetState.STATE_ERROR){
                     //从数据库读取上一次数据
                     it.data = homeDao.getAllData()[0]
                 }
