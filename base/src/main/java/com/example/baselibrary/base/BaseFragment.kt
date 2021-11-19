@@ -58,6 +58,7 @@ abstract class BaseFragment(@LayoutRes private val layout: Int, private val lazy
         }
     }
 
+
     override fun onDestroyView() {
         super.onDestroyView()
         isLoaded = false

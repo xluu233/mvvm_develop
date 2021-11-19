@@ -7,6 +7,7 @@ import com.example.baselibrary.viewbinding.viewBinding
 import com.example.baselibrary.utils.view.click
 import com.xlu.common.constants.ConstantEvent
 import com.xlu.common.goLogin
+import com.xlu.common.hideBottomNav
 import com.xlu.module_tab1.HomeViewModel
 import com.xlu.module_tab1.R
 import com.xlu.module_tab1.databinding.FragmentHomeBinding
@@ -70,6 +71,13 @@ class FragmentHomeMain : BaseFragment(R.layout.fragment_home) {
         binding.testBrva.click {
             LiveDataBus.with<String>(ConstantEvent.NAVIGATION_FRAGMENT_EVENT).postData(ConstantEvent.FRAGMENT_RECYCLERVIEW)
         }
+
+        binding.testImage.click {
+            hideBottomNav(true)
+            navigate(R.id.action_HomeMainFragment_to_fragmentCoil)
+        }
+
+
     }
 
 

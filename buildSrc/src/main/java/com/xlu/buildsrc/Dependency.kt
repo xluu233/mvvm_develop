@@ -62,7 +62,7 @@ object Dependency  {
         const val Permission = "0.12"                       // 权限申请
         const val LeakCanary = "2.7"                        // 检测内存泄漏
         const val AutoService = "1.0"                       // 自动生成SPI暴露服务文件
-        const val Coil = "1.3.2"                            // Kotlin图片加载框架
+        const val Coil = "1.4.0"                            // Kotlin图片加载框架
         const val Room = "2.3.0"                            //数据库
         const val Glide = "4.12.0"
 

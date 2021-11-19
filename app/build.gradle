@@ -52,8 +52,8 @@ dependencies {
     kapt Dependency.DependencyImp.ARouteCompiler
 
     //AutoService
-    implementation Dependency.DependencyImp.AutoService
-    annotationProcessor Dependency.DependencyImp.AutoServiceAnnotations
+//    implementation Dependency.DependencyImp.AutoService
+//    annotationProcessor Dependency.DependencyImp.AutoServiceAnnotations
 
     implementation project(path: ':common')
     implementation project(path: ':module_1')

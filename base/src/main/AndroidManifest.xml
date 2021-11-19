@@ -7,22 +7,16 @@
 
     <application>
 
-<!--        <provider-->
-<!--            android:name="androidx.startup.InitializationProvider"-->
-<!--            android:authorities="${applicationId}.androidx-startup"-->
-<!--            android:exported="false"-->
-<!--            tools:node="merge">-->
-<!--            <meta-data android:name="com.example.baselibrary.AppInit"-->
-<!--                tools:node="remove" />-->
-<!--        </provider>-->
-
+        <!--android:value="androidx.startup"-->
+        <!--tools:node="remove"-->
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
             android:exported="false"
             tools:node="merge">
-            <meta-data  android:name="com.example.baselibrary.AppInit"
-                android:value="androidx.startup" />
+            <meta-data
+                android:name="com.example.baselibrary.AppInit"
+                android:value="androidx.startup"/>
         </provider>
 
     </application>

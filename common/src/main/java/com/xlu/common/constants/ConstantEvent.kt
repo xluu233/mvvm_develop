@@ -9,7 +9,7 @@ package com.xlu.common.constants
 object ConstantEvent {
 
     const val NAVIGATION_FRAGMENT_EVENT = "NAVIGATION_FRAGMENT_EVENT"
-
+    const val HIDE_APP_BOTTOM_NAVIGATION = "HIDE_APP_BOTTOM_NAVIGATION"
 
     //module_1
     const val FRAGMENT_MMKV = "FRAGMENT_MMKV"

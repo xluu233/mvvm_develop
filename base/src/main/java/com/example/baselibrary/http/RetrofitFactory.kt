@@ -19,8 +19,8 @@ object RetrofitFactory {
     const val TAG = "RetrofitFactory"
 
     //添加Cache拦截器，有网时添加到缓存中，无网时取出缓存
-    var file: File = File(FilePath.getAppCachePath())
-    var cache = Cache(file, 1024 * 1024 * 100)
+    var file: File = File(FilePath.getAppCachePath(),"http_cache")
+    var cache = Cache(file,(20 * 1024 * 1024).toLong())
 
     private val okHttpClientBuilder: OkHttpClient.Builder by lazy {
         OkHttpClient.Builder()

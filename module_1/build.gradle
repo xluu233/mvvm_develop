@@ -1,4 +1,5 @@
 apply from: '../base.gradle'
+apply plugin: 'kotlin-android'
 
 import com.xlu.buildsrc.Dependency
 

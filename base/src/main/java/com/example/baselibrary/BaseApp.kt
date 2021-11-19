@@ -5,14 +5,15 @@ import android.content.Context
 import android.util.Log
 import androidx.startup.AppInitializer
 import com.example.baselibrary.lifecycle.LoadModuleProxy
+import com.example.baselibrary.utils.log.xLog
 import kotlinx.coroutines.*
 import kotlin.system.measureTimeMillis
 
 
 open class BaseApp :Application() {
 
-    private val mCoroutineScope by lazy(mode = LazyThreadSafetyMode.NONE) { MainScope() }
-    private val mLoadModuleProxy by lazy(mode = LazyThreadSafetyMode.NONE) { LoadModuleProxy() }
+    private val mCoroutineScope by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) { CoroutineScope(Dispatchers.IO) }
+    private val mLoadModuleProxy by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) { LoadModuleProxy() }
 
 
     override fun attachBaseContext(base: Context) {
@@ -24,14 +25,15 @@ open class BaseApp :Application() {
         super.onCreate()
         mLoadModuleProxy.onCreate(this)
 
+        //startUp延迟初始化
         //AppInitializer.getInstance(this).initializeComponent(AppInit::class.java)
-        // 策略初始化第三方依赖
+
+        //策略初始化第三方依赖
         initDepends()
     }
 
     /**
      * 初始化第三方依赖
-     *
      * 步骤：
      * * 1. 首先开启一个后台协程对不会立即使用的第三方进行初始化
      * * 2. 对需要被立即使用的第三方进行初始化
@@ -40,14 +42,15 @@ open class BaseApp :Application() {
      * * 2.3 等待所有并行初始化的job完成就结束了整个初始化过程
      */
     private fun initDepends() {
+
         // 开启一个 Default Coroutine 进行初始化不会立即使用的第三方
-        mCoroutineScope.launch(Dispatchers.Default) {
+        mCoroutineScope.launch {
             mLoadModuleProxy.initByBackstage()
         }
 
         // 初始化需要被立即初始化的第三方 多线程并行，并阻塞至全部完成
         val measureTimeMillis = measureTimeMillis {
-            mCoroutineScope.launch(Dispatchers.Main.immediate) {
+            mCoroutineScope.launch(Dispatchers.Main) {
                 val depends = mLoadModuleProxy.initByFrontDesk()
 
                 // 1. 对非必须在主线程初始化的第三方依赖发起并行初始化
@@ -69,7 +72,7 @@ open class BaseApp :Application() {
                 jobs?.forEach { it.await() }
             }
         }
-        Log.d("ApplicationInit", "初始化完成 $measureTimeMillis ms")
+        xLog.d("ApplicationInit", "初始化完成 $measureTimeMillis ms")
     }
 
     override fun onTerminate() {

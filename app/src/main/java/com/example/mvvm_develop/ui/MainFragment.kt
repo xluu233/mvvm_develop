@@ -5,14 +5,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import com.example.baselibrary.base.BaseFragment
+import com.example.baselibrary.bus.LiveDataBus
 import com.example.baselibrary.viewbinding.viewBinding
 import com.example.baselibrary.navigation.NavHostFragment
+import com.example.baselibrary.utils.view.dp
 import com.example.mvvm_develop.R
 import com.example.mvvm_develop.databinding.FragmentMainBinding
 import com.example.mvvm_develop.vm.CommonViewModel
 import com.google.android.material.navigation.NavigationBarView
+import com.xlu.common.constants.ConstantEvent
 import com.xlu.module_center.FragmentCenter
 import com.xlu.module_collection.FragmentCollection
 import com.xlu.module_tab1.FragmentHome
@@ -48,6 +52,14 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     }
 
     private fun initObserver() {
+        LiveDataBus.with<Boolean>(ConstantEvent.HIDE_APP_BOTTOM_NAVIGATION).observe(this, Observer {
+            if (it){
+                binding.bottomNav.animate().translationY(100.dp).start()
+            }else{
+                binding.bottomNav.animate().translationY(0f).start()
+            }
+        })
+
 
     }
 
