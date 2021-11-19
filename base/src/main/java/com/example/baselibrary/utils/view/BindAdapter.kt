@@ -3,8 +3,6 @@ package com.example.baselibrary.utils.view
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.example.baselibrary.common.loadRadius
-import com.example.baselibrary.common.loadUrl
 
 
 object BindAdapter {
@@ -40,7 +38,7 @@ object BindAdapter {
     @BindingAdapter(value = ["urlImage"])
     @JvmStatic
     fun urlImage(view: ImageView, url: String) {
-        view.loadUrl(view.context.applicationContext,url)
+        view.loadUrl(url = url)
     }
 
     /**
