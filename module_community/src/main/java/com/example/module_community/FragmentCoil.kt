@@ -1,20 +1,17 @@
-package com.xlu.module_tab1.ui
+package com.example.module_community
 
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.baselibrary.base.BaseFragment
-import com.example.baselibrary.utils.other.TimeUtil
 import com.example.baselibrary.viewbinding.viewBinding
-import com.xlu.module_tab1.HomeViewModel
-import com.xlu.module_tab1.R
-import com.xlu.module_tab1.adapter.ImageListAdapter
-import com.xlu.module_tab1.bean.Image
-import com.xlu.module_tab1.databinding.FragmentCoilBinding
-
+import com.example.module_community.adapter.ImageListAdapter
+import com.example.module_community.databinding.FragmentCoilBinding
+import com.example.module_community.vm.CommunityViewModel
+import com.xlu.common.hideBottomNav
 
 class FragmentCoil : BaseFragment(R.layout.fragment_coil) {
 
-    private val viewModel by activityViewModels<HomeViewModel>()
+    private val viewModel by activityViewModels<CommunityViewModel>()
     private val binding by viewBinding(FragmentCoilBinding::bind)
 
     private val coilAdapter by lazy {
@@ -35,4 +32,8 @@ class FragmentCoil : BaseFragment(R.layout.fragment_coil) {
     }
 
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        hideBottomNav(false)
+    }
 }

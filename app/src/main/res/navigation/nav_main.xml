@@ -52,6 +52,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"  />
+        <action
+            android:id="@+id/action_mainFragment_to_communityFragment"
+            app:destination="@id/communityFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"   />
 
 
     </fragment>
@@ -84,6 +91,10 @@
         android:id="@+id/brvaFragment"
         android:name="com.xlu.module_tab1.ui.BrvaFragment"
         android:label="BrvaFragment" />
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.example.module_community.CommunityFragment"
+        android:label="CommunityFragment" />
 
 
 </navigation>

@@ -115,6 +115,7 @@ dependencies {
     //toast工具   https://github.com/xluu233/ToastBox
     api Dependency.DependencyImp.ToastBox
     api Dependency.DependencyImp.BRVA
+    api Dependency.DependencyImp.ExpandableBottomBar
 
 
 

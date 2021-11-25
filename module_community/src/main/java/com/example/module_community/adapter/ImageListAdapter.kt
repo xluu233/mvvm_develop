@@ -1,12 +1,11 @@
-package com.xlu.module_tab1.adapter
+package com.example.module_community.adapter
 
 import coil.load
 import coil.transform.CircleCropTransformation
-import com.example.baselibrary.utils.view.loadUrl
 import com.example.baselibrary.recyclerview.BaseBRVAdapter
-import com.xlu.module_tab1.R
-import com.xlu.module_tab1.bean.Image
-import com.xlu.module_tab1.databinding.FragmentCoilItemBinding
+import com.example.module_community.R
+import com.example.module_community.bean.Image
+import com.example.module_community.databinding.FragmentCoilItemBinding
 
 
 class ImageListAdapter : BaseBRVAdapter<Image, FragmentCoilItemBinding>(FragmentCoilItemBinding::inflate) {

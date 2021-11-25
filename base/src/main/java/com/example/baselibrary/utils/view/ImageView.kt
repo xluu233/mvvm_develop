@@ -14,17 +14,12 @@ import com.example.baselibrary.utils.activity.application
 import com.example.baselibrary.utils.transformation.CenterBlurTransformation
 import com.example.baselibrary.utils.transformation.GlideRoundTransform
 
-
-fun ImageView.loadUrl(url: String) {
+/*--------------加载普通图片----------*/
+fun ImageView.loadImage(url: String?= null,uri: Uri?=null,@DrawableRes drawable: Int?=null) {
+    val result = ((url ?: uri) ?: drawable) ?: R.drawable.icon_errorload
     Glide.with(context)
-        .load(url)
-        .transition(withCrossFade())
-        .into(this)
-}
-
-fun ImageView.loadUri(uri: Uri) {
-    Glide.with(context)
-        .load(uri)
+        .load(result)
+        .centerCrop()
         .transition(withCrossFade())
         .into(this)
 }
@@ -70,7 +65,7 @@ fun ImageView.loadCircle(@DrawableRes drawable:Int) {
 
 
 /*-----------圆角图片------------*/
-fun ImageView.loadRadius(context: Context, url: String, radius: Int) {
+fun ImageView.loadRadius(url: String, radius: Int) {
     Glide.with(context)
         .load(url)
         .centerCrop()
@@ -90,7 +85,7 @@ fun ImageView.loadRadius(context: Context, url: String, radius: Int) {
 
 
 /*------------占位图--------------*/
-fun ImageView.loadError(context: Context) {
+fun ImageView.loadError() {
     Glide.with(context)
         .load(R.drawable.icon_errorload)
         .centerCrop()

@@ -6,4 +6,5 @@ include ':module_2'
 include ':module_3'
 include ':module_login'
 include ':module_app_test'
+include ':module_community'
 rootProject.name = "mvvm_develop"

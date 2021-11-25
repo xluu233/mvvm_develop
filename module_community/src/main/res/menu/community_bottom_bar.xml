@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/community_home"
+        android:title="社区"
+        android:icon="@drawable/icon_community_tab1"
+        app:exb_color="@color/lightcoral" />
+
+    <item
+        android:id="@+id/community_collection"
+        android:title="收藏"
+        android:icon="@drawable/icon_community_tab2"
+        app:exb_color="@color/red" />
+
+    <item
+        android:id="@+id/community_settings"
+        android:title="其他"
+        android:icon="@drawable/icon_community_tab3"
+        app:exb_color="@color/olive" />
+
+</menu>

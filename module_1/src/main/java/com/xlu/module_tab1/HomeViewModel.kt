@@ -1,19 +1,12 @@
 package com.xlu.module_tab1
 
-import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.baselibrary.vm.BaseViewModel
 import com.example.baselibrary.http.ResultLiveData
-import com.example.baselibrary.utils.activity.application
 import com.example.baselibrary.utils.log.xLog
-import com.example.baselibrary.utils.media.TextFileUtil
-import com.example.baselibrary.utils.other.TimeUtil
-import com.example.baselibrary.utils.other.getContext
 import com.xlu.module_tab1.bean.Article
-import com.xlu.module_tab1.bean.Image
-import java.io.*
 
 /**
  * @ClassName Tab1ViewModel
@@ -49,34 +42,5 @@ class HomeViewModel : BaseViewModel() {
         xLog.d(_text.value.toString())
     }
 
-
-    fun getImageData():List<Image>{
-        val list = mutableListOf<Image>()
-        val urlList = readAssert("url.txt")
-
-        for (i in 0 until 100){
-            list.add(Image(id = i,url = urlList[i], title = TimeUtil.getCurrentTime()))
-        }
-        return list
-    }
-
-    private fun readAssert(name:String):List<String>{
-        val list = mutableListOf<String>()
-
-        try {
-            val inputStream = application.assets.open(name)
-            val inputreader = InputStreamReader(inputStream, "UTF-8")
-            val buffreader = BufferedReader(inputreader)
-            var line = ""
-            //分行读取
-            while (buffreader.readLine()?.also { line=it } != null) {
-                list.add(line)
-            }
-            inputStream.close()
-        } catch (e: IOException) {
-            Log.d("TestFile", "The File doesn't not exist.")
-        }
-        return list
-    }
 
 }

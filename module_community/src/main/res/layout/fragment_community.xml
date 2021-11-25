@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.CommunityFragment">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/community_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <github.com.st235.lib_expandablebottombar.ExpandableBottomBar
+        android:id="@+id/community_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:exb_elevation="3dp"
+        app:exb_itemStyle="normal"
+        app:exb_item_horizontal_padding="20dp"
+        app:exb_items="@menu/community_bottom_bar"
+        app:exb_backgroundColor="@color/mediumturquoise"
+        app:exb_itemInactiveColor="#ffffff"
+        app:layout_behavior="github.com.st235.lib_expandablebottombar.behavior.ExpandableBottomBarScrollableBehavior"/>
+
+</FrameLayout>

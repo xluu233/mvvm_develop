@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:state_activated="true"
+        android:state_checked="true"
+        android:state_selected="true"
+        android:drawable="@drawable/icon_focus"/>
+
+    <item
+        android:state_activated="false"
+        android:state_checked="false"
+        android:state_selected="false"
+        android:drawable="@drawable/icon_focused"/>
+
+</selector>

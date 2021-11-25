@@ -1,0 +1,17 @@
+apply from: '../base.gradle'
+apply plugin: 'kotlin-android'
+
+import com.xlu.buildsrc.Dependency
+
+android {
+
+}
+
+dependencies {
+    implementation project(path: ':common')
+
+    //ARouter
+    implementation Dependency.DependencyImp.ARoute
+    kapt Dependency.DependencyImp.ARouteCompiler
+
+}

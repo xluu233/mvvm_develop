@@ -1,4 +1,4 @@
-package com.xlu.module_tab1.bean
+package com.example.module_community.bean
 
 /**
  * @ClassName Image

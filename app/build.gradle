@@ -49,6 +49,7 @@ dependencies {
 
     //ARouter
     implementation Dependency.DependencyImp.ARoute
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt Dependency.DependencyImp.ARouteCompiler
 
     //AutoService
@@ -60,5 +61,6 @@ dependencies {
     implementation project(path: ':module_2')
     implementation project(path: ':module_3')
     implementation project(path: ':module_login')
+    implementation project(path: ':module_community')
 
 }

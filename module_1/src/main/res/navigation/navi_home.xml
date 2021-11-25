@@ -25,11 +25,6 @@
             app:destination="@id/fragmentNet"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"   />
-        <action
-            android:id="@+id/action_HomeMainFragment_to_fragmentCoil"
-            app:destination="@id/fragmentCoil"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"   />
     </fragment>
 
 
@@ -49,11 +44,5 @@
         android:name="com.xlu.module_tab1.ui.FragmentNet"
         android:label="fragment_net"
         tools:layout="@layout/fragment_net" />
-    <fragment
-        android:id="@+id/fragmentCoil"
-        android:name="com.xlu.module_tab1.ui.FragmentCoil"
-        android:label="fragment_coil"
-        tools:layout="@layout/fragment_coil" />
-
 
 </navigation>

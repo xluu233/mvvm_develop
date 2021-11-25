@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PhotosContentView">
+        <attr format="dimension" name="singleImgSize"/>
+        <attr format="dimension" name="imgGap"/>
+        <attr format="float" name="singleImageRatio" />
+        <attr format="integer" name="maxSize"/>
+        <attr format="enum" name="showStyle">
+            <enum name="fill" value="0"/>
+            <enum name="grid" value="1"/>
+        </attr>
+    </declare-styleable>
+
+</resources>

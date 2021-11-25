@@ -111,8 +111,6 @@ object Dependency  {
         const val StartUp = "androidx.startup:startup-runtime:1.1.0"
 
 
-
-
         /*----------通信----------*/
         //ARouter https://github.com/alibaba/ARouter/blob/master/README_CN.md
         const val ARoute = "com.alibaba:arouter-api:${Version.ARoute}"
@@ -171,7 +169,6 @@ object Dependency  {
         //gson
         const val Gson = "com.google.code.gson:gson:${Version.Gson}"
 
-
         /*------------视图-----------------*/
         //banner  https://github.com/youth5201314/banner
         const val YouthBanner = "io.github.youth5201314:banner:2.2.2"
@@ -188,6 +185,8 @@ object Dependency  {
         const val ToastBox = "com.github.xluu233:ToastBox:0.6.1"
         //https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/readme/0-BaseRecyclerViewAdapterHelper.md
         const val BRVA = "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7"
+        //https://github.com/st235/ExpandableBottomBar
+        const val ExpandableBottomBar = "com.github.st235:expandablebottombar:1.4.0"
     }
 
 }

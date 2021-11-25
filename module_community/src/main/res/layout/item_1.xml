@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="data"
+            type="com.example.module_community.bean.Community" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/icon"
+            circleImage1="@{data.icon}"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@color/lavenderblush"
+            android:elevation="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{data.name+String.valueOf(data.id)}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_normal"
+            app:layout_constraintBottom_toTopOf="@+id/subTitle"
+            app:layout_constraintEnd_toStartOf="@+id/add_focus"
+            app:layout_constraintStart_toEndOf="@+id/icon"
+            app:layout_constraintTop_toTopOf="@+id/icon" />
+
+        <TextView
+            android:id="@+id/subTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{data.subName}"
+            android:textColor="#55000000"
+            android:textSize="@dimen/text_min"
+            android:layout_marginTop="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/icon"
+            app:layout_constraintEnd_toEndOf="@+id/title"
+            app:layout_constraintStart_toStartOf="@+id/title"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+
+        <ImageView
+            android:id="@+id/add_focus"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="fitCenter"
+            android:padding="3dp"
+            android:src="@drawable/selected_focus"
+            android:background="@drawable/shape_radius_10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/icon"
+            android:backgroundTint="@color/peachpuff"
+            app:tint="@color/lightcoral" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/image_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:padding="10dp"
+            android:background="@drawable/shape_radius_10dp"
+            android:backgroundTint="@color/ghostwhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/icon" />
+
+
+        <View
+            android:id="@+id/item_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/silver"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_list" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

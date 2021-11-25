@@ -19,17 +19,11 @@ class FragmentHomeMain : BaseFragment(R.layout.fragment_home) {
     private val viewModel: HomeViewModel by activityViewModels()
 
 
-
     override fun initData() {
-
         initClick()
 
-//        LiveDataBus.with<String>("test").observeStick(this, Observer {
-//            xLog.d(it)
-//        })
-//        LiveDataBus.with<String>("test").postStickData("ahahahhah")
-
     }
+
 
 
     private fun initClick() {
@@ -72,11 +66,11 @@ class FragmentHomeMain : BaseFragment(R.layout.fragment_home) {
             LiveDataBus.with<String>(ConstantEvent.NAVIGATION_FRAGMENT_EVENT).postData(ConstantEvent.FRAGMENT_RECYCLERVIEW)
         }
 
-        binding.testImage.click {
-            hideBottomNav(true)
-            navigate(R.id.action_HomeMainFragment_to_fragmentCoil)
-        }
+        //hideBottomNav(true)
 
+        binding.communityModule.click {
+            LiveDataBus.with<String>(ConstantEvent.NAVIGATION_FRAGMENT_EVENT).postData(ConstantEvent.COMMUNITY_FRAGMENT)
+        }
 
     }
 
