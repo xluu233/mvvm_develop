@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
+import com.drake.statusbar.statusPadding
 import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.bus.LiveDataBus
 import com.example.baselibrary.viewbinding.viewBinding

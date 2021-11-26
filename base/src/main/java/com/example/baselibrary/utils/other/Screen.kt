@@ -78,26 +78,14 @@ inline var Activity.isPortrait: Boolean
 
 
 
-fun getScreenWidth(context: Context): Int {
-  return context.resources.displayMetrics.widthPixels
-}
-
-fun getScreenHeight(context: Context): Int {
-  return context.resources.displayMetrics.heightPixels
-}
-
 /**
  * 判断是否是平板
  * @param context
  * @return
  */
-fun isPad(context: Context):Boolean{
+fun isPad():Boolean{
   val i = 1920/1080
-  val width = getScreenWidth(context)
-  val height = getScreenHeight(context)
-  val max = maxOf(width,height)
-  val min = minOf(width,height)
-  return max/min < i
+  return screenHeight/ screenWidth < i
 }
 
 fun setLayoutWidth(view: View, width: Int) {
@@ -124,8 +112,8 @@ fun snapShotWithStatusBar(activity: Activity): Bitmap? {
   view.isDrawingCacheEnabled = true
   view.buildDrawingCache()
   val bmp = view.drawingCache
-  val width = getScreenWidth(activity)
-  val height = getScreenHeight(activity)
+  val width = screenWidth
+  val height = screenHeight
   var bp: Bitmap? = null
   bp = Bitmap.createBitmap(bmp, 0, 0, width, height)
   view.destroyDrawingCache()
@@ -146,8 +134,8 @@ fun snapShotWithoutStatusBar(activity: Activity): Bitmap? {
   val frame = Rect()
   activity.window.decorView.getWindowVisibleDisplayFrame(frame)
   val statusBarHeight = frame.top
-  val width = getScreenWidth(activity)
-  val height = getScreenHeight(activity)
+  val width = screenWidth
+  val height = screenHeight
   var bp: Bitmap? = null
   bp = Bitmap.createBitmap(bmp, 0, statusBarHeight, width, height - statusBarHeight)
   view.destroyDrawingCache()

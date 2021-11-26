@@ -25,6 +25,7 @@
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#ffffff</color>
     <color name="disabledInputColor">#fffafafa</color>
+    <color name="transparent">#00ffffff</color>
 
 
     <color name="black">#000000</color><!--黑色 -->

@@ -11,15 +11,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MVVM_Develop" >
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".activity.TestActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="sensor"
-            android:theme="@style/Theme.MVVM_Develop" >
+            android:screenOrientation="sensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

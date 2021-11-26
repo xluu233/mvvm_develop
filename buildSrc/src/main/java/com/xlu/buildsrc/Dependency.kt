@@ -108,6 +108,8 @@ object Dependency  {
 
 
         /*----------JetPack-----------*/
+
+        // https://blog.csdn.net/guolin_blog/article/details/108026357
         const val StartUp = "androidx.startup:startup-runtime:1.1.0"
 
 
@@ -182,11 +184,14 @@ object Dependency  {
         const val Mkloader  = "com.tuyenmonkey:mkloader:1.4.0"
         //动画库 https://lottiefiles.com/
         const val Lottie  = "com.airbnb.android:lottie:3.7.0"
+        //toast工具   https://github.com/xluu233/ToastBox
         const val ToastBox = "com.github.xluu233:ToastBox:0.6.1"
         //https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/readme/0-BaseRecyclerViewAdapterHelper.md
         const val BRVA = "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7"
         //https://github.com/st235/ExpandableBottomBar
         const val ExpandableBottomBar = "com.github.st235:expandablebottombar:1.4.0"
+        //https://liangjingkanji.github.io/StatusBar/
+        const val StatusBar = "com.github.liangjingkanji:StatusBar:2.0.1"
     }
 
 }

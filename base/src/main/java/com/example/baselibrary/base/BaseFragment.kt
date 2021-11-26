@@ -1,11 +1,21 @@
 package com.example.baselibrary.base
 
 import android.content.Context
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.annotation.LayoutRes
+import androidx.core.graphics.ColorUtils
 import androidx.fragment.app.Fragment
+import com.drake.statusbar.darkMode
+import com.drake.statusbar.immersive
+import com.drake.statusbar.statusBarColor
+import com.drake.statusbar.statusPadding
+import com.example.baselibrary.R
+import com.example.baselibrary.lifecycle.ActivityStack
 import com.example.baselibrary.navigation.NavHostFragment
+import com.example.baselibrary.utils.other.Color
 
 /**
  * @ClassName BaseFragment
@@ -29,10 +39,26 @@ abstract class BaseFragment(@LayoutRes private val layout: Int, private val lazy
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initStatusBar()
         if (!lazyInit){
             initData()
         }
     }
+
+    /**
+     * 更新状态栏，背景颜色和字体颜色
+     */
+    fun initStatusBar() {
+        val background = view?.background
+        if (background is ColorDrawable) {
+            val color = background.color
+            val isWhite = Color.isWhiteColor(color)
+            //requireActivity().immersive(color,darkMode = isWhite)
+            this.statusBarColor(background.color)
+            ActivityStack.currentActivity?.darkMode(isWhite)
+        }
+    }
+
 
     override fun onResume() {
         super.onResume()

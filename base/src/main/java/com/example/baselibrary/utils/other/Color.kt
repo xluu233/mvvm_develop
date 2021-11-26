@@ -2,7 +2,9 @@ package com.example.baselibrary.utils.other
 
 import android.graphics.Color
 import android.text.TextUtils
+import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.ColorUtils
 import com.example.baselibrary.BaseApp
 import com.example.baselibrary.utils.activity.application
 import java.lang.Exception
@@ -10,7 +12,7 @@ import java.lang.Exception
 /**
  * 色处理工具类
  */
-object ColorUtils {
+object Color {
 
     /**
      * 解析颜色
@@ -55,6 +57,14 @@ object ColorUtils {
      */
     fun setTextColor(text: String, color: String): String {
         return "<font color=#$color>$text</font>"
+    }
+
+    /**
+     * 判断是否是亮色
+     */
+    fun isWhiteColor(@ColorInt color: Int):Boolean{
+        val result = ColorUtils.calculateLuminance(color)
+        return result >= 0.5
     }
 
 }

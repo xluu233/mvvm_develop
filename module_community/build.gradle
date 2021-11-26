@@ -12,6 +12,7 @@ dependencies {
 
     //ARouter
     implementation Dependency.DependencyImp.ARoute
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt Dependency.DependencyImp.ARouteCompiler
 
 }

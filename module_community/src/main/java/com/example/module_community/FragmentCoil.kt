@@ -9,6 +9,9 @@ import com.example.module_community.databinding.FragmentCoilBinding
 import com.example.module_community.vm.CommunityViewModel
 import com.xlu.common.hideBottomNav
 
+/**
+ * Coil图片加载框架测试
+ */
 class FragmentCoil : BaseFragment(R.layout.fragment_coil) {
 
     private val viewModel by activityViewModels<CommunityViewModel>()
