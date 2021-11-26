@@ -9,15 +9,13 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
-import com.example.baselibrary.recyclerview.DataBindAdapter
-import com.example.baselibrary.utils.design.AppCompat
+import com.example.baselibrary.recyclerview.BaseDataBindAdapter
 import com.example.baselibrary.utils.view.click
 import com.example.baselibrary.view.photoscontentview.PhotosContentViewAdapter
 import com.example.module_community.R
 import com.example.module_community.bean.Community
 import com.example.module_community.databinding.Item2Binding
 import com.example.xlulibrary.ToastBox
-import com.example.xlulibrary.toast.xToast
 
 /**
  * @ClassName AdapterDemo4
@@ -25,7 +23,7 @@ import com.example.xlulibrary.toast.xToast
  * @Author AlexLu_1406496344@qq.com
  * @Date 2021/11/16 14:01
  */
-class ShareAdapter2 : DataBindAdapter<Community, Item2Binding>(R.layout.item_2) {
+class ShareAdapter2 : BaseDataBindAdapter<Community, Item2Binding>(R.layout.item_2) {
 
     override fun onItemViewHolderCreated(viewHolder: BaseDataBindingHolder<Item2Binding>, viewType: Int) {
         viewHolder.dataBinding?.apply {

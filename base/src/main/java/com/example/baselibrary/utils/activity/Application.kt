@@ -1,6 +1,7 @@
 package com.example.baselibrary.utils.activity
 
 import android.app.Application
+import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
@@ -8,8 +9,11 @@ import android.content.res.Configuration.UI_MODE_NIGHT_MASK
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.core.content.pm.PackageInfoCompat
 import com.example.baselibrary.AppInit
+import com.example.baselibrary.lifecycle.ActivityStack
 
 val application: Application get() = AppInit.application
+
+val context:Context get() = ActivityStack.currentActivity?.context ?: application
 
 inline val packageName: String get() = application.packageName
 

@@ -13,6 +13,10 @@ object ConstantARouter {
 
     const val MainActivity = "/app/MainActivity"
 
+    const val MainFragment = "/app/MainFragment"
+
+    const val PoppetActivity = "/app/PoppetActivity"
+
     const val ARouterFragment = "/app/ARouterFragment"
 
     const val LoginActivity = "/login/LoginActivity"
@@ -21,5 +25,7 @@ object ConstantARouter {
 
     const val FragmentTab1_Main = "/tab1/MainFragment"
 
+
+    const val PreviewImageFragment = "PreviewImageFragment"
 
 }

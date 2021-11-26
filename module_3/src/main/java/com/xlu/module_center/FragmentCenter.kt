@@ -10,7 +10,7 @@ class FragmentCenter : BaseFragment(R.layout.fragment_center) {
         fun newInstance() = FragmentCenter()
     }
 
-    override fun initData() {
+    override suspend fun initData() {
 
     }
 

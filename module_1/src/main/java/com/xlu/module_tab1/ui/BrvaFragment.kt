@@ -9,13 +9,11 @@ import com.example.baselibrary.recyclerview.test.*
 import com.example.baselibrary.viewbinding.viewBinding
 import com.example.baselibrary.utils.other.TimeUtil.getCurrentTime
 import com.xlu.module_tab1.R
-import com.xlu.module_tab1.adapter.QuickBiningBRVAdapter
 import com.xlu.module_tab1.databinding.FragmentBrvaListBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.*
 
 class BrvaFragment : BaseFragment(R.layout.fragment_brva_list) {
 
@@ -50,7 +48,7 @@ class BrvaFragment : BaseFragment(R.layout.fragment_brva_list) {
         AdapterDemo4()
     }
 
-    override fun initData() {
+    override suspend fun initData() {
 
         val list = mutableListOf<Book>()
         for (i in 0..100){

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
+import com.example.baselibrary.utils.log.xLog
 
 
 /**
@@ -21,7 +22,14 @@ abstract class BaseAdapter<T, VB : ViewBinding>(
         parent: ViewGroup,
         viewType: Int
     ): BindingViewHolder<VB> {
+        xLog.d( "onCreateViewHolder: BaseAdapter")
         return BindingViewHolder<VB>(parent, inflate)
+    }
+
+    var listener : AdapterClickListener<T> ?= null
+
+    open fun setClickListener(listener: AdapterClickListener<T>){
+        this.listener = listener
     }
 
     override fun getItemCount(): Int = list.size

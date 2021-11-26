@@ -24,7 +24,7 @@ class LoginActivity : BaseActivity(R.layout.activity_login){
     @Autowired(name = ConstantParams.key2)
     @JvmField var test : String = ""
 
-    override fun initData(savedInstanceState: Bundle?) {
+    override suspend fun initData(savedInstanceState: Bundle?) {
         //自动注入,不建议使用
         ARouter.getInstance().inject(this)
 

@@ -19,7 +19,7 @@ class BindingFragmentRoom : BaseBindingFragment<FragmentRoomBinding>(R.layout.fr
         HomeDatabase.getInstance().homeDao()
     }
 
-    override fun initData() {
+    override suspend fun initData() {
         initClick()
 
     }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_main"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@+id/mainFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -94,7 +94,12 @@
     <fragment
         android:id="@+id/communityFragment"
         android:name="com.example.module_community.CommunityFragment"
-        android:label="CommunityFragment" />
+        android:label="CommunityFragment" >
+    </fragment>
+    <fragment
+        android:id="@+id/imagePreviewFragment"
+        android:name="com.example.mvvm_develop.ui.ImagePreviewFragment"
+        android:label="ImagePreviewFragment" />
 
 
 </navigation>

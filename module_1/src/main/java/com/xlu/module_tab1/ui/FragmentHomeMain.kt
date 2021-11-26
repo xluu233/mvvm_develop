@@ -19,7 +19,7 @@ class FragmentHomeMain : BaseFragment(R.layout.fragment_home) {
     private val viewModel: HomeViewModel by activityViewModels()
 
 
-    override fun initData() {
+    override suspend fun initData() {
         initClick()
 
     }

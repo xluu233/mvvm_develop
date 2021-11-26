@@ -1,6 +1,7 @@
 package com.example.module_community.vm
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import com.example.baselibrary.bus.LiveDataBus
 import com.example.baselibrary.utils.activity.application
 import com.example.baselibrary.utils.other.TimeUtil
@@ -17,7 +18,9 @@ class CommunityViewModel : BaseViewModel() {
 
 
 
-    fun getImageData():List<Image>{
+    val lolImageList = MutableLiveData<List<Image>>()
+
+    suspend fun getImageData(){
         val list = mutableListOf<Image>()
         val urlList = readAssert("url.txt")
 
@@ -30,7 +33,7 @@ class CommunityViewModel : BaseViewModel() {
                 )
             )
         }
-        return list
+        lolImageList.postValue(list)
     }
 
     private fun readAssert(name:String):List<String>{
@@ -117,8 +120,12 @@ class CommunityViewModel : BaseViewModel() {
     )
 
 
+    private var isHide = false
     fun hideCommunityBottomBar(hide:Boolean){
-        LiveDataBus.with<Boolean>(ConstantEvent.HIDE_COMUNITY_BOTTOM_BAR).postData(hide)
+        if (isHide != hide) {
+            isHide = hide
+            LiveDataBus.with<Boolean>(ConstantEvent.HIDE_COMUNITY_BOTTOM_BAR).postData(hide)
+        }
     }
 
 }

@@ -27,13 +27,13 @@ class TestDialog : BaseDialogFragment<DialogTestBinding>(DialogTestBinding::infl
         )
     }
 
-    override fun initView() {
+    override suspend fun initView() {
         binding.confirmButton.click {
             dismiss()
         }
     }
 
-    override fun initData() {
+    override suspend fun initData() {
 
     }
 

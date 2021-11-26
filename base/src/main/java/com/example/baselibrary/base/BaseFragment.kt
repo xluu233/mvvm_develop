@@ -8,6 +8,7 @@ import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.core.graphics.ColorUtils
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.drake.statusbar.darkMode
 import com.drake.statusbar.immersive
 import com.drake.statusbar.statusBarColor
@@ -16,6 +17,8 @@ import com.example.baselibrary.R
 import com.example.baselibrary.lifecycle.ActivityStack
 import com.example.baselibrary.navigation.NavHostFragment
 import com.example.baselibrary.utils.other.Color
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 
 /**
  * @ClassName BaseFragment
@@ -41,7 +44,9 @@ abstract class BaseFragment(@LayoutRes private val layout: Int, private val lazy
         super.onViewCreated(view, savedInstanceState)
         initStatusBar()
         if (!lazyInit){
-            initData()
+            lifecycleScope.launch {
+                initData()
+            }
         }
     }
 
@@ -64,7 +69,9 @@ abstract class BaseFragment(@LayoutRes private val layout: Int, private val lazy
         super.onResume()
         //Fragment是否可见
         if (!isLoaded && !isHidden && lazyInit) {
-            initData()
+            lifecycleScope.launch {
+                initData()
+            }
             isLoaded = true
         }
     }
@@ -72,7 +79,7 @@ abstract class BaseFragment(@LayoutRes private val layout: Int, private val lazy
     /**
      * 初始化数据
      */
-    abstract fun initData()
+    abstract suspend fun initData()
 
 
     /**
@@ -87,6 +94,7 @@ abstract class BaseFragment(@LayoutRes private val layout: Int, private val lazy
 
     override fun onDestroyView() {
         super.onDestroyView()
+        lifecycleScope.cancel()
         isLoaded = false
     }
     

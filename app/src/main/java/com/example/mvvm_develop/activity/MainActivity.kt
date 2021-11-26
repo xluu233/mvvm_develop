@@ -4,16 +4,20 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
+import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.example.baselibrary.base.BaseActivity
 import com.example.baselibrary.bus.LiveDataBus
 import com.example.baselibrary.viewbinding.viewBinding
 import com.example.baselibrary.navigation.NavHostFragment
+import com.example.baselibrary.utils.activity.lifecycleOwner
 import com.example.mvvm_develop.vm.CommonViewModel
 import com.example.mvvm_develop.R
 import com.example.mvvm_develop.databinding.ActivityMainBinding
 import com.xlu.common.constants.ConstantARouter
 import com.xlu.common.constants.ConstantEvent
+import com.xlu.common.constants.ConstantParams
 
 
 @Route(path = ConstantARouter.MainActivity)
@@ -30,15 +34,16 @@ class MainActivity : BaseActivity(R.layout.activity_main){
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var navController: NavController
 
-    override fun initData(savedInstanceState: Bundle?) {
+    override suspend fun initData(savedInstanceState: Bundle?) {
         navHostFragment = supportFragmentManager.findFragmentById(R.id.main_fragment_container) as NavHostFragment
         navController = navHostFragment.navController
+        navController.navigate(R.id.mainFragment)
         initObserver()
     }
 
     private fun initObserver() {
 
-        LiveDataBus.with<String>(ConstantEvent.NAVIGATION_FRAGMENT_EVENT).observe(this, Observer {
+        LiveDataBus.with<String>(ConstantEvent.NAVIGATION_FRAGMENT_EVENT).observe(lifecycleOwner, Observer {
             when(it){
                 ConstantEvent.FRAGMENT_NET -> navController.navigate(R.id.action_mainFragment_to_fragmentNet2)
                 ConstantEvent.FRAGMENT_ROOM -> navController.navigate(R.id.action_mainFragment_to_fragmentRoom)

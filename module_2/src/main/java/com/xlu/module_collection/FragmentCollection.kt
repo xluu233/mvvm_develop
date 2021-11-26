@@ -22,7 +22,7 @@ class FragmentCollection : BaseFragment(R.layout.fragment_collection) {
     private val binding by viewBinding(FragmentCollectionBinding::bind)
     private val viewModel:CollectionViewModel by activityViewModels()
 
-    override fun initData() {
+    override suspend fun initData() {
         initClick()
     }
 

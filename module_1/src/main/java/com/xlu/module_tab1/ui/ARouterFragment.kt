@@ -25,7 +25,7 @@ class ARouterFragment : BaseFragment(R.layout.fragment_arouter) {
     @JvmField var name:String = ""
 
 
-    override fun initData() {
+    override suspend fun initData() {
         ARouter.getInstance().inject(this)
 
         binding.textView4.text = "id:${id},name:${name}"

@@ -10,7 +10,7 @@ class BindingFragment : BaseBindingFragment<FragmentDatabindBinding>(R.layout.fr
 
     private val viewmodel by activityViewModels<HomeViewModel>()
 
-    override fun initData() {
+    override suspend fun initData() {
         //不要忘了赋值
         mBinding.viewmodel = viewmodel
 

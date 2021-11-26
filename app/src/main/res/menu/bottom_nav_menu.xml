@@ -4,16 +4,16 @@
     <item
         android:id="@+id/navi_home"
         android:icon="@drawable/menu_tab1"
-        android:title="tab1" />
+        android:title="UI" />
 
     <item
         android:id="@+id/navi_collection"
         android:icon="@drawable/menu_tab2"
-        android:title="tab2" />
+        android:title="数据" />
 
     <item
         android:id="@+id/navi_center"
         android:icon="@drawable/menu_tab3"
-        android:title="tab3" />
+        android:title="Other" />
 
 </menu>

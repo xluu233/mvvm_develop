@@ -30,7 +30,7 @@ class ShareElementsFragment : BaseFragment(R.layout.fragment_recycler_list) {
 
     private var page = 0
     @SuppressLint("ClickableViewAccessibility")
-    override fun initData() {
+    override suspend fun initData() {
 
         binding.recyclerList.apply {
             layoutManager = LinearLayoutManager(context)

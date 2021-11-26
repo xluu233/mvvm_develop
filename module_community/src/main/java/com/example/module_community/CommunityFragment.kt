@@ -3,6 +3,7 @@ package com.example.module_community
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.baselibrary.base.BaseFragment
@@ -10,6 +11,7 @@ import com.example.baselibrary.bus.LiveDataBus
 import com.example.baselibrary.utils.design.initFragment
 import com.example.baselibrary.viewbinding.viewBinding
 import com.example.module_community.databinding.FragmentCommunityBinding
+import com.example.module_community.vm.CommunityViewModel
 import com.xlu.common.constants.ConstantEvent
 import github.com.st235.lib_expandablebottombar.MenuItem
 import github.com.st235.lib_expandablebottombar.OnItemClickListener
@@ -18,8 +20,9 @@ import github.com.st235.lib_expandablebottombar.OnItemClickListener
 class CommunityFragment : BaseFragment(R.layout.fragment_community) {
 
     private val binding by viewBinding(FragmentCommunityBinding::bind)
+    private val viewModel by activityViewModels<CommunityViewModel>()
 
-    override fun initData() {
+    override suspend fun initData() {
         initObserver()
 
         val viewPager = binding.communityViewpager
@@ -42,6 +45,7 @@ class CommunityFragment : BaseFragment(R.layout.fragment_community) {
                             bottomBar.menu.select(R.id.community_home)
                         }
                         1 -> {
+                            viewModel.hideCommunityBottomBar(false)
                             bottomBar.menu.select(R.id.community_collection)
                         }
                         2 -> {

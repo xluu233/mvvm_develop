@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.drake.statusbar.statusPadding
 import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.bus.LiveDataBus
@@ -17,6 +18,7 @@ import com.example.mvvm_develop.R
 import com.example.mvvm_develop.databinding.FragmentMainBinding
 import com.example.mvvm_develop.vm.CommonViewModel
 import com.google.android.material.navigation.NavigationBarView
+import com.xlu.common.constants.ConstantARouter
 import com.xlu.common.constants.ConstantEvent
 import com.xlu.module_center.FragmentCenter
 import com.xlu.module_collection.FragmentCollection
@@ -28,6 +30,7 @@ import com.xlu.module_tab1.FragmentHome
  * @Author AlexLu_1406496344@qq.com
  * @Date 2021/8/16 14:28
  */
+@Route(path = ConstantARouter.MainFragment)
 class MainFragment : BaseFragment(R.layout.fragment_main) {
 
     private val binding by viewBinding(FragmentMainBinding::bind)
@@ -47,7 +50,7 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
         FragmentCenter.newInstance()
     }
 
-    override fun initData() {
+    override suspend fun initData() {
         initBottomNav()
         initObserver()
     }

@@ -12,9 +12,12 @@ import androidx.annotation.StyleRes
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
 import com.example.baselibrary.R
 import com.example.baselibrary.lifecycle.ActivityStack
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 
 
 /**
@@ -81,8 +84,10 @@ abstract class BaseDialogFragment<VB : ViewBinding>(
 
     override fun onResume() {
         super.onResume()
-        initView()
-        initData()
+        lifecycleScope.launch {
+            initView()
+            initData()
+        }
     }
 
     fun initParams(cancel:Boolean = this.cancel,
@@ -102,13 +107,14 @@ abstract class BaseDialogFragment<VB : ViewBinding>(
         this.gravity = gravity
     }
 
-    abstract fun initView()
+    abstract suspend fun initView()
 
-    abstract fun initData()
+    abstract suspend fun initData()
 
     override fun onDestroy() {
-        super.onDestroy()
         _binding = null
+        lifecycleScope.cancel()
+        super.onDestroy()
     }
 
 }

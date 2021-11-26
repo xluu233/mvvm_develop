@@ -15,7 +15,7 @@ class FragmentNet : BaseFragment(R.layout.fragment_net) {
     private val binding by viewBinding(FragmentNetBinding::bind)
     private val viewModel: HomeViewModel by activityViewModels()
 
-    override fun initData() {
+    override suspend fun initData() {
 
         viewModel.articleLiveData.observe(this, Observer {
             //对于不同状态的处理

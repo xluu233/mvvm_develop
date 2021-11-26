@@ -17,7 +17,7 @@ class FragmentMMKV : BaseFragment(R.layout.fragment_mmkv) {
 
     val key = "home_test"
 
-    override fun initData() {
+    override suspend fun initData() {
 
         binding.write.setOnClickListener {
             MMKVUtil.get(MMKV_TYPE.APP).encode(key,"this is mmkv_app params")

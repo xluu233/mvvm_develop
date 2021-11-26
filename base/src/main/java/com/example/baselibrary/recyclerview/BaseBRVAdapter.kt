@@ -16,6 +16,8 @@ abstract class BaseBRVAdapter<T, VB : ViewBinding>(
     layoutResId: Int = -1
 ) : BaseQuickAdapter<T, BaseBRVAdapter.BaseBindingHolder>(layoutResId) {
 
+    var listener : AdapterClickListener<T> ?= null
+
     override fun onCreateDefViewHolder(parent: ViewGroup, viewType: Int) =
         BaseBindingHolder(inflate(LayoutInflater.from(parent.context), parent, false))
 
@@ -25,5 +27,10 @@ abstract class BaseBRVAdapter<T, VB : ViewBinding>(
         @Suppress("UNCHECKED_CAST")
         fun <VB : ViewBinding> getViewBinding() = binding as VB
     }
+
+    open fun setClickListener(listener: AdapterClickListener<T>){
+        this.listener = listener
+    }
+
 
 }
