@@ -4,15 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.mvvm_develop.ui.ImagePreviewFragment">
+    android:layout_height="match_parent">
 
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/preview_vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,8 +24,7 @@
         android:text="0/0"
         android:gravity="center"
         android:textSize="@dimen/text_big_1"
-        android:textColor="@color/white"
-        android:textStyle="bold"
+        android:textColor="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

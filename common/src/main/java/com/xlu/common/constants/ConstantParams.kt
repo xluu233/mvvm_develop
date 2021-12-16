@@ -14,7 +14,9 @@ object ConstantParams {
     const val key4 = "key4"
 
 
+    const val NavigationDestination = "NavigationDestination"
+
     const val PreviewImageList = "PreviewImageList"
     const val PreviewImagePosition = "PreviewImagePosition"
-    const val NavigationDestination = "NavigationDestination"
+
 }

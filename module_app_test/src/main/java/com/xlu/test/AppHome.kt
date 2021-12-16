@@ -1,7 +1,7 @@
 package com.xlu.test
 
 import com.example.baselibrary.BaseApp
-import com.example.xlulibrary.ToastBox.Companion.toast
+import com.example.xlulibrary.ToastBox
 
 /**
  * @ClassName App
@@ -17,7 +17,7 @@ class AppHome : BaseApp() {
     }
 
     private fun initSDK() {
-        toast("initSDK")
+        ToastBox.showToast("initSDK")
     }
 
 }

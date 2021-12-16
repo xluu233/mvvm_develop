@@ -1,7 +1,6 @@
 package com.example.mvvm_develop.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import com.alibaba.android.arouter.facade.annotation.Autowired
@@ -12,14 +11,13 @@ import com.example.baselibrary.navigation.NavHostFragment
 import com.example.baselibrary.utils.log.xLog
 import com.example.baselibrary.viewbinding.viewBinding
 import com.example.mvvm_develop.R
-import com.example.mvvm_develop.databinding.ActivityMainBinding
 import com.example.mvvm_develop.databinding.ActivityTestBinding
 import com.xlu.common.constants.ConstantARouter
 import com.xlu.common.constants.ConstantParams
 
 
 /**
- * TODO Puppet:傀儡,玩具
+ *  Puppet:傀儡,玩具
  * 用来当做页面跳转容器
  */
 @Route(path = ConstantARouter.PoppetActivity)
@@ -28,15 +26,11 @@ class PuppetActivity : BaseActivity(R.layout.activity_test) {
     private val binding by viewBinding(ActivityTestBinding::bind)
 
     @Autowired(name = ConstantParams.NavigationDestination)
-    private var navigationDestination:String ?= null
-
-    private lateinit var navController: NavController
+    @JvmField
+    var navigationDestination: String? = null
 
     override suspend fun initData(savedInstanceState: Bundle?) {
         ARouter.getInstance().inject(this)
-        val navHostFragment = binding.poppetFragmentContainer as NavHostFragment
-        navController = navHostFragment.navController
-
         initPage()
     }
 
@@ -58,10 +52,9 @@ class PuppetActivity : BaseActivity(R.layout.activity_test) {
             copyExtras2Fragment(fragment)
 
             val fragmentTransaction = supportFragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.mainFragment, fragment, navigationDestination)
+            fragmentTransaction.replace(R.id.poppet_fragment, fragment, navigationDestination)
             fragmentTransaction.commitAllowingStateLoss()
         }
-
 
     }
 

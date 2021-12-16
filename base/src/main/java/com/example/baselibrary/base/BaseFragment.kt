@@ -53,7 +53,7 @@ abstract class BaseFragment(@LayoutRes private val layout: Int, private val lazy
     /**
      * 更新状态栏，背景颜色和字体颜色
      */
-    fun initStatusBar() {
+    open fun initStatusBar() {
         val background = view?.background
         if (background is ColorDrawable) {
             val color = background.color

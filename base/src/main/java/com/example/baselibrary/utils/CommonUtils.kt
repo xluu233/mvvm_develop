@@ -7,7 +7,7 @@ import android.content.pm.PackageManager
 import android.media.ExifInterface
 import androidx.arch.core.executor.ArchTaskExecutor
 import androidx.core.app.ActivityCompat
-import com.example.xlulibrary.ToastBox.Companion.toast
+import com.example.xlulibrary.ToastBox
 
 /**
  * 复制原图Exif信息到压缩后图片的Exif信息
@@ -53,7 +53,7 @@ fun assertMainThread(methodName: String ?= ""){
 fun copy(context: Context, msg: String) {
     val clip = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     clip.text = msg
-    toast("已复制")
+    ToastBox.showToast("已复制")
 }
 
 

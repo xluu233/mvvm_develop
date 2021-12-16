@@ -27,4 +27,5 @@ object ConstantEvent {
 
     //module_community
     const val HIDE_COMUNITY_BOTTOM_BAR = "HIDE_COMUNITY_BOTTOM_BAR"
+    const val PHOTO_PREVIEW_SHARED_POSITION = "PHOTO_PREVIEW_SHARED_POSITION"
 }

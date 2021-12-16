@@ -12,6 +12,6 @@ import com.xlu.common.constants.ConstantParams
  * @Date 2021/11/26 17:33
  */
 fun ARouter.transFragmentPage(fragmentPath: String): Postcard {
-    return build(ConstantARouter.MainActivity)
+    return build(ConstantARouter.PoppetActivity)
         .withString(ConstantParams.NavigationDestination, fragmentPath)
 }

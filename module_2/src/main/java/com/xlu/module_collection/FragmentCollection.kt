@@ -5,7 +5,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.viewbinding.viewBinding
 import com.example.baselibrary.utils.view.click
-import com.example.xlulibrary.ToastBox.Companion.toast
+import com.example.xlulibrary.ToastBox
 import com.xlu.common.bean.RouterBeanSerializable
 import com.xlu.common.constants.ConstantARouter
 import com.xlu.common.constants.ConstantParams
@@ -46,7 +46,11 @@ class FragmentCollection : BaseFragment(R.layout.fragment_collection) {
 
         binding.testProvider.click {
             val token:String = getLoginServer().getToken()
-            toast(token)
+            ToastBox.showToast(token)
+        }
+
+        binding.testFlow.click {
+
         }
 
     }

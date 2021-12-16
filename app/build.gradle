@@ -56,6 +56,11 @@ dependencies {
 //    implementation Dependency.DependencyImp.AutoService
 //    annotationProcessor Dependency.DependencyImp.AutoServiceAnnotations
 
+    //room
+    implementation Dependency.DependencyImp.Room
+    annotationProcessor Dependency.DependencyImp.RoomAnnotationProcessor
+    kapt Dependency.DependencyImp.RoomAnnotationProcessor
+
     implementation project(path: ':common')
     implementation project(path: ':module_1')
     implementation project(path: ':module_2')

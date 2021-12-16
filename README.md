@@ -1,28 +1,40 @@
 ## mvvm_develop
 
-Android技术迭代不休，今天学会的东西明天可能记过时了，不管如何，我们只有在学习中才会成长。
-
 这是一个MVVM快速开发框架，是对目前一些较热门的技术实践，在学习某个新技术的时候，有一个测试环境。日常的Demo也会方在其中，并整理了日常开发中的常用工具，在有新的需求的时候能够快速进行开发。  
 
-本库主要采用Kotlin+Jetpack组件+组件化，采用MVVM模式，目标是搭建一个自己顺手的快速开发框架。
+本库主要采用Kotlin+Jetpack组件+组件化+主流第三方库，目标是搭建一个自己顺手的快速开发框架。
 
-
+### 相关模块
 module名称 | 作用
 ---|---
 app | 宿主app
 base | 基础功能封装
-util | 工具类库
-buildSrc | 统一依赖管理
 common | 业务基础功能封装
-module_app_test | 独立app模块测试
-module_center| 业务module(个人中心)
-module_collection | 业务module(收藏)
-module_home| 业务module(首页)
+buildSrc | 统一依赖管理
+module_tab1 | UI相关功能测试
+module_tab2 | 数据相关功能测试
+module_tab3 | 其他测试
 module_login | 业务module(登录)
+module_app_test | 独立app模块测试
+
+- base
+> `base`模块是基础功能封装，不依赖任何模块，提供基础工具使用
+
+- common
+> `common`主要是业务基础封装，仅依赖`base`模块
+
+- buildSrc
+> 主流的依赖管理方法，`Google Demo`中大多采用此方案
+
+- app
+> 壳`app`，集成所有业务`module`，本项目采用单`Activity+多Fragment`模式，主体`Activity`在此。
+
+- module_community
+> 社区模块测试，`RecyclerView长`列表，多类型支持，元素共享
 
 
 
-## 主要技术点
+## 相关参考文章
 
 ### 基础功能封装
 
@@ -50,7 +62,6 @@ module_login | 业务module(登录)
 参考：[写一个MVVM快速开发框架（四）优雅的数据处理](https://juejin.cn/post/7000627451575566373)
 
 
+## Star
 
-
----
-欢迎大家Star
+欢迎大家补充...

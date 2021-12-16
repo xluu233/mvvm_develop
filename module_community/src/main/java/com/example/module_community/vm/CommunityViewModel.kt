@@ -16,13 +16,13 @@ import java.io.InputStreamReader
 
 class CommunityViewModel : BaseViewModel() {
 
+    val lolImageList = arrayListOf<String>()
 
-
-    val lolImageList = MutableLiveData<List<Image>>()
-
-    suspend fun getImageData(){
+    suspend fun getImageData():List<Image>{
         val list = mutableListOf<Image>()
         val urlList = readAssert("url.txt")
+        lolImageList.clear()
+        lolImageList.addAll(urlList)
 
         for (i in 0 until 100){
             list.add(
@@ -33,7 +33,7 @@ class CommunityViewModel : BaseViewModel() {
                 )
             )
         }
-        lolImageList.postValue(list)
+        return list
     }
 
     private fun readAssert(name:String):List<String>{
@@ -62,9 +62,9 @@ class CommunityViewModel : BaseViewModel() {
         for (i in 0 until 20){
             result.add(Community(name = nameList.random(),subName = TimeUtil.getCurrentTime(),id = page*20 + i,icon = iconList.random(),img = imageList.random(),content = contentList.random()))
         }
-        result.forEach {
+        /*result.forEach {
             Log.d("TAG", "createShareElementData: $it")
-        }
+        }*/
         return result
     }
 

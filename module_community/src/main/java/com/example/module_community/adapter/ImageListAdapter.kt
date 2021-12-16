@@ -2,38 +2,38 @@ package com.example.module_community.adapter
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
-import android.util.Log
-import android.view.View
-import androidx.core.graphics.drawable.toBitmap
+import androidx.core.view.ViewCompat
 import coil.ImageLoader
 import coil.load
-import coil.request.CachePolicy
-import coil.request.ImageRequest
-import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.example.baselibrary.recyclerview.BaseBRVAdapter
 import com.example.baselibrary.utils.activity.application
+import com.example.baselibrary.utils.log.xLog
 import com.example.baselibrary.utils.other.screenWidth
 import com.example.baselibrary.utils.view.click
 import com.example.baselibrary.utils.view.dp
 import com.example.module_community.R
 import com.example.module_community.bean.Image
 import com.example.module_community.databinding.FragmentCoilItemBinding
-import com.jakewharton.rxbinding4.view.longClicks
 
 
-val imageLoader by lazy {
+val adapterImageLoader by lazy {
     ImageLoader.Builder(application)
         .availableMemoryPercentage(0.5)
         .crossfade(true)
         .placeholder(R.color.grey)
-        .error(R.color.red)
-        .bitmapConfig(Bitmap.Config.ARGB_8888)
+        .error(R.drawable.icon_errorload)
+        .bitmapConfig(Bitmap.Config.RGB_565)
         .build()
 }
 
 val imageWidth: Int
     get() = ((screenWidth - (3.dp)*2 )/3).toInt()
 
+
+/**
+ * 加载多图错乱原因：
+ * 当快速滑动时，由于图片是通过网络异步加载的，导致在图片下载完成之后，之前设置的加载对象ImageView所在的ViewHolder 已被回收再利用到其他position的item了。最终就会出现图片加载错乱的问题。
+ */
 
 /**
  * 垃圾Coil
@@ -55,7 +55,7 @@ class ImageListAdapter : BaseBRVAdapter<Image, FragmentCoilItemBinding>(Fragment
     override fun convert(holder: BaseBindingHolder, item: Image) {
         val binding = holder.getViewBinding<FragmentCoilItemBinding>()
         binding.apply {
-            //image.load(item.url,imageLoader)
+            image.load(item.url,adapterImageLoader)
             title.text = item.id.toString()
             image.click {
                 listener?.click(holder.absoluteAdapterPosition,holder.itemView,item)
@@ -64,9 +64,15 @@ class ImageListAdapter : BaseBRVAdapter<Image, FragmentCoilItemBinding>(Fragment
                 listener?.longClick(holder.absoluteAdapterPosition,holder.itemView,item)
                 true
             }
+            val transName = item.url
+            ViewCompat.setTransitionName(image, transName)
+            image.tag = transName
+
+
+            xLog.d("ImageListAdapter",transName)
         }
 
-        val request = ImageRequest.Builder(context)
+/*        val request = ImageRequest.Builder(context)
             .data(item.url)//图片地址
             .crossfade(true)
             .memoryCachePolicy(CachePolicy.ENABLED)//设置内存的缓存策略
@@ -84,7 +90,7 @@ class ImageListAdapter : BaseBRVAdapter<Image, FragmentCoilItemBinding>(Fragment
                 }
             }
             .build()
-        imageLoader.enqueue(request)
+        imageLoader.enqueue(request)*/
     }
 
 }

@@ -53,11 +53,11 @@ class ShareAdapter2 : BaseDataBindAdapter<Community, Item2Binding>(R.layout.item
                     if (it.isActivated){
                         it.isActivated = false
                         it.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.icon_focused))
-                        ToastBox().show("已关注")
+                        ToastBox.showToast("已关注")
                     }else{
                         it.isActivated = true
                         it.setImageDrawable(AppCompatResources.getDrawable(context,R.drawable.icon_focus))
-                        ToastBox().show("取消关注")
+                        ToastBox.showToast("取消关注")
                     }
                 }
             }

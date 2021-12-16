@@ -66,12 +66,19 @@ class FragmentHomeMain : BaseFragment(R.layout.fragment_home) {
             LiveDataBus.with<String>(ConstantEvent.NAVIGATION_FRAGMENT_EVENT).postData(ConstantEvent.FRAGMENT_RECYCLERVIEW)
         }
 
-        //hideBottomNav(true)
-
         binding.communityModule.click {
             LiveDataBus.with<String>(ConstantEvent.NAVIGATION_FRAGMENT_EVENT).postData(ConstantEvent.COMMUNITY_FRAGMENT)
         }
 
+        binding.testTablayout.click {
+            navigate(R.id.action_HomeMainFragment_to_fragmentTab)
+            hideBottomNav(true)
+        }
+
+        binding.testSwipeLayout.click {
+            navigate(R.id.action_HomeMainFragment_to_fragmentSwipe)
+            hideBottomNav(true)
+        }
     }
 
 

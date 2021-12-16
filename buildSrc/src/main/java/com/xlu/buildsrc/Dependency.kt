@@ -157,7 +157,7 @@ object Dependency  {
         //Rxpermissions  https://github.com/tbruyelle/RxPermissions
         const val Rxpermissions  = "com.github.tbruyelle:rxpermissions:${Version.Permission}"
         //rxBinding   https://github.com/JakeWharton/RxBinding
-        const val Rxbinding  = "com.jakewharton.rxbinding4:rxbinding:4.0.0"
+        //const val Rxbinding  = "com.jakewharton.rxbinding4:rxbinding:4.0.0"
 
         /*-----------网络---------------*/
         //okhttp
@@ -185,13 +185,15 @@ object Dependency  {
         //动画库 https://lottiefiles.com/
         const val Lottie  = "com.airbnb.android:lottie:3.7.0"
         //toast工具   https://github.com/xluu233/ToastBox
-        const val ToastBox = "com.github.xluu233:ToastBox:0.6.1"
+        const val ToastBox = "com.github.xluu233:ToastBox:0.7.2"
         //https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/readme/0-BaseRecyclerViewAdapterHelper.md
         const val BRVA = "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7"
         //https://github.com/st235/ExpandableBottomBar
         const val ExpandableBottomBar = "com.github.st235:expandablebottombar:1.4.0"
         //https://liangjingkanji.github.io/StatusBar/
         const val StatusBar = "com.github.liangjingkanji:StatusBar:2.0.1"
+        //https://github.com/Baseflow/PhotoView
+        const val PhotoView = "com.github.chrisbanes:PhotoView:2.3.0"
     }
 
 }

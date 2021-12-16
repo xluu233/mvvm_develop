@@ -27,6 +27,8 @@ import android.view.View
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.example.baselibrary.utils.view.NO_GETTER
+import com.example.baselibrary.utils.view.noGetter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlin.DeprecationLevel.ERROR
 

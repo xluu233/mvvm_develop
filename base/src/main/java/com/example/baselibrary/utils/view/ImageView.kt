@@ -19,6 +19,8 @@ fun ImageView.loadImage(url: String?= null,uri: Uri?=null,@DrawableRes drawable:
     val result = ((url ?: uri) ?: drawable) ?: R.drawable.icon_errorload
     Glide.with(context)
         .load(result)
+        .placeholder(R.color.grey)
+        .error(R.drawable.icon_errorload)
         .centerCrop()
         .transition(withCrossFade())
         .into(this)

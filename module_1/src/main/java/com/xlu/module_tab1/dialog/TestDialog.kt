@@ -39,7 +39,7 @@ class TestDialog : BaseDialogFragment<DialogTestBinding>(DialogTestBinding::infl
 
     override fun dismiss() {
         super.dismiss()
-        ToastBox().show("dismiss")
+        ToastBox.showToast("dismiss")
     }
 
 }

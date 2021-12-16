@@ -2,13 +2,16 @@ package com.example.mvvm_develop.adapter
 
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.widget.ImageView
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.baselibrary.lifecycle.ActivityStack
 import com.example.baselibrary.utils.activity.context
-import com.example.baselibrary.utils.view.click
-import com.example.baselibrary.view.ZoomImageView
-import com.example.module_community.adapter.imageLoader
+import com.example.module_community.adapter.adapterImageLoader
+import com.example.mvvm_develop.R
+import com.github.chrisbanes.photoview.PhotoView
 
 /**
  * @ClassName ImagePreviewAdapter
@@ -19,28 +22,50 @@ import com.example.module_community.adapter.imageLoader
 class ImagePreviewAdapter(private val list: List<String>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val imageView = ZoomImageView(context)
+        val imageView = PhotoView(context)
         imageView.apply {
             layoutParams = ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
             )
-            fitsSystemWindows = true
-            scaleType = ImageView.ScaleType.CENTER_CROP
+            setBackgroundColor(context.getColor(R.color.white))
+            adjustViewBounds = true
+            scaleType = ImageView.ScaleType.FIT_CENTER
         }
         return ImageViewHolder(imageView)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         (holder as ImageViewHolder).apply {
-            zoomView.load(list[position], imageLoader)
+            val data = list[position]
+            zoomView.apply {
+                load(data, adapterImageLoader)
+                val transName = data
+                tag = transName
+                ViewCompat.setTransitionName(this, transName)
+
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                )
+
+                viewTreeObserver.addOnPreDrawListener(object : ViewTreeObserver.OnPreDrawListener{
+                    override fun onPreDraw(): Boolean {
+                        viewTreeObserver.removeOnPreDrawListener(this);
+                        ActivityStack.currentActivity?.startPostponedEnterTransition()  //开启动画
+                        return true
+                    }
+                })
+
+            }
+
         }
     }
 
     override fun getItemCount(): Int = list.size
 
     inner class ImageViewHolder(private val view:View) : RecyclerView.ViewHolder(view){
-        var zoomView:ZoomImageView = view as ZoomImageView
+        var zoomView = view as PhotoView
     }
 
 }

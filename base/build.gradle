@@ -73,7 +73,7 @@ dependencies {
     //Rxpermissions
     api Dependency.DependencyImp.Rxpermissions
     //rxBinding
-    api Dependency.DependencyImp.Rxbinding
+    //api Dependency.DependencyImp.Rxbinding
     //okhttp
     api Dependency.DependencyImp.OkHttp
     api Dependency.DependencyImp.OkHttpInterceptorLogging
@@ -111,6 +111,7 @@ dependencies {
     api Dependency.DependencyImp.BRVA
     api Dependency.DependencyImp.ExpandableBottomBar
     api Dependency.DependencyImp.StatusBar
+    api Dependency.DependencyImp.PhotoView
 
     
 }

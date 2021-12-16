@@ -7,4 +7,5 @@
 .idea
 .gradle/
 .idea/
+*.iml
 *.log

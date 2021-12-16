@@ -27,4 +27,11 @@
         android:layout_height="wrap_content"
         android:text="测试外部module接口"/>
 
+
+    <Button
+        android:id="@+id/test_flow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Flow"/>
+
 </LinearLayout>

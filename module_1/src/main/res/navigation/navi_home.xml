@@ -25,6 +25,18 @@
             app:destination="@id/fragmentNet"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"   />
+        <action
+            android:id="@+id/action_HomeMainFragment_to_fragmentTab"
+            app:destination="@id/fragmentTab"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"    />
+        <action
+            android:id="@+id/action_HomeMainFragment_to_fragmentSwipe"
+            app:destination="@id/fragmentSwipe"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"  />
     </fragment>
 
 
@@ -44,5 +56,16 @@
         android:name="com.xlu.module_tab1.ui.FragmentNet"
         android:label="fragment_net"
         tools:layout="@layout/fragment_net" />
+    <fragment
+        android:id="@+id/fragmentTab"
+        android:name="com.xlu.module_tab1.ui.FragmentTab"
+        android:label="fragment_tablayout"
+        tools:layout="@layout/fragment_tablayout" />
+    <fragment
+        android:id="@+id/fragmentSwipe"
+        android:name="com.xlu.module_tab1.ui.FragmentSwipe"
+        android:label="fragment_swipe"
+        tools:layout="@layout/fragment_swipe" />
+
 
 </navigation>

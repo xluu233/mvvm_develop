@@ -5,8 +5,6 @@ import coil.load
 import com.example.baselibrary.recyclerview.BaseAdapter
 import com.example.baselibrary.recyclerview.BindingViewHolder
 import com.example.baselibrary.utils.log.xLog
-import com.example.baselibrary.utils.other.screenWidth
-import com.example.baselibrary.utils.view.dp
 import com.example.module_community.bean.Image
 import com.example.module_community.databinding.FragmentCoilItemBinding
 
@@ -25,6 +23,7 @@ class ImageListAdapter3(private val list: List<Image>) : BaseAdapter<Image, Frag
                 xLog.d("onCreateViewHolder:ImageListAdapter3   image: ${this.width} ${this.height}")
             }
         }
+
         return viewHolder
     }
 
@@ -34,8 +33,10 @@ class ImageListAdapter3(private val list: List<Image>) : BaseAdapter<Image, Frag
         val data = list[position]
         binding.apply {
             title.text = data.id.toString()
-            image.load(data.url,imageLoader)
+            image.load(data.url,adapterImageLoader)
         }
+
+        xLog.d("onCreateViewHolder: ${holder.absoluteAdapterPosition},${holder.bindingAdapterPosition},${holder.layoutPosition},${holder.oldPosition}")
     }
 
 }

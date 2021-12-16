@@ -5,7 +5,7 @@ import com.example.baselibrary.base.BaseActivity
 
 class MainActivity : BaseActivity(R.layout.activity_main) {
 
-    override fun initData(savedInstanceState: Bundle?) {
+    override suspend fun initData(savedInstanceState: Bundle?) {
 
     }
 

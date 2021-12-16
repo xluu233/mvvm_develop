@@ -1,28 +1,33 @@
 package com.example.module_community
 
+import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.viewpager2.widget.ViewPager2
-import com.example.baselibrary.base.BaseFragment
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.example.baselibrary.base.BaseActivity
 import com.example.baselibrary.bus.LiveDataBus
 import com.example.baselibrary.utils.design.initFragment
 import com.example.baselibrary.viewbinding.viewBinding
 import com.example.module_community.databinding.FragmentCommunityBinding
 import com.example.module_community.vm.CommunityViewModel
+import com.xlu.common.constants.ConstantARouter
 import com.xlu.common.constants.ConstantEvent
 import github.com.st235.lib_expandablebottombar.MenuItem
 import github.com.st235.lib_expandablebottombar.OnItemClickListener
 
 
-class CommunityFragment : BaseFragment(R.layout.fragment_community) {
+@Route(path = ConstantARouter.CommunityActivity)
+class CommunityActivity : BaseActivity(R.layout.fragment_community) {
 
     private val binding by viewBinding(FragmentCommunityBinding::bind)
-    private val viewModel by activityViewModels<CommunityViewModel>()
+    private val viewModel:CommunityViewModel by viewModels()
 
-    override suspend fun initData() {
+    override suspend fun initData(savedInstanceState: Bundle?) {
         initObserver()
 
         val viewPager = binding.communityViewpager
@@ -34,7 +39,7 @@ class CommunityFragment : BaseFragment(R.layout.fragment_community) {
             ShareElementsFragment.newInstance(),
         )
         viewPager.apply {
-            initFragment(this@CommunityFragment, fragmentList)
+            initFragment(this@CommunityActivity, fragmentList)
             offscreenPageLimit = 3
             currentItem = 0
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
@@ -73,6 +78,13 @@ class CommunityFragment : BaseFragment(R.layout.fragment_community) {
             }
         }
     }
+
+    override fun onActivityReenter(resultCode: Int, data: Intent) {
+        //将共享元素tag发送给子fragment
+        LiveDataBus.with<Int>(ConstantEvent.PHOTO_PREVIEW_SHARED_POSITION).postData(data.getIntExtra(COIL_POSITION,-1))
+        super.onActivityReenter(resultCode, data)
+    }
+
 
     private fun initObserver() {
         LiveDataBus.with<Boolean>(ConstantEvent.HIDE_COMUNITY_BOTTOM_BAR).observe(this, Observer {

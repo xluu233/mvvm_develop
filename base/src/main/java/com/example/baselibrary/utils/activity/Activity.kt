@@ -10,12 +10,11 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LifecycleOwner
 import com.example.baselibrary.lifecycle.ActivityStack
-import com.example.xlulibrary.ToastBox.Companion.toast
-
+import com.example.xlulibrary.ToastBox
 
 
 inline fun ComponentActivity.pressBackTwiceToExitApp(toastText: String, delayMillis: Long = 2000) =
-  pressBackTwiceToExitApp(delayMillis) { toast(toastText) }
+  pressBackTwiceToExitApp(delayMillis) { ToastBox.showToast(toastText) }
 
 inline fun ComponentActivity.pressBackTwiceToExitApp(delayMillis: Long = 2000, crossinline onFirstBackPressed: () -> Unit) {
   onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
