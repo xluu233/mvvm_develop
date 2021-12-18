@@ -194,6 +194,8 @@ object Dependency  {
         const val StatusBar = "com.github.liangjingkanji:StatusBar:2.0.1"
         //https://github.com/Baseflow/PhotoView
         const val PhotoView = "com.github.chrisbanes:PhotoView:2.3.0"
+
+
     }
 
 }

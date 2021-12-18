@@ -12,8 +12,6 @@ dependencies {
 
     //ARouter
     implementation Dependency.DependencyImp.ARoute
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
     kapt Dependency.DependencyImp.ARouteCompiler
 
     //AutoService
@@ -24,5 +22,14 @@ dependencies {
     implementation Dependency.DependencyImp.Room
     annotationProcessor Dependency.DependencyImp.RoomAnnotationProcessor
     kapt Dependency.DependencyImp.RoomAnnotationProcessor
+
+
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'com.google.android.material:material:1.4.0'
+
+
+    api Dependency.DependencyImp.Material
 
 }
