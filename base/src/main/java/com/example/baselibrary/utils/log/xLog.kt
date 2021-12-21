@@ -14,6 +14,14 @@ object xLog {
     private var showLog = isAppDebug
     private var str: StringBuilder = StringBuilder("")
 
+
+    private enum class Level{
+        Info,
+        Debug,
+        Warning,
+        Error
+    }
+
     private val logFile:File by lazy {
         File(FilePath.getAppFilePath("log"),"${TimeUtil.getCurrentTime()}.txt")
     }
@@ -24,84 +32,112 @@ object xLog {
         saveLog("初始化", TimeUtil.getCurrentTime())
     }
 
-    fun d(TAG: String, content: String?) {
-        if (showLog && content!=null) {
-            Log.d("[$LogName]$TAG", content)
+
+    fun i(content: Any?) {
+        if (showLog && content != null) {
+            flattenData(level = Level.Info, content = content)
         }
-        saveLog("[$LogName]", content)
     }
 
-    fun v(TAG: String, content: String?) {
-        if (showLog && content!=null) {
-            Log.v("[$LogName]$TAG", content)
+    fun d(content: Any?) {
+        if (showLog && content != null) {
+            flattenData(level = Level.Debug, content =  content)
         }
-        saveLog("[$LogName]", content)
     }
 
-    fun w(TAG: String, content: String?) {
-        if (showLog && content!=null) {
-            Log.w("[$LogName]$TAG", content)
+    fun w(content: Any?) {
+        if (showLog && content != null) {
+            flattenData(level = Level.Warning, content = content)
         }
-        saveLog("[$LogName]", content)
     }
 
-    fun e(TAG: String, content: String?) {
-        if (showLog && content!=null) {
-            Log.e("[$LogName]$TAG", content)
+    fun e(content: Any?) {
+        if (showLog && content != null) {
+            flattenData(level = Level.Error, content = content)
         }
-        saveLog("[$LogName]", content)
     }
 
-    fun i(TAG: String, content: String?) {
-        if (showLog && content!=null) {
-            Log.i("[$LogName]$TAG", content)
+
+    fun i(TAG: String ?= null, content: Any?) {
+        if (showLog && content != null) {
+            flattenData(level = Level.Info,TAG, content)
         }
-        saveLog("[$LogName]", content)
     }
 
-    fun d(content: String?) {
-        if (showLog && content!=null) {
-            Log.d("[$LogName]", content)
+    fun d(TAG: String ?= null, content: Any?) {
+        if (showLog && content != null) {
+            flattenData(level = Level.Debug,TAG, content)
         }
-        saveLog("[$LogName]", content)
     }
 
-    fun v(content: String?) {
-        if (showLog && content!=null) {
-            Log.v("[$LogName]", content)
+    fun w(TAG: String ?= null, content: Any?) {
+        if (showLog && content != null) {
+            flattenData(level = Level.Warning,TAG, content)
         }
-        saveLog("[$LogName]", content)
     }
 
-    fun w(content: String?) {
-        if (showLog && content!=null) {
-            Log.w("[$LogName]", content)
+    fun e(TAG: String ?= null, content: Any?) {
+        if (showLog && content != null) {
+            flattenData(level = Level.Error,TAG, content)
         }
-        saveLog("[$LogName]", content)
     }
 
-    fun e(content: String?) {
-        if (showLog && content!=null) {
-            Log.e("[$LogName]", content)
+
+    @Synchronized
+    fun saveLog(level: String, tag:String ="[$LogName]",content:String = ""){
+        str.append(level).append("/").append(tag).append(": ").append(content).append("\n")
+        if (str.length > 1000){
+            saveTxt()
         }
-        saveLog("[$LogName]", content)
     }
 
-    fun i(content: String?) {
-        if (showLog && content!=null) {
-            Log.i("[$LogName]", content)
-        }
-        saveLog("[$LogName]", content)
-    }
-
-    fun saveLog(tag:String?="[$LogName]", content:String?){
-        if (content==null) return
-        str.append(tag).append(": ").append(content).append("\n")
-    }
-
+    @Synchronized
     fun saveTxt(){
         TextFileUtil.writeTxtToFile(str.toString(), logFile)
         str.clear()
+    }
+
+
+    private fun flattenData(level:Level,TAG: String?=null,content:Any) {
+        when(content){
+            is Collection<*> -> {
+                content.forEach {
+                    showLog(level = level,TAG = "[$LogName]$TAG",content = it.toString())
+                }
+            }
+            is Map<*, *> -> {
+                content.forEach {
+                    showLog(level = level,TAG = "[$LogName]$TAG",content = "${it.key}  ${it.value}")
+                }
+            }
+            is String -> {
+                showLog(level = level,TAG = "[$LogName]$TAG",content = content)
+            }
+            else -> {
+                showLog(level = level,TAG = "[$LogName]$TAG",content = content.toString())
+            }
+        }
+    }
+
+    private fun showLog(level:Level,TAG: String?=null,content:String = ""){
+        when(level){
+            Level.Info -> {
+                Log.i("[$LogName]$TAG", content)
+                saveLog("info","[$LogName]", content)
+            }
+            Level.Debug -> {
+                Log.d("[$LogName]$TAG", content)
+                saveLog("debug","[$LogName]", content)
+            }
+            Level.Warning -> {
+                Log.w("[$LogName]$TAG", content)
+                saveLog("warn","[$LogName]", content)
+            }
+            Level.Error -> {
+                Log.e("[$LogName]$TAG", content)
+                saveLog("error","[$LogName]", content)
+            }
+        }
     }
 
 }

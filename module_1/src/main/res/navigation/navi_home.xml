@@ -65,7 +65,19 @@
         android:id="@+id/fragmentSwipe"
         android:name="com.xlu.module_tab1.ui.FragmentSwipe"
         android:label="fragment_swipe"
-        tools:layout="@layout/fragment_swipe" />
+        tools:layout="@layout/fragment_swipe" >
+        <action
+            android:id="@+id/action_fragmentSwipe_to_swipeBackFragment"
+            app:destination="@id/swipeBackFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"  />
+    </fragment>
+    <fragment
+        android:id="@+id/swipeBackFragment"
+        android:name="com.example.baselibrary.base_swipeback.SwipeBackFragment"
+        android:label="SwipeBackFragment" />
 
 
 </navigation>

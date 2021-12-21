@@ -2,4 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xlu.module_tab1">
 
+    <application>
+        <activity
+            android:name=".swipe.SwipeBackTestActivity"
+            android:theme="@style/AppTheme.Translucent"
+            android:exported="true" />
+    </application>
+
 </manifest>

@@ -54,11 +54,6 @@ abstract class BaseActivity(@LayoutRes private val layout: Int ?= null) : AppCom
         }
     }
 
-/*    override fun onActivityReenter(resultCode: Int, data: Intent?) {
-        super.onActivityReenter(resultCode, data)
-        xLog.d(TAG,"${data?.getIntExtra("COIL_POSITION",-1)}")
-    }*/
-
     override fun onDestroy() {
         lifecycleScope.cancel()
         super.onDestroy()

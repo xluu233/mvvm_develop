@@ -22,7 +22,7 @@ abstract class BaseAdapter<T, VB : ViewBinding>(
         parent: ViewGroup,
         viewType: Int
     ): BindingViewHolder<VB> {
-        xLog.d( "onCreateViewHolder: BaseAdapter")
+        xLog.d( content = "onCreateViewHolder: BaseAdapter")
         return BindingViewHolder<VB>(parent, inflate)
     }
 
