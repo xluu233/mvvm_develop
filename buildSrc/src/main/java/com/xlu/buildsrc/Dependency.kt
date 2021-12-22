@@ -195,7 +195,7 @@ object Dependency  {
         //https://github.com/Baseflow/PhotoView
         const val PhotoView = "com.github.chrisbanes:PhotoView:2.3.0"
         //https://github.com/goweii/SwipeBack
-        const val SwipeBack = "com.github.goweii:SwipeBack:2.0.3"
+        //const val SwipeBack = "com.github.goweii:SwipeBack:2.0.3"
     }
 
 }

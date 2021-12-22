@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
+    <style name="Theme.MVVM_Develop.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MVVM_Develop.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:splitMotionEvents">false</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <!--启用全屏-->
+        <item name="android:windowFullscreen">false</item>
+        <!--启用动画-->
+        <item name="android:windowContentTransitions">true</item>
+        <!--主题中设置状态栏为透明，具体交给页面动态配置-->
+        <item name="android:statusBarColor">@color/transparent</item>
+        <!--button字体大小写-->
+        <item name="textAllCaps">false</item>
+    </style>
+
+
+</resources>

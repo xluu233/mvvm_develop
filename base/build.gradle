@@ -112,7 +112,6 @@ dependencies {
     api Dependency.DependencyImp.ExpandableBottomBar
     api Dependency.DependencyImp.StatusBar
     api Dependency.DependencyImp.PhotoView
-
-    api Dependency.DependencyImp.SwipeBack
+    //api Dependency.DependencyImp.SwipeBack
     
 }

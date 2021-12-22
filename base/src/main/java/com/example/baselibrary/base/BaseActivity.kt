@@ -1,28 +1,22 @@
 package com.example.baselibrary.base
 
-import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.drake.statusbar.darkMode
-import com.drake.statusbar.immersive
 import com.drake.statusbar.statusBarColor
-import com.example.baselibrary.R
 import com.example.baselibrary.lifecycle.ActivityStack
-import com.example.baselibrary.utils.activity.contentView
-import com.example.baselibrary.utils.log.xLog
 import com.example.baselibrary.utils.other.Color
 import com.example.baselibrary.viewbinding.findRootView
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
-abstract class BaseActivity(@LayoutRes private val layout: Int ?= null) : AppCompatActivity() {
+abstract class BaseActivity(@LayoutRes private val layout: Int? = null) : AppCompatActivity() {
 
     val TAG by lazy {
-        this.javaClass.simpleName;
+        this.javaClass.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +31,7 @@ abstract class BaseActivity(@LayoutRes private val layout: Int ?= null) : AppCom
         }
     }
 
-    abstract suspend fun initData(savedInstanceState: Bundle?=null)
+    abstract suspend fun initData(savedInstanceState: Bundle? = null)
 
 
     /**

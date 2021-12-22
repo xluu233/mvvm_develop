@@ -44,8 +44,6 @@ open class SwipeBackLayout : FrameLayout {
 
     private var mActivity: FragmentActivity? = null
     private var mContentView: View? = null
-    private var mFragment: SwipeBackFragment? = null
-    private var mPreFragment: Fragment? = null
 
     private var mShadowLeft: Drawable? = null
     private var mShadowRight: Drawable? = null
@@ -242,13 +240,13 @@ open class SwipeBackLayout : FrameLayout {
         child.getHitRect(childRect)
 
         if (canSwipeFromLeft)
-            checkDrawShadow(canvas, childRect, mShadowLeft, DragDirection.FROMLEFT)
+            checkDrawShadow(canvas, childRect, mShadowLeft, DragDirection.LEFT)
         if (canSwipeFromRight)
-            checkDrawShadow(canvas, childRect, mShadowRight, DragDirection.FROMRIGHT)
+            checkDrawShadow(canvas, childRect, mShadowRight, DragDirection.RIGHT)
         if (canSwipeFromTop)
-            checkDrawShadow(canvas, childRect, mShadowTop, DragDirection.FROMTOP)
+            checkDrawShadow(canvas, childRect, mShadowTop, DragDirection.TOP)
         if (canSwipeFromBottom)
-            checkDrawShadow(canvas, childRect, mShadowBottom, DragDirection.FROMBOTTOM)
+            checkDrawShadow(canvas, childRect, mShadowBottom, DragDirection.BOTTOM)
     }
 
     private fun checkDrawShadow(
@@ -258,25 +256,25 @@ open class SwipeBackLayout : FrameLayout {
         drawablePos: DragDirection
     ) {
         when (drawablePos) {
-            DragDirection.FROMLEFT -> drawable?.setBounds(
+            DragDirection.LEFT -> drawable?.setBounds(
                 childRect.left - mShadowLeft?.intrinsicWidth!!,
                 childRect.top,
                 childRect.left,
                 childRect.bottom
             )
-            DragDirection.FROMRIGHT -> drawable?.setBounds(
+            DragDirection.RIGHT -> drawable?.setBounds(
                 childRect.right,
                 childRect.top,
                 childRect.right + mShadowRight?.intrinsicWidth!!,
                 childRect.bottom
             )
-            DragDirection.FROMTOP -> drawable?.setBounds(
+            DragDirection.TOP -> drawable?.setBounds(
                 childRect.left,
                 childRect.top - mShadowTop?.intrinsicHeight!!,
                 childRect.right,
                 childRect.top
             )
-            DragDirection.FROMBOTTOM -> drawable?.setBounds(
+            DragDirection.BOTTOM -> drawable?.setBounds(
                 childRect.left,
                 childRect.bottom,
                 childRect.right,
@@ -320,16 +318,6 @@ open class SwipeBackLayout : FrameLayout {
         }
     }
 
-    fun setFragment(fragment: SwipeBackFragment, view: View) {
-        this.mFragment = fragment
-        mContentView = view
-    }
-
-    fun hiddenFragment() {
-        if (mPreFragment != null && mPreFragment?.view != null) {
-            mPreFragment?.requireView()?.visibility = View.GONE
-        }
-    }
 
     fun attachToActivity(activity: FragmentActivity) {
         mActivity = activity
@@ -346,10 +334,6 @@ open class SwipeBackLayout : FrameLayout {
         decor.addView(this)
     }
 
-    fun attachToFragment(swipeBackFragment: SwipeBackFragment, view: View) {
-        addView(view)
-        setFragment(swipeBackFragment, view)
-    }
 
     private fun setContentView(view: View) {
         mContentView = view
@@ -372,29 +356,6 @@ open class SwipeBackLayout : FrameLayout {
                     return false
                 }
 
-                if (mPreFragment == null) {
-                    if (mFragment != null) {
-                        val fragmentList = mFragment?.fragmentManager?.fragments
-                        if (fragmentList != null && fragmentList.size > 1) {
-                            val index = fragmentList.indexOf(mFragment)
-                            for (i in index - 1 downTo 0) {
-                                val fragment = fragmentList[i]
-                                if (fragment != null && fragment.view != null) {
-                                    fragment.view?.visibility = View.VISIBLE
-                                    mPreFragment = fragment
-                                    break
-                                }
-                            }
-                        } else {
-                            return false
-                        }
-                    }
-                } else {
-                    val preView = mPreFragment?.view
-                    if (preView?.visibility != View.VISIBLE) {
-                        preView?.visibility = View.VISIBLE
-                    }
-                }
             }
             return dragEnable
         }
@@ -402,8 +363,8 @@ open class SwipeBackLayout : FrameLayout {
         override fun clampViewPositionHorizontal(child: View, left: Int, dx: Int): Int {
             val direction = preCounter?.getDragDirection()
             return if (preCounter == null
-                || direction == DragDirection.FROMLEFT
-                || direction == DragDirection.FROMRIGHT
+                || direction == DragDirection.LEFT
+                || direction == DragDirection.RIGHT
             ) {
                 when {
                     (canSwipeFromLeft && canSwipeFromRight) -> {
@@ -419,8 +380,8 @@ open class SwipeBackLayout : FrameLayout {
         override fun clampViewPositionVertical(child: View, top: Int, dy: Int): Int {
             val direction = preCounter?.getDragDirection()
             return if (preCounter == null
-                || direction == DragDirection.FROMTOP
-                || direction == DragDirection.FROMBOTTOM
+                || direction == DragDirection.TOP
+                || direction == DragDirection.BOTTOM
             ) {
                 when {
                     (canSwipeFromTop && canSwipeFromBottom) -> min(child.height,max(top, -child.height))
@@ -459,36 +420,22 @@ open class SwipeBackLayout : FrameLayout {
             }
 
             if (mScrollPercent > 1) {
-                if (mFragment != null) {
-                    if (mPreFragment is SwipeBackFragment) {
-                        (mPreFragment as SwipeBackFragment).mLocking = true
-                    }
-                    if (mFragment?.isDetached == false) {
-                        mFragment?.mLocking = true
-                        mFragment?.requireFragmentManager()?.popBackStackImmediate()
-                        mFragment?.mLocking = false
-                    }
-                    if (mPreFragment is SwipeBackFragment) {
-                        (mPreFragment as SwipeBackFragment).mLocking = false
-                    }
-                } else {
-                    if (mActivity?.isFinishing == false) {
-                        mActivity?.finish()
-                        mActivity?.overridePendingTransition(0, 0)
-                    }
+                if (mActivity?.isFinishing == false) {
+                    mActivity?.finish()
+                    mActivity?.overridePendingTransition(0, 0)
                 }
             }
         }
 
         override fun getViewHorizontalDragRange(child: View): Int {
             return if ((canSwipeFromLeft || canSwipeFromRight)
-                && (mFragment != null || (mActivity != null && (mActivity as SwipeBackActivity).swipeBackPriority()))
+                && ((mActivity != null && (mActivity as SwipeBackActivity).swipeBackPriority()))
             ) 1 else 0
         }
 
         override fun getViewVerticalDragRange(child: View): Int {
             return if ((canSwipeFromTop || canSwipeFromBottom)
-                && (mFragment != null || (mActivity != null && (mActivity as SwipeBackActivity).swipeBackPriority()))
+                && ((mActivity != null && (mActivity as SwipeBackActivity).swipeBackPriority()))
             ) 1 else 0
         }
 
@@ -527,10 +474,10 @@ open class SwipeBackLayout : FrameLayout {
     }
 
     enum class DragDirection {
-        FROMLEFT,
-        FROMRIGHT,
-        FROMTOP,
-        FROMBOTTOM,
+        LEFT,
+        RIGHT,
+        TOP,
+        BOTTOM,
         NONE
     }
 
@@ -546,10 +493,10 @@ open class SwipeBackLayout : FrameLayout {
                 val dirHoriz = abs(dragX) > abs(dragY)
 
                 when {
-                    dirHoriz && dragX > 0 -> DragDirection.FROMLEFT
-                    dirHoriz && dragX < 0 -> DragDirection.FROMRIGHT
-                    !dirHoriz && dragY > 0 -> DragDirection.FROMTOP
-                    !dirHoriz && dragY < 0 -> DragDirection.FROMBOTTOM
+                    dirHoriz && dragX > 0 -> DragDirection.LEFT
+                    dirHoriz && dragX < 0 -> DragDirection.RIGHT
+                    !dirHoriz && dragY > 0 -> DragDirection.TOP
+                    !dirHoriz && dragY < 0 -> DragDirection.BOTTOM
                     else -> DragDirection.NONE
                 }
             } else DragDirection.NONE
@@ -582,10 +529,10 @@ open class SwipeBackLayout : FrameLayout {
                 val dragX = lastDragPoint?.x!! - firstDragPoint?.x!!
                 val dragY = lastDragPoint?.y!! - firstDragPoint?.y!!
 
-                if ((canSwipeFromLeft && dir == DragDirection.FROMLEFT && abs(dragX) / width > preDragPercent / 100)
-                    || (canSwipeFromRight && dir == DragDirection.FROMRIGHT && abs(dragX) / width > preDragPercent / 100)
-                    || (canSwipeFromTop && dir == DragDirection.FROMTOP && abs(dragY) / width > preDragPercent / 100)
-                    || (canSwipeFromBottom && dir == DragDirection.FROMBOTTOM && abs(dragY) / width > preDragPercent / 100)
+                if ((canSwipeFromLeft && dir == DragDirection.LEFT && abs(dragX) / width > preDragPercent / 100)
+                    || (canSwipeFromRight && dir == DragDirection.RIGHT && abs(dragX) / width > preDragPercent / 100)
+                    || (canSwipeFromTop && dir == DragDirection.TOP && abs(dragY) / width > preDragPercent / 100)
+                    || (canSwipeFromBottom && dir == DragDirection.BOTTOM && abs(dragY) / width > preDragPercent / 100)
                 ) {
                     canDrag = true
                     true

@@ -1,8 +1,6 @@
 package com.xlu.module_tab1.swipe
 
-import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.baselibrary.base_swipeback.SwipeBackActivity
 import com.example.baselibrary.lifecycle.ActivityStack
@@ -17,6 +15,10 @@ class SwipeBackTestActivity : SwipeBackActivity(R.layout.activity_swipe_back_tes
                 startActivity(intent)
             }
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     }
 
 
