@@ -34,4 +34,10 @@
         android:layout_height="wrap_content"
         android:text="Flow"/>
 
+    <Button
+        android:id="@+id/test_music"
+        android:text="跳转网易云"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

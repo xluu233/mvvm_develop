@@ -16,8 +16,6 @@ allprojects {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
-        //youthBanner
-        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
     }
 }
 

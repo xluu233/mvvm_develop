@@ -79,6 +79,11 @@ class FragmentHomeMain : BaseFragment(R.layout.fragment_home) {
             navigate(R.id.action_HomeMainFragment_to_fragmentSwipe)
             hideBottomNav(true)
         }
+
+        binding.distanceView.click {
+            navigate(R.id.action_HomeMainFragment_to_fragmentDistancte)
+            hideBottomNav(true)
+        }
     }
 
 

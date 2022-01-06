@@ -173,7 +173,7 @@ object Dependency  {
 
         /*------------视图-----------------*/
         //banner  https://github.com/youth5201314/banner
-        const val YouthBanner = "io.github.youth5201314:banner:2.2.2"
+        //const val YouthBanner = "io.github.youth5201314:banner:2.2.2"
         //base-recyclerview
         const val BaseRecyclerViewAdapter  = "com.github.CymChad:BaseRecyclerViewAdapterHelper:${Version.RecyclerViewAdapter}"
         //likeButton

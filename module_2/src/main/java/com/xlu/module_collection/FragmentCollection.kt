@@ -11,6 +11,13 @@ import com.xlu.common.constants.ConstantARouter
 import com.xlu.common.constants.ConstantParams
 import com.xlu.common.server.ServerUtil.getLoginServer
 import com.xlu.module_collection.databinding.FragmentCollectionBinding
+import android.content.Intent
+import android.net.Uri
+
+import java.lang.StringBuilder
+
+import android.content.pm.PackageManager
+
 
 class FragmentCollection : BaseFragment(R.layout.fragment_collection) {
 
@@ -51,6 +58,20 @@ class FragmentCollection : BaseFragment(R.layout.fragment_collection) {
 
         binding.testFlow.click {
 
+        }
+        binding.testMusic.click {
+
+            /*app://bugmaker:8888/launch*/
+            //加上/?autoplay=1自动播放
+            //447925058曲谱id
+            val packageManager: PackageManager = requireActivity().packageManager
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("orpheus://song/447925058"))
+            val activities = packageManager.queryIntentActivities(intent, 0)
+            if (activities.isEmpty()) {
+                ToastBox.showToast("null")
+            }else{
+                startActivity(intent)
+            }
         }
 
     }

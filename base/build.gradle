@@ -99,7 +99,7 @@ dependencies {
     //ConstraintLayout
     api Dependency.DependencyImp.ConstraintLayout
     //banner
-    api Dependency.DependencyImp.YouthBanner
+    //api Dependency.DependencyImp.YouthBanner
     //base-recyclerview
     api Dependency.DependencyImp.BaseRecyclerViewAdapter
     //likeButton
