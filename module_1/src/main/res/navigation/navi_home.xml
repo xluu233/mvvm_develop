@@ -44,6 +44,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"   />
+        <action
+            android:id="@+id/action_HomeMainFragment_to_fragmentDialogTest"
+            app:destination="@id/fragmentDialogTest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
 
@@ -79,6 +86,11 @@
         android:name="com.xlu.module_tab1.ui.FragmentDistancte"
         android:label="fragment_distancte"
         tools:layout="@layout/fragment_distancte" />
+    <fragment
+        android:id="@+id/fragmentDialogTest"
+        android:name="com.xlu.module_tab1.dialog.FragmentDialogTest"
+        android:label="fragment_dialog_test"
+        tools:layout="@layout/fragment_dialog_test" />
 
 
 </navigation>

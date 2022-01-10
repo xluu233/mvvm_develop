@@ -7,17 +7,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
 import com.example.baselibrary.R
-import com.example.baselibrary.lifecycle.ActivityStack
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
+import android.view.WindowManager
+
+
+
 
 
 /**
@@ -43,11 +45,15 @@ abstract class BaseDialogFragment<VB : ViewBinding>(
     private var height:Int = WRAP_CONTENT
 
     @StyleRes
-    private var animation: Int = R.style.dialogAnimation
+    private var animation: Int = R.style.dialogAnimation_center
     @StyleRes
-    private var style:Int = R.style.DialogTheme
+    private var style:Int = R.style.DialogThemeTrans
     @DrawableRes
-    private var background:Int = android.R.color.transparent
+    private var layoutBackground:Int = android.R.color.transparent
+    //展示背景阴影
+//    private var showWindowsShadow:Boolean = false
+    //背景阴影透明度
+//    private var dimAmount:Float = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,13 +62,21 @@ abstract class BaseDialogFragment<VB : ViewBinding>(
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.setWindowAnimations(animation)
-    }
+        dialog?.window?.apply {
+            setWindowAnimations(animation)
+//            if (showWindowsShadow){
+//                val windowParams: WindowManager.LayoutParams = attributes
+//                windowParams.dimAmount = dimAmount
+//                attributes = windowParams
+//            }
+        }
 
+    }
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mContext = context
     }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = inflate(inflater, container, false)
         return binding.root
@@ -77,9 +91,10 @@ abstract class BaseDialogFragment<VB : ViewBinding>(
         }
         dialog?.window?.apply {
             setLayout(width,height)
-            setGravity(Gravity.CENTER)
-            setBackgroundDrawableResource(background)
+            setGravity(gravity)
+            setBackgroundDrawableResource(layoutBackground)
         }
+        //binding.root.setBackgroundResource(layoutBackground)
     }
 
     override fun onResume() {
@@ -93,18 +108,20 @@ abstract class BaseDialogFragment<VB : ViewBinding>(
     fun initParams(cancel:Boolean = this.cancel,
                    width:Int = this.width,
                    height:Int = this.height,
-                   @DrawableRes resId:Int = this.background,
+                   @DrawableRes layoutBackground:Int = this.layoutBackground,
                    gravity: Int = this.gravity,
                    @StyleRes anim:Int = this.animation,
-                   @StyleRes style:Int = this.style
+                   @StyleRes style:Int = this.style,
+                   //showWindowsShadow:Boolean = false
     ) = apply{
         this.animation = anim
         this.style = style
         this.cancel = cancel
         this.width = width
         this.height = height
-        this.background = resId
+        this.layoutBackground = layoutBackground
         this.gravity = gravity
+        //this.dimAmount = if (showWindowsShadow) 0.4f else 0f
     }
 
     abstract suspend fun initView()

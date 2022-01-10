@@ -11,7 +11,7 @@ import com.xlu.common.hideBottomNav
 import com.xlu.module_tab1.HomeViewModel
 import com.xlu.module_tab1.R
 import com.xlu.module_tab1.databinding.FragmentHomeBinding
-import com.xlu.module_tab1.dialog.TestDialog
+import com.xlu.module_tab1.dialog.CenterDialog
 
 class FragmentHomeMain : BaseFragment(R.layout.fragment_home) {
 
@@ -59,7 +59,8 @@ class FragmentHomeMain : BaseFragment(R.layout.fragment_home) {
         }
 
         binding.testDialog.click {
-            TestDialog.getInstance().show(requireActivity().supportFragmentManager,"test")
+            navigate(R.id.action_HomeMainFragment_to_fragmentDialogTest)
+            hideBottomNav(true)
         }
 
         binding.testBrva.click {
