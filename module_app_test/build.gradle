@@ -73,4 +73,9 @@ dependencies {
     //AutoService
     implementation Dependency.DependencyImp.AutoService
     annotationProcessor Dependency.DependencyImp.AutoServiceAnnotations
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

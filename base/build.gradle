@@ -1,4 +1,5 @@
 apply from: '../base.gradle'
+apply plugin: 'kotlin-android'
 
 import com.xlu.buildsrc.*
 
@@ -112,6 +113,11 @@ dependencies {
     api Dependency.DependencyImp.ExpandableBottomBar
     api Dependency.DependencyImp.StatusBar
     api Dependency.DependencyImp.PhotoView
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     //api Dependency.DependencyImp.SwipeBack
     
+}
+repositories {
+    mavenCentral()
 }

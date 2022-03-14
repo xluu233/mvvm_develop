@@ -61,7 +61,7 @@ class FragmentCollection : BaseFragment(R.layout.fragment_collection) {
         }
 
         binding.testFlow.click {
-
+            navigate(R.id.action_fragmentCollection_to_fragmentFlow)
         }
         binding.testMusic.click {
             //网易云音乐，447925058曲谱id，加上/?autoplay=1自动播放
@@ -80,7 +80,6 @@ class FragmentCollection : BaseFragment(R.layout.fragment_collection) {
 
             //Apple music
 //            goUrlScheme("https://geo.itunes.apple.com/au/album/monsieur-cousteau/id496076893?i=496076903&app=itunes")
-
 
         }
 

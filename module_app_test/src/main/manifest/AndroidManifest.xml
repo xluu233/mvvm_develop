@@ -12,8 +12,8 @@
         android:theme="@style/Theme.MVVM_Develop">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.MVVM_Develop.NoActionBar">
+            android:theme="@style/Theme.MVVM_Develop.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

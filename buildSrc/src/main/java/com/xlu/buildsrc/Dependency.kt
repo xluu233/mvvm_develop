@@ -18,13 +18,13 @@ object Dependency  {
         const val applicationId = "com.example.mvvm_develop"
         const val applicationId_home = "com.xlu.test"
 
-        const val compileSdkVersion = 30
-        const val buildToolsVersion = "30.0.2"
-        const val minSdkVersion = 23
-        const val targetSdkVersion = 30
+        const val compileSdkVersion = 31
+        const val buildToolsVersion = "31.0.0"
+        const val minSdkVersion = 21
+        const val targetSdkVersion = 31
 
-        const val versionCode = 57
-        const val versionName = "2.6.0"
+        const val versionCode = 1
+        const val versionName = "1.0.0"
         const val isAppMode = false
     }
 
@@ -185,7 +185,7 @@ object Dependency  {
         //动画库 https://lottiefiles.com/
         const val Lottie  = "com.airbnb.android:lottie:3.7.0"
         //toast工具   https://github.com/xluu233/ToastBox
-        const val ToastBox = "com.github.xluu233:ToastBox:0.7.2"
+        const val ToastBox = "com.github.xluu233:ToastBox:0.7.4"
         //https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/readme/0-BaseRecyclerViewAdapterHelper.md
         const val BRVA = "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7"
         //https://github.com/st235/ExpandableBottomBar

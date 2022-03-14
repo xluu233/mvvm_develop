@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
 }
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion Dependency.ProjectConfig.compileSdkVersion
@@ -66,7 +67,11 @@ dependencies {
     implementation project(path: ':module_3')
     implementation project(path: ':module_login')
     implementation project(path: ':module_community')
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
 
-
+}
+repositories {
+    mavenCentral()
 }

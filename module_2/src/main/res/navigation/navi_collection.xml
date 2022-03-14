@@ -5,10 +5,24 @@
     android:id="@+id/navi_collection"
     app:startDestination="@id/fragmentCollection">
 
-
     <fragment
         android:id="@+id/fragmentCollection"
         android:name="com.xlu.module_collection.FragmentCollection"
-        android:label="FragmentCollection" />
+        android:label="FragmentCollection" >
+        <action
+            android:id="@+id/action_fragmentCollection_to_fragmentFlow"
+            app:destination="@id/fragmentFlow"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"   />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentFlow"
+        android:name="com.xlu.module_collection.ui.FragmentFlow"
+        android:label="fragment_flow"
+        tools:layout="@layout/fragment_flow" />
+
 
 </navigation>

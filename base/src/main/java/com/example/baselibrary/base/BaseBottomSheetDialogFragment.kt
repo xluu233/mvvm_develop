@@ -23,7 +23,7 @@ abstract class BaseBottomSheetDialogFragment<VB : ViewBinding>(
 ) : BottomSheetDialogFragment() {
 
 
-    private val TAG by lazy {
+    val TAG by lazy {
         this.javaClass.name
     }
 
@@ -78,7 +78,7 @@ abstract class BaseBottomSheetDialogFragment<VB : ViewBinding>(
         //拿到系统的 bottom_sheet
         val view: FrameLayout = dialog?.findViewById(R.id.design_bottom_sheet)!!
         //设置view高度
-        view.layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
+        view.layoutParams.height = height
         //获取behavior
         val behavior = BottomSheetBehavior.from(view)
         //设置弹出高度

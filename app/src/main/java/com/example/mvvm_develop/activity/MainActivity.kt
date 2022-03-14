@@ -1,6 +1,8 @@
 package com.example.mvvm_develop.activity
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
@@ -58,8 +60,6 @@ class MainActivity : BaseActivity(R.layout.activity_main){
                 }
             }
         })
-
-
     }
 
 
