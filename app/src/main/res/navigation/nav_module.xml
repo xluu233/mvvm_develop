@@ -6,11 +6,11 @@
 
     <fragment
         android:id="@+id/navi_home"
-        android:name="com.xlu.module_tab1.FragmentHome"
+        android:name="com.xlu.module_ui.FragmentHome"
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/navi_collection"
-        android:name="com.xlu.module_collection.FragmentCollection"
+        android:name="com.xlu.module_data.FragmentCollection"
         android:label="CenterFragment" />
     <fragment
         android:id="@+id/navi_center"

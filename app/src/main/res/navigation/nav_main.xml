@@ -59,29 +59,29 @@
 
     <fragment
         android:id="@+id/dataBindingFragment"
-        android:name="com.xlu.module_tab1.ui.BindingFragment"
+        android:name="com.xlu.module_ui.ui.BindingFragment"
         android:label="DataBindingFragment" />
 
     <fragment
         android:id="@+id/ARouterFragment"
-        android:name="com.xlu.module_tab1.ui.ARouterFragment"
+        android:name="com.xlu.module_ui.ui.ARouterFragment"
         android:label="fragment_arouter"
         tools:layout="@layout/fragment_arouter" />
     <fragment
         android:id="@+id/fragmentMMKV"
-        android:name="com.xlu.module_tab1.ui.FragmentMMKV"
+        android:name="com.xlu.module_ui.ui.FragmentMMKV"
         android:label="FragmentMMKV" />
     <fragment
         android:id="@+id/fragmentNet2"
-        android:name="com.xlu.module_tab1.ui.FragmentNet"
+        android:name="com.xlu.module_ui.ui.FragmentNet"
         android:label="FragmentNet" />
     <fragment
         android:id="@+id/fragmentRoom"
-        android:name="com.xlu.module_tab1.ui.BindingFragmentRoom"
+        android:name="com.xlu.module_ui.ui.BindingFragmentRoom"
         android:label="FragmentRoom" />
     <fragment
         android:id="@+id/brvaFragment"
-        android:name="com.xlu.module_tab1.ui.BrvaFragment"
+        android:name="com.xlu.module_ui.ui.BrvaFragment"
         android:label="BrvaFragment" />
 
 </navigation>

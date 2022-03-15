@@ -8,7 +8,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.drake.statusbar.statusPadding
 import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.bus.LiveDataBus
 import com.example.baselibrary.viewbinding.viewBinding
@@ -21,8 +20,8 @@ import com.google.android.material.navigation.NavigationBarView
 import com.xlu.common.constants.ConstantARouter
 import com.xlu.common.constants.ConstantEvent
 import com.xlu.module_center.FragmentCenter
-import com.xlu.module_collection.FragmentCollection
-import com.xlu.module_tab1.FragmentHome
+import com.xlu.module_data.FragmentCollection
+import com.xlu.module_ui.FragmentHome
 
 /**
  * @ClassName MainFragment

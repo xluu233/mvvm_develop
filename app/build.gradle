@@ -62,9 +62,9 @@ dependencies {
     kapt Dependency.DependencyImp.RoomAnnotationProcessor
 
     implementation project(path: ':common')
-    implementation project(path: ':module_1')
-    implementation project(path: ':module_2')
-    implementation project(path: ':module_3')
+    implementation project(path: ':module_ui')
+    implementation project(path: ':module_data')
+    implementation project(path: ':module_other')
     implementation project(path: ':module_login')
     implementation project(path: ':module_community')
     implementation "androidx.core:core-ktx:+"

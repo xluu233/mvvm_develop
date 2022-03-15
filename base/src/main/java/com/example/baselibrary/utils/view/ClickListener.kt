@@ -1,24 +1,41 @@
 package com.example.baselibrary.utils.view
 
 import android.view.View
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleCoroutineScope
 import com.example.baselibrary.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 
 const val CLICK_DELAY_TIME = 400L
 
 /*------------------屏蔽View重复点击事件：方法一（推荐）------------------*/
-fun <T : View> T.click(delay: Long = CLICK_DELAY_TIME,scope: CoroutineScope ?= null, block: (T) -> Unit) {
+fun <T : View> T.click(delay: Long = CLICK_DELAY_TIME, block: (T) -> Unit) {
     triggerDelay = delay
     setOnClickListener {
         if (clickEnable()) {
-            block(this)
+            block(this@click)
         }
     }
 }
 
+/**
+ * TODO 配合协程
+ * scope:指定协程作用域
+ * block:suspend方法
+ */
+fun <T : View> T.click(delay: Long = CLICK_DELAY_TIME, scope: CoroutineScope, block: suspend (T) -> Unit){
+    triggerDelay = delay
+    setOnClickListener {
+        if (clickEnable()) {
+            scope.launch {
+                block(this@click)
+            }
+        }
+    }
+}
 
 //给view添加一个上次触发时间的属性（用来屏蔽连击操作）
 private var <T : View>T.triggerLastTime: Long
