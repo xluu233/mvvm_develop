@@ -3,10 +3,12 @@ package com.xlu.module_ui.ui
 import androidx.fragment.app.activityViewModels
 import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.bus.LiveDataBus
+import com.example.baselibrary.utils.view.click
 import com.example.baselibrary.viewbinding.viewBinding
 import com.xlu.common.constants.ConstantEvent
 import com.xlu.common.goLogin
 import com.xlu.common.hideBottomNav
+import com.xlu.common.server.navigateApp
 import com.xlu.module_ui.HomeViewModel
 import com.xlu.module_ui.R
 import com.xlu.module_ui.databinding.FragmentHomeBinding
@@ -34,22 +36,22 @@ class FragmentHomeMain : BaseFragment(R.layout.fragment_home) {
 //        ServerUtil.getAppServer().navigation(FragmentNet::class.java.name)
 
         binding.testNet.click {
-            LiveDataBus.with<String>(ConstantEvent.NAVIGATION_FRAGMENT_EVENT).postData(ConstantEvent.FRAGMENT_NET)
+            navigateApp(ConstantEvent.FRAGMENT_NET)
 
             //本module跳转
             //navigate(R.id.action_HomeMainFragment_to_fragmentNet)
         }
 
         binding.testMmkv.click {
-            LiveDataBus.with<String>(ConstantEvent.NAVIGATION_FRAGMENT_EVENT).postData(ConstantEvent.FRAGMENT_MMKV)
+            navigateApp(ConstantEvent.FRAGMENT_MMKV)
         }
 
         binding.testRoom.click {
-            LiveDataBus.with<String>(ConstantEvent.NAVIGATION_FRAGMENT_EVENT).postData(ConstantEvent.FRAGMENT_ROOM)
+            navigateApp(ConstantEvent.FRAGMENT_ROOM)
         }
 
         binding.testDatabind.click {
-            LiveDataBus.with<String>(ConstantEvent.NAVIGATION_FRAGMENT_EVENT).postData(ConstantEvent.FRAGMENT_DATABIND)
+            navigateApp(ConstantEvent.FRAGMENT_DATABIND)
         }
 
         binding.goLogin.click {
@@ -62,11 +64,11 @@ class FragmentHomeMain : BaseFragment(R.layout.fragment_home) {
         }
 
         binding.testBrva.click {
-            LiveDataBus.with<String>(ConstantEvent.NAVIGATION_FRAGMENT_EVENT).postData(ConstantEvent.FRAGMENT_RECYCLERVIEW)
+            navigateApp(ConstantEvent.FRAGMENT_RECYCLERVIEW)
         }
 
         binding.communityModule.click {
-            LiveDataBus.with<String>(ConstantEvent.NAVIGATION_FRAGMENT_EVENT).postData(ConstantEvent.COMMUNITY_FRAGMENT)
+            navigateApp(ConstantEvent.COMMUNITY_FRAGMENT)
         }
 
         binding.testTablayout.click {

@@ -16,17 +16,19 @@ import android.content.pm.PackageManager
 import android.content.ComponentName
 
 import android.content.pm.ResolveInfo
+import com.example.baselibrary.bus.LiveDataBus
 import com.example.baselibrary.utils.view.click
-import com.xlu.module_collection.R
-import com.xlu.module_collection.databinding.FragmentCollectionBinding
+import com.xlu.common.constants.ConstantEvent
+import com.xlu.common.server.navigateApp
+import com.xlu.module_data.databinding.FragmentCollectionBinding
 import java.util.*
 
 
-class FragmentCollection : BaseFragment(R.layout.fragment_collection) {
+class FragmentData : BaseFragment(R.layout.fragment_collection) {
 
     companion object {
         @JvmStatic
-        fun newInstance() = FragmentCollection()
+        fun newInstance() = FragmentData()
     }
 
     private val binding by viewBinding(FragmentCollectionBinding::bind)
@@ -60,7 +62,7 @@ class FragmentCollection : BaseFragment(R.layout.fragment_collection) {
         }
 
         binding.testFlow.click {
-            navigate(R.id.action_fragmentCollection_to_fragmentFlow)
+            navigateApp(ConstantEvent.FRAGMENT_FLOW)
         }
         binding.testMusic.click {
             //网易云音乐，447925058曲谱id，加上/?autoplay=1自动播放

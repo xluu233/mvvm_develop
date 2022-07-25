@@ -1,6 +1,7 @@
 package com.xlu.module_ui.swipe
 
 import com.example.baselibrary.base.BaseFragment
+import com.example.baselibrary.utils.view.click
 import com.example.baselibrary.viewbinding.viewBinding
 import com.xlu.common.hideBottomNav
 import com.xlu.module_ui.R

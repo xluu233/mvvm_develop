@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/list"
     android:background="@color/white"
-    android:name="com.xlu.module_tab1.ui.BrvaFragment"
+    android:name="com.xlu.module_ui.ui.BrvaFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutManager="LinearLayoutManager"

@@ -17,8 +17,8 @@ import com.xlu.common.constants.ConstantParams
 
 
 /**
- *  Puppet:傀儡,玩具
- * 用来当做页面跳转容器
+ * TODO 页面跳转容器
+ * Puppet:傀儡,玩具
  */
 @Route(path = ConstantARouter.PoppetActivity)
 class PuppetActivity : BaseActivity(R.layout.activity_test) {
@@ -38,24 +38,17 @@ class PuppetActivity : BaseActivity(R.layout.activity_test) {
         if (navigationDestination.isNullOrEmpty()) {
             xLog.e(TAG, "fragment path is null, return")
             finish()
-            return
         }
 
-        var fragment = supportFragmentManager.findFragmentByTag(navigationDestination)
+        val fragment = supportFragmentManager.findFragmentByTag(navigationDestination)
         if (fragment == null) {
-            fragment = ARouter.getInstance().build(navigationDestination).navigation() as Fragment?
-            if (fragment == null) {
-                xLog.e(TAG, "no fragment from $navigationDestination")
-                finish()
-                return
-            }
-            copyExtras2Fragment(fragment)
-
-            val fragmentTransaction = supportFragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.poppet_fragment, fragment, navigationDestination)
-            fragmentTransaction.commitAllowingStateLoss()
+            xLog.e(TAG, "fragment is null, return")
+            finish()
         }
 
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.poppet_fragment, fragment!!, navigationDestination)
+        fragmentTransaction.commitAllowingStateLoss()
     }
 
     private fun copyExtras2Fragment(fragment: Fragment) {

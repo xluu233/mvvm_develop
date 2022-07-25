@@ -3,6 +3,7 @@ package com.xlu.module_ui.dialog
 import android.view.Gravity
 import android.view.ViewGroup
 import com.example.baselibrary.base.BaseDialogFragment
+import com.example.baselibrary.utils.view.click
 import com.example.baselibrary.utils.view.dp
 import com.example.xlulibrary.ToastBox
 import com.xlu.module_ui.R

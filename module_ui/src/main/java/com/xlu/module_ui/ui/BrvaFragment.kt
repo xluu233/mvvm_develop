@@ -2,6 +2,8 @@ package com.xlu.module_ui.ui
 
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.recyclerview.test.*
 import com.example.baselibrary.viewbinding.viewBinding

@@ -1,10 +1,10 @@
 import com.xlu.buildsrc.*
 
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-parcelize'
 
 
 android {
@@ -19,52 +19,42 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        //ARouter配置
         kapt {
             arguments {
                 arg("AROUTER_MODULE_NAME", project.getName())
+                arg("room.schemaLocation", "$projectDir/schemas")
             }
         }
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = '11'
         useIR = true
     }
+
     buildFeatures {
-        dataBinding = true
         viewBinding = true
+        dataBinding = true
     }
-}
 
-dependencies {
 
-    //ARouter
-    implementation Dependency.ARoute
-    kapt Dependency.ARouteCompiler
+    //子模块不开启混淆
+    buildTypes {
+        debug {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
 
-    //room
-    implementation Dependency.Room
-    annotationProcessor Dependency.RoomAnnotationProcessor
-    kapt Dependency.RoomAnnotationProcessor
-
-    implementation project(path: ':common')
-    implementation project(path: ':module_ui')
-    implementation project(path: ':module_data')
-    implementation project(path: ':module_other')
-    implementation project(path: ':module_login')
-    implementation project(path: ':module_community')
+        release {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
 
 }
-repositories {
-    mavenCentral()
-}
+

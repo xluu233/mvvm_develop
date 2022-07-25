@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coil_list"
-    android:name="com.xlu.module_tab1.ui.FragmentCoil"
+    android:name="com.xlu.module_ui.ui.FragmentCoil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutManager="LinearLayoutManager"

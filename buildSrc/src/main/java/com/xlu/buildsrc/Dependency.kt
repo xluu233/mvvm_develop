@@ -1,201 +1,144 @@
 package com.xlu.buildsrc
 
-/**
- * @ClassName DependencyConfig
- * @Description
- * @Author AlexLu_1406496344@qq.com
- * @Date 2021/8/5 10:02
- */
-object Dependency  {
 
-    //是否允许module独立允许
-    object RunAlone{
-        const val base = false
-        const val app_test = true
-    }
+object Dependency {
 
-    object ProjectConfig {
-        const val applicationId = "com.example.mvvm_develop"
-        const val applicationId_home = "com.xlu.test"
+    /*-------TODO:添加第三方库时请加上文档链接------*/
 
-        const val compileSdkVersion = 31
-        const val buildToolsVersion = "31.0.0"
-        const val minSdkVersion = 21
-        const val targetSdkVersion = 31
-
-        const val versionCode = 1
-        const val versionName = "1.0.0"
-        const val isAppMode = false
-    }
-
-    object Version{
-
-        // Android--------------------------------------------------------------
-        const val Material = "1.4.0"
-        const val AppCompat = "1.3.1"
-        const val ConstraintLayout = "2.0.4"
-        const val ActivityKtx = "1.1.0"
-        const val FragmentKtx = "1.2.5"
-        const val MultiDex = "2.0.1"
-        const val legacySupport = "1.0.0"
-
-        // Kotlin----------------------------------------------------------------
-        const val Kotlin = "1.5.20"
-        const val Coroutines = "1.5.0"
-        const val CoreKtx = "1.6.0"
-        
-        // JetPack---------------------------------------------------------------
-        const val Lifecycle = "2.3.1"
-        const val Navigation = "2.4.0-alpha05"
-
-        // GitHub----------------------------------------------------------------
-        const val OkHttp = "4.9.0"                          // OkHttp
-        const val OkHttpInterceptorLogging = "4.9.1"        // OkHttp 请求Log拦截器
-        const val Retrofit = "2.9.0"                        // Retrofit
-        const val RetrofitConverterGson = "2.9.0"           // Retrofit Gson 转换器
-        const val Gson = "2.8.7"                            // Gson
-        const val MMKV = "1.2.10"                            // 腾讯 MMKV 替代SP
-        const val ARoute = "1.5.2"                          // 阿里路由
-        const val ARouteCompiler = "1.5.2"                  // 阿里路由 APT
-        const val RecyclerViewAdapter = "3.0.4"             // RecyclerViewAdapter
-        const val EventBus = "3.2.0"                        // 事件总线
-        const val Permission = "0.12"                       // 权限申请
-        const val LeakCanary = "2.7"                        // 检测内存泄漏
-        const val AutoService = "1.0"                       // 自动生成SPI暴露服务文件
-        const val Coil = "1.4.0"                            // Kotlin图片加载框架
-        const val Room = "2.3.0"                            //数据库
-        const val Glide = "4.12.0"
-
-    }
-
-    object DependencyImp{
-        //AndroidX
-        const val AppCompat = "androidx.appcompat:appcompat:${Version.AppCompat}"
-        const val Material = "com.google.android.material:material:${Version.Material}"
-        const val AndroidXLeagcy = "androidx.legacy:legacy-support-v4:${Version.legacySupport}"
-        const val ActivityKtx = "androidx.activity:activity-ktx:${Version.ActivityKtx}"
-        const val FragmentKtx = "androidx.fragment:fragment-ktx:${Version.FragmentKtx}"
-        const val MultiDex = "androidx.multidex:multidex:${Version.MultiDex}"
-
-        //Kotlin
-        const val Kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Version.Kotlin}"
-        const val CoreKtx = "androidx.core:core-ktx:${Version.CoreKtx}"
-        const val CoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.Coroutines}"
-        const val CoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.Coroutines}"
-
-        //navigation
-        const val NavigationFragment = "androidx.navigation:navigation-fragment-ktx:${Version.Navigation}"
-        const val NavigationUI = "androidx.navigation:navigation-ui-ktx:${Version.Navigation}"
-
-        //lifecycle
-        const val Lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.Lifecycle}"
-        const val LifecycleService = "androidx.lifecycle:lifecycle-service:${Version.Lifecycle}"
-        const val LifecycleCompilerAPT = "androidx.lifecycle:lifecycle-compiler:${Version.Lifecycle}"
-        const val SaveState = "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Version.Lifecycle}"
-        const val Livedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Version.Lifecycle}"
-        const val Viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.Lifecycle}"
-        //recyclerView
-        const val RecyclerView = "androidx.recyclerview:recyclerview:1.2.1"
-        //viewPager
-        const val Viewpager = "androidx.viewpager:viewpager:1.0.0"
-        const val Viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
-        //cardView
-        const val CardView = "androidx.cardview:cardview:1.0.0"
-        //flexbox  https://github.com/google/flexbox-layout
-        const val FlexBox = "com.google.android.flexbox:flexbox:3.0.0"
-        //ConstraintLayout
-        const val ConstraintLayout = "androidx.constraintlayout:constraintlayout:${Version.ConstraintLayout}"
+    //AndroidX 版本更新参考：https://developer.android.com/jetpack/androidx/versions
+    const val junit = "junit:junit:4.12"
+    const val android_junit = "androidx.test.ext:junit:1.1.2"
+    const val android_espresso_core = "androidx.test.espresso:espresso-core:3.3.0"
+    const val AppCompat = "androidx.appcompat:appcompat:1.4.1"
+    const val Material = "com.google.android.material:material:1.5.0"
+    const val AndroidXLegacy = "androidx.legacy:legacy-support-v4:1.0.0"
+    const val ActivityKtx = "androidx.activity:activity-ktx:1.4.0"
+    const val FragmentKtx = "androidx.fragment:fragment-ktx:1.4.1"
+    const val MultiDex = "androidx.multidex:multidex:2.0.1"
+    const val supportAnnotations = "com.android.support:support-annotations:27.1.0"
+    const val AndroidXAnnotations = "androidx.annotation:annotation:1.3.0"
 
 
-        /*----------JetPack-----------*/
+    //navigation
+    const val NavigationVersion = "2.4.0"
+    const val NavigationFragment = "androidx.navigation:navigation-fragment-ktx:${NavigationVersion}"
+    const val NavigationUI = "androidx.navigation:navigation-ui-ktx:${NavigationVersion}"
 
-        // https://blog.csdn.net/guolin_blog/article/details/108026357
-        const val StartUp = "androidx.startup:startup-runtime:1.1.0"
+    //jetpack
+    const val LifecycleVersion = "2.4.0"
+    const val Lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${LifecycleVersion}"
+    const val LifecycleService = "androidx.lifecycle:lifecycle-service:${LifecycleVersion}"
+    const val LifecycleCompilerAPT = "androidx.lifecycle:lifecycle-compiler:${LifecycleVersion}"
+    const val SaveState = "androidx.lifecycle:lifecycle-viewmodel-savedstate:${LifecycleVersion}"
+    const val LiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${LifecycleVersion}"
+    const val ViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${LifecycleVersion}"
+    const val StartUp = "androidx.startup:startup-runtime:1.1.0"
+
+    //Kotlin
+    const val Kotlin = "org.jetbrains.kotlin:kotlin-stdlib:1.6.10"
+    const val CoreKtx = "androidx.core:core-ktx:1.7.0"
+    const val CoroutinesVersion = "1.6.0"
+    const val CoroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${CoroutinesVersion}"
+    const val CoroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${CoroutinesVersion}"
+
+    //Android视图相关
+    const val RecyclerView = "androidx.recyclerview:recyclerview:1.2.1"
+    const val Viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
+    const val ConstraintLayout = "androidx.constraintlayout:constraintlayout:2.1.3"
+    const val SwipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    //cardView
+    const val CardView = "androidx.cardview:cardview:1.0.0"
+    //flexbox  https://github.com/google/flexbox-layout
+    const val FlexBox = "com.google.android.flexbox:flexbox:3.0.0"
+
+    /*----------工具-----------*/
+
+    //ARouter https://github.com/alibaba/ARouter/blob/master/README_CN.md
+    const val ARoute = "com.alibaba:arouter-api:1.5.2"
+    const val ARouteCompiler = "com.alibaba:arouter-compiler:1.5.2"
+    const val ARouteRegister = "com.alibaba:arouter-register:1.5.2"
+    const val ARouterAnnotation = "com.alibaba:arouter-annotation:1.0.6"
+
+    // 自动生成SPI暴露服务文件
+    const val AutoServiceVersion = "1.0"
+    const val AutoService = "com.google.auto.service:auto-service:${AutoServiceVersion}"
+    const val AutoServiceAnnotations = "com.google.auto.service:auto-service-annotations:${AutoServiceVersion}"
+
+    const val LeakCanary = "com.squareup.leakcanary:leakcanary-android:2.7"
+    // mmkv https://github.com/Tencent/MMKV
+    const val MMKV = "com.tencent:mmkv-static:1.2.10"
+    //room
+    const val Room = "androidx.room:room-runtime:2.3.0"
+    const val RoomAnnotationProcessor = "androidx.room:room-compiler:2.3.0"
+    // Glide
+    const val Glide = "com.github.bumptech.glide:glide:4.12.0"
+    const val GlideKapt = "com.github.bumptech.glide:compiler:4.12.0"
+    //glide图片变换库  https://github.com/wasabeef/glide-transformations
+    const val GlideTran = "jp.wasabeef:glide-transformations:4.3.0"
+    //rxjava
+    const val Rxjava3 = "io.reactivex.rxjava3:rxjava:3.0.13"
+    const val RxAndroid3  = "io.reactivex.rxjava3:rxandroid:3.0.0"
+
+    // Coil-Kotlin图片加载框架 https://coil-kt.github.io/coil/README-zh/
+    const val CoilVersion = "1.4.0"
+    const val Coil = "io.coil-kt:coil:${CoilVersion}"
+    const val CoilGIF = "io.coil-kt:coil-gif:${CoilVersion}"
+    const val CoilSVG = "io.coil-kt:coil-svg:${CoilVersion}"
+    const val CoilVideo = "io.coil-kt:coil-video:${CoilVersion}"
 
 
-        /*----------通信----------*/
-        //ARouter https://github.com/alibaba/ARouter/blob/master/README_CN.md
-        const val ARoute = "com.alibaba:arouter-api:${Version.ARoute}"
-        const val ARouteCompiler = "com.alibaba:arouter-compiler:${Version.ARouteCompiler}"
-        const val ARouteRegister = "com.alibaba:arouter-register:${Version.ARoute}"
-        //eventBus
-        const val EventBus = "org.greenrobot:eventbus:${Version.EventBus}"
-        const val EventBusAPT = "org.greenrobot:eventbus-annotation-processor:${Version.EventBus}"
+    /*-----------网络---------------*/
 
-        /*----------工具-----------*/
-        const val LeakCanary = "com.squareup.leakcanary:leakcanary-android:${Version.LeakCanary}"
-        //Bugly https://bugly.qq.com/docs/user-guide/instruction-manual-android/?v=20200622202242
-        const val BuglyCrashReport  = "com.tencent.bugly:crashreport:3.3.92" //Bugly SDK
-        const val BuglyNativeCrash = "com.tencent.bugly:nativecrashreport:3.9.1" //Bugly NDK
+    //okhttp
+    const val OkHttp = "com.squareup.okhttp3:okhttp:4.9.0"
+    const val OkHttpInterceptorLogging = "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    //Retrofit
+    const val RetrofitVersion = "2.9.0"
+    const val Retrofit = "com.squareup.retrofit2:retrofit:${RetrofitVersion}"
+    const val Retrofitscalars = "com.squareup.retrofit2:converter-scalars:${RetrofitVersion}"
+    const val Retrofitadapter = "com.squareup.retrofit2:adapter-rxjava3:${RetrofitVersion}"
+    const val RetrofitConverter = "com.squareup.retrofit2:converter-gson:2.9.0"
+    //gson
+    const val Gson = "com.google.code.gson:gson:2.8.9"
+    const val Butterknife = "com.jakewharton:butterknife:9.0.0"
+    const val ButterknifeCompiler = "butterknife-compiler"
 
-        const val AutoService = "com.google.auto.service:auto-service:${Version.AutoService}"
-        const val AutoServiceAnnotations = "com.google.auto.service:auto-service-annotations:${Version.AutoService}"
 
-        //Coil https://coil-kt.github.io/coil/README-zh/
-        const val Coil = "io.coil-kt:coil:${Version.Coil}"
-        const val CoilGIF = "io.coil-kt:coil-gif:${Version.Coil}"
-        const val CoilSVG = "io.coil-kt:coil-svg:${Version.Coil}"
-        const val CoilVideo = "io.coil-kt:coil-video:${Version.Coil}"
 
-        // mmkv https://github.com/Tencent/MMKV
-        const val MMKV = "com.tencent:mmkv-static:${Version.MMKV}"
-        //room
-        const val Room = "androidx.room:room-runtime:${Version.Room}"
-        const val RoomAnnotationProcessor = "androidx.room:room-compiler:${Version.Room}"
+    /*-----第三方库，TODO:添加第三方库时请加上文档链接------*/
 
-        // Glide
-        const val Glide = "com.github.bumptech.glide:glide:${Version.Glide}"
-        const val GlideKapt = "com.github.bumptech.glide:compiler:${Version.Glide}"
-        //glide图片变换库  https://github.com/wasabeef/glide-transformations
-        const val GlideTran  = "jp.wasabeef:glide-transformations:4.3.0"
-        //rxjava
-        const val Rxjava2 = "io.reactivex.rxjava2:rxjava:2.2.18"
-        const val Rxjava3 = "io.reactivex.rxjava3:rxjava:3.0.13"
-        const val RxAndroid2  = "io.reactivex.rxjava2:rxandroid:2.1.1"
-        const val RxAndroid3  = "io.reactivex.rxjava3:rxandroid:3.0.0"
-        const val Rxkotlin = "io.reactivex.rxjava2:rxkotlin:2.2.0"
-        //Rxpermissions  https://github.com/tbruyelle/RxPermissions
-        const val Rxpermissions  = "com.github.tbruyelle:rxpermissions:${Version.Permission}"
-        //rxBinding   https://github.com/JakeWharton/RxBinding
-        //const val Rxbinding  = "com.jakewharton.rxbinding4:rxbinding:4.0.0"
+    //下拉刷新布局 https://github.com/scwang90/SmartRefreshLayout/blob/master/art/md_property.md
+    const val SmartRefreshKernel = "com.scwang.smart:refresh-layout-kernel:2.0.3"       //核心必须依赖
+    const val SmartRefreshClass = "com.scwang.smart:refresh-header-classics:2.0.3"      //经典刷新头
+    const val SmartRefreshRadar = "com.scwang.smart:refresh-header-radar:2.0.3"         //雷达刷新头
+    const val SmartRefreshfalsify = "com.scwang.smart:refresh-header-falsify:2.0.3"     //虚拟刷新头
+    const val SmartRefreshmaterial = "com.scwang.smart:refresh-header-material:2.0.3"   //谷歌刷新头
+    const val SmartRefreshtwolevel = "com.scwang.smart:refresh-header-two-level:2.0.3"  //二级刷新头
+    //base-recyclerview https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/readme/0-BaseRecyclerViewAdapterHelper.md
+    const val BRVA3 = "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7"
+    //阴影    https://github.com/lihangleo2/ShadowLayout
+    const val ShadowLayout  = "com.github.lihangleo2:ShadowLayout:3.2.4"
+    //动画库 https://lottiefiles.com/
+    const val Lottie  = "com.airbnb.android:lottie:3.7.0"
+    //toast工具   https://github.com/xluu233/ToastBox
+    const val ToastBox = "com.github.xluu233:ToastBox:0.7.5"
+    //状态栏工具   https://liangjingkanji.github.io/StatusBar/
+    const val StatusBar = "com.github.liangjingkanji:StatusBar:2.0.1"
+    //ViewBinding工具   https://github.com/hi-dhl/Binding/blob/main/doc/README_CN.md
+    const val Binding = "com.hi-dhl:binding:1.1.3"
+    //https://github.com/st235/ExpandableBottomBar
+    const val ExpandableBottomBar = "com.github.st235:expandablebottombar:1.4.0"
+    //Android通用工具库  https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/README-CN.md
+    const val AndroidUtilCode = "com.blankj:utilcodex:1.31.0"
+    //AndroidAutoSize适配方案   https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
+    const val AndroidAutoSize = "com.github.JessYanCoding:AndroidAutoSize:v1.2.1"
+    //Spannable https://github.com/liangjingkanji/spannable
+    const val Spannable = "com.github.liangjingkanji:spannable:1.1.4"
+    //引导 https://github.com/xluu233/NewbieGuide
+    const val GuideView = "com.github.xluu233:NewbieGuide:v3.0.0"
+    //https://github.com/Baseflow/PhotoView
+    const val PhotoView = "com.github.chrisbanes:PhotoView:2.3.0"
 
-        /*-----------网络---------------*/
-        //okhttp
-        const val OkHttp = "com.squareup.okhttp3:okhttp:${Version.OkHttp}"
-        const val OkHttpInterceptorLogging = "com.squareup.okhttp3:logging-interceptor:${Version.OkHttpInterceptorLogging}"
-        //Retrofit
-        const val Retrofit = "com.squareup.retrofit2:retrofit:${Version.Retrofit}"
-        const val RetrofitConverter = "com.squareup.retrofit2:converter-gson:${Version.RetrofitConverterGson}"
-        const val Retrofitscalars = "com.squareup.retrofit2:converter-scalars:${Version.Retrofit}"
-        const val Retrofitadapter = "com.squareup.retrofit2:adapter-rxjava3:${Version.Retrofit}"
-        //gson
-        const val Gson = "com.google.code.gson:gson:${Version.Gson}"
 
-        /*------------视图-----------------*/
-        //banner  https://github.com/youth5201314/banner
-        //const val YouthBanner = "io.github.youth5201314:banner:2.2.2"
-        //base-recyclerview
-        const val BaseRecyclerViewAdapter  = "com.github.CymChad:BaseRecyclerViewAdapterHelper:${Version.RecyclerViewAdapter}"
-        //likeButton
-        const val LikeButton  = "com.github.jd-alexander:LikeButton:0.2.3"
-        //阴影    https://github.com/lihangleo2/ShadowLayout
-        const val ShadowLayout  = "com.github.lihangleo2:ShadowLayout:3.1.4"
-        //加载中进度条
-        const val Mkloader  = "com.tuyenmonkey:mkloader:1.4.0"
-        //动画库 https://lottiefiles.com/
-        const val Lottie  = "com.airbnb.android:lottie:3.7.0"
-        //toast工具   https://github.com/xluu233/ToastBox
-        const val ToastBox = "com.github.xluu233:ToastBox:0.7.4"
-        //https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/readme/0-BaseRecyclerViewAdapterHelper.md
-        const val BRVA = "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7"
-        //https://github.com/st235/ExpandableBottomBar
-        const val ExpandableBottomBar = "com.github.st235:expandablebottombar:1.4.0"
-        //https://liangjingkanji.github.io/StatusBar/
-        const val StatusBar = "com.github.liangjingkanji:StatusBar:2.0.1"
-        //https://github.com/Baseflow/PhotoView
-        const val PhotoView = "com.github.chrisbanes:PhotoView:2.3.0"
-        //https://github.com/goweii/SwipeBack
-        //const val SwipeBack = "com.github.goweii:SwipeBack:2.0.3"
-    }
 
 }

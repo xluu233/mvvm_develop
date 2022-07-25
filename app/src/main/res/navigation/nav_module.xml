@@ -10,7 +10,7 @@
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/navi_collection"
-        android:name="com.xlu.module_data.FragmentCollection"
+        android:name="com.xlu.module_data.FragmentData"
         android:label="CenterFragment" />
     <fragment
         android:id="@+id/navi_center"

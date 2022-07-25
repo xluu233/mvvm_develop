@@ -20,7 +20,7 @@ import com.google.android.material.navigation.NavigationBarView
 import com.xlu.common.constants.ConstantARouter
 import com.xlu.common.constants.ConstantEvent
 import com.xlu.module_center.FragmentCenter
-import com.xlu.module_data.FragmentCollection
+import com.xlu.module_data.FragmentData
 import com.xlu.module_ui.FragmentHome
 
 /**
@@ -42,7 +42,7 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     }
 
     private val fragmentTab2 by lazy {
-        FragmentCollection.newInstance()
+        FragmentData.newInstance()
     }
 
     private val fragmentTab3 by lazy {
@@ -103,7 +103,6 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
                         switchFragment(fragmentTab3)
                     }
                 }
-
                 return true
             }
         })

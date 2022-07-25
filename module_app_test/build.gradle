@@ -1,81 +1,32 @@
 import com.xlu.buildsrc.*
 
+apply from: '../app.gradle'
 
-if (Dependency.RunAlone.app_test.toBoolean()) {
-    apply plugin: 'com.android.application'
-} else {
-    apply plugin: 'com.android.library'
-}
-
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion Dependency.ProjectConfig.compileSdkVersion
-    buildToolsVersion Dependency.ProjectConfig.buildToolsVersion
-
-    defaultConfig {
-        if (Dependency.RunAlone.app_test.toBoolean()) {
-            applicationId Dependency.ProjectConfig.applicationId_home
-        }
-
-        minSdkVersion Dependency.ProjectConfig.minSdkVersion
-        targetSdkVersion Dependency.ProjectConfig.targetSdkVersion
-        versionCode Dependency.ProjectConfig.versionCode
-        versionName Dependency.ProjectConfig.versionName
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        kapt {
-            arguments {
-                arg("AROUTER_MODULE_NAME", project.getName())
-            }
-        }
-    }
-    buildTypes {
-
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = '11'
-        useIR = true
-    }
-    buildFeatures {
-        dataBinding = true
-        viewBinding = true
-    }
 
     sourceSets {
         main {
             // 独立调试与集成调试时使用不同的 AndroidManifest.xml 文件
-            if (Dependency.RunAlone.app_test.toBoolean()) {
+            if (AppConstant.RunAlone.toBoolean()) {
                 manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
             }
         }
     }
+
 }
+
 
 dependencies {
     implementation project(path: ':common')
 
     //ARouter
-    implementation Dependency.DependencyImp.ARoute
-    kapt Dependency.DependencyImp.ARouteCompiler
+    implementation Dependency.ARoute
+    kapt Dependency.ARouteCompiler
 
     //AutoService
-    implementation Dependency.DependencyImp.AutoService
-    annotationProcessor Dependency.DependencyImp.AutoServiceAnnotations
-    implementation "androidx.core:core-ktx:+"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-}
-repositories {
-    mavenCentral()
+    implementation Dependency.AutoService
+    annotationProcessor Dependency.AutoServiceAnnotations
 }

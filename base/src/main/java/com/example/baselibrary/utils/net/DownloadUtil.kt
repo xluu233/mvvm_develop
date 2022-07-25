@@ -1,4 +1,4 @@
-package com.example.baselibrary.utils.other
+package com.example.baselibrary.utils.net
 
 import com.example.baselibrary.utils.log.xLog
 import okhttp3.*

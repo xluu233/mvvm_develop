@@ -1,25 +1,27 @@
-//****************************************
-//********* lib 模块的公共脚本配置 **********
-//****************************************
-
 import com.xlu.buildsrc.*
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: 'kotlin-parcelize'
 
+/**
+ * 公共脚本配置，适用于library模块
+ */
 android {
-    compileSdkVersion Dependency.ProjectConfig.compileSdkVersion
-    buildToolsVersion Dependency.ProjectConfig.buildToolsVersion
+    compileSdkVersion AppConstant.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion Dependency.ProjectConfig.minSdkVersion
-        targetSdkVersion Dependency.ProjectConfig.targetSdkVersion
-        versionCode Dependency.ProjectConfig.versionCode
-        versionName Dependency.ProjectConfig.versionName
+        minSdkVersion AppConstant.minSdkVersion
+        targetSdkVersion AppConstant.targetSdkVersion
+        versionCode AppConstant.versionCode
+        versionName AppConstant.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        //ARouter配置
         kapt {
             arguments {
                 arg("AROUTER_MODULE_NAME", project.getName())
@@ -32,24 +34,27 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = '11'
         useIR = true
     }
+
     buildFeatures {
         viewBinding = true
         dataBinding = true
     }
 
+
+    //子模块不开启混淆
     buildTypes {
         debug {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'proguard-rules.pro'
         }
 
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'proguard-rules.pro'
         }
     }
+
 }

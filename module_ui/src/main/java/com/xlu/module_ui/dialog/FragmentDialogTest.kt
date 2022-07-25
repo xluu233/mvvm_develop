@@ -1,6 +1,7 @@
 package com.xlu.module_ui.dialog
 
 import com.example.baselibrary.base.BaseFragment
+import com.example.baselibrary.utils.view.click
 import com.example.baselibrary.utils.view.dp
 import com.example.baselibrary.viewbinding.viewBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior

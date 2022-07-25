@@ -21,6 +21,7 @@ object ConstantEvent {
     const val FRAGMENT_RECYCLERVIEW = "FRAGMENT_RECYCLERVIEW"
 
     //module_2
+    const val FRAGMENT_FLOW = "FRAGMENT_FLOW"
 
     //module_3
 

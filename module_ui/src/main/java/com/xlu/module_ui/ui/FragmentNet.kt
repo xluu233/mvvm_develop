@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer
 import com.example.baselibrary.base.BaseFragment
 import com.example.baselibrary.viewbinding.viewBinding
 import com.example.baselibrary.utils.log.xLog
+import com.example.baselibrary.utils.view.click
 import com.xlu.module_ui.HomeViewModel
 import com.xlu.module_ui.R
 import com.xlu.module_ui.databinding.FragmentNetBinding

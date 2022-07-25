@@ -11,15 +11,16 @@ dependencies {
     api project(path: ':base')
 
     //ARouter
-    implementation Dependency.DependencyImp.ARoute
-    kapt Dependency.DependencyImp.ARouteCompiler
+    implementation Dependency.ARoute
+    kapt Dependency.ARouteCompiler
 
     //AutoService
-    implementation Dependency.DependencyImp.AutoService
-    annotationProcessor Dependency.DependencyImp.AutoServiceAnnotations
+    implementation Dependency.AutoService
+    annotationProcessor Dependency.AutoServiceAnnotations
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
 repositories {
     mavenCentral()
 }

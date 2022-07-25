@@ -52,6 +52,7 @@ class MainActivity : BaseActivity(R.layout.activity_main){
                 ConstantEvent.FRAGMENT_MMKV -> navController.navigate(R.id.action_mainFragment_to_fragmentMMKV)
                 ConstantEvent.FRAGMENT_DATABIND -> navController.navigate(R.id.action_mainFragment_to_dataBindingFragment)
                 ConstantEvent.FRAGMENT_RECYCLERVIEW -> navController.navigate(R.id.action_mainFragment_to_brvaFragment)
+                ConstantEvent.FRAGMENT_FLOW -> navController.navigate(R.id.action_mainFragment_to_fragmentFlow2)
                 ConstantEvent.COMMUNITY_FRAGMENT -> {
                     ARouter.getInstance().build(ConstantARouter.CommunityActivity).navigation(this)
                 }
@@ -60,6 +61,7 @@ class MainActivity : BaseActivity(R.layout.activity_main){
                 }
             }
         })
+
     }
 
 

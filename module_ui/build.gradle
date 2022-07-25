@@ -11,19 +11,19 @@ dependencies {
     implementation project(path: ':common')
 
     //ARouter
-    implementation Dependency.DependencyImp.ARoute
+    implementation Dependency.ARoute
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
-    kapt Dependency.DependencyImp.ARouteCompiler
+    kapt Dependency.ARouteCompiler
 
     //AutoService
-    implementation Dependency.DependencyImp.AutoService
-    annotationProcessor Dependency.DependencyImp.AutoServiceAnnotations
+    implementation Dependency.AutoService
+    annotationProcessor Dependency.AutoServiceAnnotations
 
     //room
-    implementation Dependency.DependencyImp.Room
-    annotationProcessor Dependency.DependencyImp.RoomAnnotationProcessor
-    kapt Dependency.DependencyImp.RoomAnnotationProcessor
+    implementation Dependency.Room
+    annotationProcessor Dependency.RoomAnnotationProcessor
+    kapt Dependency.RoomAnnotationProcessor
 
 
 
@@ -32,7 +32,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
 
 
-    api Dependency.DependencyImp.Material
+    api Dependency.Material
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 

@@ -52,6 +52,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"  />
+        <action
+            android:id="@+id/action_mainFragment_to_fragmentFlow2"
+            app:destination="@id/fragmentFlow2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"   />
 
     </fragment>
 
@@ -83,5 +90,11 @@
         android:id="@+id/brvaFragment"
         android:name="com.xlu.module_ui.ui.BrvaFragment"
         android:label="BrvaFragment" />
+
+    <fragment
+        android:id="@+id/fragmentFlow2"
+        android:name="com.xlu.module_data.ui.FragmentFlow"
+        android:label="FragmentFlow" />
+
 
 </navigation>

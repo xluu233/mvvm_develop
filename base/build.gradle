@@ -15,109 +15,85 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     //Android
-    api Dependency.DependencyImp.AppCompat
-    api Dependency.DependencyImp.Material
-    api Dependency.DependencyImp.AndroidXLeagcy
-    api Dependency.DependencyImp.ActivityKtx
-    api Dependency.DependencyImp.FragmentKtx
-    api Dependency.DependencyImp.MultiDex
+    api Dependency.AppCompat
+    api Dependency.Material
+    api Dependency.ActivityKtx
+    api Dependency.FragmentKtx
+    api Dependency.MultiDex
     //Kotlin
-    api Dependency.DependencyImp.Kotlin
-    api Dependency.DependencyImp.CoreKtx
+    api Dependency.Kotlin
+    api Dependency.CoreKtx
     //Kotlin协程核心库
-    api Dependency.DependencyImp.CoroutinesCore
-    api Dependency.DependencyImp.CoroutinesAndroid
+    api Dependency.CoroutinesCore
+    api Dependency.CoroutinesAndroid
     //navigation
-    api Dependency.DependencyImp.NavigationFragment
-    api Dependency.DependencyImp.NavigationUI
+    api Dependency.NavigationFragment
+    api Dependency.NavigationUI
     //lifecycle
-    api Dependency.DependencyImp.Lifecycle
-    api Dependency.DependencyImp.Livedata
-    api Dependency.DependencyImp.Viewmodel
-    api Dependency.DependencyImp.StartUp
+    api Dependency.Lifecycle
+    api Dependency.LiveData
+    api Dependency.ViewModel
+    api Dependency.StartUp
 
 
     /*-------核心工具库-------*/
-    //eventBus
-    api Dependency.DependencyImp.EventBus
-    kapt Dependency.DependencyImp.EventBusAPT
     //room
-    implementation Dependency.DependencyImp.Room
-    annotationProcessor Dependency.DependencyImp.RoomAnnotationProcessor
-    kapt Dependency.DependencyImp.RoomAnnotationProcessor
+    implementation Dependency.Room
+    annotationProcessor Dependency.RoomAnnotationProcessor
+    kapt Dependency.RoomAnnotationProcessor
     // mmkv
-    api Dependency.DependencyImp.MMKV
-    //Bugly
-    api Dependency.DependencyImp.BuglyCrashReport
-    api Dependency.DependencyImp.BuglyNativeCrash
+    api Dependency.MMKV
     //LeakCanary
-    api Dependency.DependencyImp.LeakCanary
+    api Dependency.LeakCanary
     //AutoService
-    api Dependency.DependencyImp.AutoService
-    annotationProcessor Dependency.DependencyImp.AutoServiceAnnotations
+    api Dependency.AutoService
+    annotationProcessor Dependency.AutoServiceAnnotations
     //Coil
-    api Dependency.DependencyImp.Coil
-    api Dependency.DependencyImp.CoilGIF
-    api Dependency.DependencyImp.CoilSVG
-    api Dependency.DependencyImp.CoilVideo
+    api Dependency.Coil
+    api Dependency.CoilGIF
+    api Dependency.CoilSVG
+    api Dependency.CoilVideo
     // Glide
-    api Dependency.DependencyImp.Glide
-    kapt Dependency.DependencyImp.GlideKapt
+    api Dependency.Glide
+    kapt Dependency.GlideKapt
     //glide图片变换库
-    api Dependency.DependencyImp.GlideTran
+    api Dependency.GlideTran
     //rxjava
-    api Dependency.DependencyImp.Rxjava2
-    api Dependency.DependencyImp.Rxjava3
-    api Dependency.DependencyImp.RxAndroid2
-    api Dependency.DependencyImp.RxAndroid3
-    api Dependency.DependencyImp.Rxkotlin
-    //Rxpermissions
-    api Dependency.DependencyImp.Rxpermissions
-    //rxBinding
-    //api Dependency.DependencyImp.Rxbinding
+    api Dependency.Rxjava3
+    api Dependency.RxAndroid3
     //okhttp
-    api Dependency.DependencyImp.OkHttp
-    api Dependency.DependencyImp.OkHttpInterceptorLogging
+    api Dependency.OkHttp
+    api Dependency.OkHttpInterceptorLogging
     //Retrofit
-    api Dependency.DependencyImp.Retrofit
-    api Dependency.DependencyImp.RetrofitConverter
-    api Dependency.DependencyImp.Retrofitscalars
-    api Dependency.DependencyImp.Retrofitadapter
+    api Dependency.Retrofit
+    api Dependency.RetrofitConverter
+    api Dependency.Retrofitscalars
+    api Dependency.Retrofitadapter
     //gson
-    api Dependency.DependencyImp.Gson
+    api Dependency.Gson
 
 
     /*------------视图-----------------*/
     //recyclerView
-    api Dependency.DependencyImp.RecyclerView
+    api Dependency.RecyclerView
     //viewPager
-    api Dependency.DependencyImp.Viewpager
-    api Dependency.DependencyImp.Viewpager2
+    api Dependency.Viewpager2
     //cardView
-    api Dependency.DependencyImp.CardView
+    api Dependency.CardView
     //flexbox
-    api Dependency.DependencyImp.FlexBox
+    api Dependency.FlexBox
     //ConstraintLayout
-    api Dependency.DependencyImp.ConstraintLayout
-    //banner
-    //api Dependency.DependencyImp.YouthBanner
-    //base-recyclerview
-    api Dependency.DependencyImp.BaseRecyclerViewAdapter
-    //likeButton
-    api Dependency.DependencyImp.LikeButton
+    api Dependency.ConstraintLayout
     //阴影ShadowLayout
-    api Dependency.DependencyImp.ShadowLayout
-    api Dependency.DependencyImp.Lottie
-    api Dependency.DependencyImp.ToastBox
-    api Dependency.DependencyImp.BRVA
-    api Dependency.DependencyImp.ExpandableBottomBar
-    api Dependency.DependencyImp.StatusBar
-    api Dependency.DependencyImp.PhotoView
-    implementation "androidx.core:core-ktx:+"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    //api Dependency.DependencyImp.SwipeBack
-    
+    api Dependency.ShadowLayout
+    api Dependency.Lottie
+    api Dependency.ToastBox
+    api Dependency.BRVA3
+    api Dependency.ExpandableBottomBar
+    api Dependency.StatusBar
+    api Dependency.PhotoView
 }
+
 repositories {
     mavenCentral()
 }

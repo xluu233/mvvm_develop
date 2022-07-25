@@ -22,8 +22,7 @@ import com.example.module_community.vm.CommunityViewModel
 import com.xlu.common.constants.ConstantARouter
 import com.xlu.common.constants.ConstantParams
 import com.xlu.common.hideBottomNav
-import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
+
 
 const val COIL_POSITION = "COIL_POSITION"
 

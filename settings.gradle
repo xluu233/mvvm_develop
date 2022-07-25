@@ -1,3 +1,6 @@
+
+
+rootProject.name = "mvvm_develop"
 include ':app'
 include ':base'
 include ':common'
@@ -7,4 +10,3 @@ include ':module_other'
 include ':module_login'
 include ':module_app_test'
 include ':module_community'
-rootProject.name = "mvvm_develop"

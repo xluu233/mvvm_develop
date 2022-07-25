@@ -11,7 +11,7 @@ app | 宿主app
 base | 基础功能封装
 common | 业务基础功能封装
 buildSrc | 统一依赖管理
-module_tab1 | UI相关功能测试
+module_ui | UI相关功能测试
 module_tab2 | 数据相关功能测试
 module_tab3 | 其他测试
 module_login | 业务module(登录)
